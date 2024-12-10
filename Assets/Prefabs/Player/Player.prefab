@@ -81,16 +81,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCanMove: 1
+  playerCanSprint: 1
   movementSpeed: 10
+  sprintSpeed: 15
   maxVelocityChange: 10
   invertCamera: 0
   cameraCanMove: 1
   lookSpeed: 0.1
   maxLookAngle: 50
   fov: 60
-  camera: {fileID: 1140495116805420585}
+  sprintFOV: 80
+  sprintFOVStepTime: 10
+  playerCamera: {fileID: 1140495116805420585}
   isWalking: 0
   isGrounded: 0
+  isSprinting: 0
 --- !u!54 &7918532162859129600
 Rigidbody:
   m_ObjectHideFlags: 0

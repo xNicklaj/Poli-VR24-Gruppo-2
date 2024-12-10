@@ -8,6 +8,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -118,6 +120,17 @@ public class FirstPersonController : MonoBehaviour
     #endregion
     #endregion
 
+    #region Input
+
+    private PlayerInputActions pc;
+    private InputAction move;
+    private InputAction look;
+    private InputAction sprint;
+    private Vector2 _moveInputVector;
+    private Vector2 _lookInputVector;
+
+    #endregion
+
     #region Head Bob
 
     public bool enableHeadBob = true;
@@ -134,6 +147,7 @@ public class FirstPersonController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        pc = new PlayerInputActions();
 
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -147,6 +161,24 @@ public class FirstPersonController : MonoBehaviour
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
         }
+    }
+
+    private void OnEnable()
+    {
+        move = pc.Player.Move;
+        look = pc.Player.Look;
+        sprint = pc.Player.Sprint;
+
+        move.Enable();
+        look.Enable();
+        sprint.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        look.Disable();
+        sprint.Disable();
     }
 
     void Start()
@@ -207,16 +239,17 @@ public class FirstPersonController : MonoBehaviour
         // Control camera movement
         if(cameraCanMove)
         {
-            yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            _lookInputVector = look.ReadValue<Vector2>();
+            yaw = transform.localEulerAngles.y + _lookInputVector.x * mouseSensitivity;
 
             if (!invertCamera)
             {
-                pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                pitch -= mouseSensitivity * _lookInputVector.y;
             }
             else
             {
                 // Inverted Y
-                pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                pitch += mouseSensitivity * _lookInputVector.y;
             }
 
             // Clamp pitch between lookAngle
@@ -371,7 +404,8 @@ public class FirstPersonController : MonoBehaviour
         if (playerCanMove)
         {
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            _moveInputVector = move.ReadValue<Vector2>();
+            Vector3 targetVelocity = new Vector3(_moveInputVector.x, 0, _moveInputVector.y);
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
@@ -385,7 +419,7 @@ public class FirstPersonController : MonoBehaviour
             }
 
             // All movement calculations shile sprint is active
-            if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
+            if (enableSprint && sprint.IsPressed() && sprintRemaining > 0f && !isSprintCooldown)
             {
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
@@ -548,15 +582,8 @@ public class FirstPersonController : MonoBehaviour
     {
         SerFPC.Update();
 
-        EditorGUILayout.Space();
-        GUILayout.Label("Modular First Person Controller", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 16 });
-        GUILayout.Label("By Jess Case", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
-        GUILayout.Label("version 1.0.1", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
-        EditorGUILayout.Space();
-
         #region Camera Setup
 
-        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         GUILayout.Label("Camera Setup", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
@@ -630,7 +657,6 @@ public class FirstPersonController : MonoBehaviour
 
         GUI.enabled = fpc.enableSprint;
         fpc.unlimitedSprint = EditorGUILayout.ToggleLeft(new GUIContent("Unlimited Sprint", "Determines if 'Sprint Duration' is enabled. Turning this on will allow for unlimited sprint."), fpc.unlimitedSprint);
-        fpc.sprintKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Sprint Key", "Determines what key is used to sprint."), fpc.sprintKey);
         fpc.sprintSpeed = EditorGUILayout.Slider(new GUIContent("Sprint Speed", "Determines how fast the player will move while sprinting."), fpc.sprintSpeed, fpc.walkSpeed, 20f);
 
         //GUI.enabled = !fpc.unlimitedSprint;
