@@ -144,6 +144,14 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+    #region Finite State Machine
+    enum PlayerStates{
+        PAUSED,
+        IN_DIALOGUE,
+        MOVE,
+        SPRINT
+    }
+    #endregion
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

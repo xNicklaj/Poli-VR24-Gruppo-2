@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class DialogueComponent : ScriptableObject
 {
-    public DialogueComponent next = null;
+    public DialogueLine next = null;
+    protected DialogueManager dm;
+    private bool selectable;
+
+    public void setDialogueManager(DialogueManager d){
+        dm = d;
+    }
+    public void setSelectable(bool value){
+        selectable = value;
+    }
 }

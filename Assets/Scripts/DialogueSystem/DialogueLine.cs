@@ -7,22 +7,22 @@ using UnityEngine;
 public class DialogueLine : DialogueComponent
 {
     [TextArea][SerializeField] private String textString;
-    [SerializeField] private Vector3 RelativePosition = new Vector3(0,0,0);
+    [SerializeField] private Vector3 Position = new Vector3(0,0,0);
     [SerializeField] private List<DialogueAnswer> answers;
     public bool positionRelativeToPlayer;
-    public string get_line(){
+    public string getLine(){
         return textString;
     }
-    public bool has_answers(){
+    public bool hasAnswers(){
         if (answers.Count==0){
             return false;
         }
         else return true;
     }
-    public List<DialogueAnswer> get_answers(){
+    public List<DialogueAnswer> getAnswers(){
         return answers;
     }
-    public Vector3 get_relative_position(){
-        return RelativePosition;
+    public Vector3 getPosition(){
+        return Position;
     }
 }
