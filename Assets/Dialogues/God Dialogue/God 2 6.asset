@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
-  m_Name: New Line
+  m_Name: God 2 6
   m_EditorClassIdentifier: 
-  next_index: -1
-  text_string: 
+  next: {fileID: 11400000, guid: be18deae75493324c9c45a8b7e41c6ee, type: 2}
+  textString: E se fossi rimasto solo?
+  Position: {x: 0, y: 0, z: 0}
   answers: []
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  positionRelativeToPlayer: 0
