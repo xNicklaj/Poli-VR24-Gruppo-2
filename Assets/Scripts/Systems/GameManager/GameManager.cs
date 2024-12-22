@@ -11,9 +11,14 @@ public class GameManager : Singleton<GameManager>
     public GameObject savingPlane;
     public FirstPersonController player;
 
+    private EventManager _em;
+
+
     private void Awake()
     {
-        
+        _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        // When saveRequested is invoked by any script, SaveGame is called
+        _em.saveRequested.AddListener(SaveGame); 
     }
 
     // Start is called before the first frame update
@@ -24,17 +29,18 @@ public class GameManager : Singleton<GameManager>
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
-        if(false) // Code willingly unreachable just to show how to save. Will probably be replaced with a proper SaveManager though.
+        // Code willingly unreachable just to show how to save. Will probably be replaced with a proper SaveManager though.
+        if (false) 
         {
             // Save the game
-            await SaveGame();
+            _em.saveRequested.Invoke();
         }
     }
 
     // Save the game directly via GameManager
-    private async Task SaveGame()
+    private async void SaveGame()
     {
         await SaveManager.SaveEventFlags(eventFlags);
     }
