@@ -10,6 +10,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Text.RegularExpressions;
+using UnityEditorInternal;
+using UnityEditor.Animations;
+
+
+
 
 
 
@@ -21,6 +26,10 @@ using System.Net;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    #region Animation
+    public Animator anim;
+    #endregion
 
     #region Camera Movement Variables
 
@@ -141,7 +150,6 @@ public class FirstPersonController : MonoBehaviour
         playerCamera.fieldOfView = FOV;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
-
     }
     #endregion
     #region OnEnable Function
@@ -213,6 +221,7 @@ public class FirstPersonController : MonoBehaviour
                 {
                     playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, FOV, sprintFOVStepTime * Time.deltaTime);
                 }
+
                 MoveCamera();
                 CheckGround();
                 HeadBob();
@@ -238,6 +247,8 @@ public class FirstPersonController : MonoBehaviour
     #region FixedUpdate Function
     void FixedUpdate()
     {
+        if (anim != null) anim.SetBool("IsWalking", false);
+        if (anim != null) anim.SetBool("IsRunning", false);
         switch (playerState)
         {
             case PlayerStates.MOVE:
@@ -344,6 +355,12 @@ public class FirstPersonController : MonoBehaviour
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
                 velocityChange.y = 0;
 
+                if (anim != null && velocity != Vector3.zero)
+                {
+                    anim.SetBool("IsRunning", true);
+                    anim.SetBool("IsWalking", true);
+                } 
+
                 // Player is only moving when valocity change != 0
                 // Makes sure fov change only happens during movement
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
@@ -369,6 +386,10 @@ public class FirstPersonController : MonoBehaviour
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
 
+        if (anim != null && velocity != Vector3.zero) {
+            anim.SetBool("IsWalking", true);
+            anim.SetBool("IsRunning", false);
+        }
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
 
