@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
         _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         // When saveRequested is invoked by any script, SaveGame is called
         _em.saveRequested.AddListener(SaveGame); 
+        
     }
 
     // Start is called before the first frame update
@@ -26,6 +27,8 @@ public class GameManager : Singleton<GameManager>
     {
         // Loads up all the event flags
         eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
+        // When setFlag is invoked by any script, SetFlag is called
+        _em.setFlag.AddListener(eventFlags.SetFlag);
     }
 
     // Update is called once per frame

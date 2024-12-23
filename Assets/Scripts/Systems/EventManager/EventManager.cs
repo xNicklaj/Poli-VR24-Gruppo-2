@@ -10,6 +10,10 @@ public class EventManager : Singleton<EventManager>
     public UnityEvent loadRequested;
     #endregion
 
+    #region Flags and Triggers
+    public UnityEvent<EventFlag, bool> setFlag;
+    #endregion
+
     private void Awake()
     {
            
