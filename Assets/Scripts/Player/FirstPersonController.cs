@@ -72,7 +72,6 @@ public class FirstPersonController : MonoBehaviour
     #region Sprint Variables
 
     public bool enableSprint = true;
-    public KeyCode sprintKey = KeyCode.LeftShift;
     public float sprintSpeed = 7f;
     public float sprintFOV = 80f;
     public float sprintFOVStepTime = 10f;
@@ -204,7 +203,7 @@ public class FirstPersonController : MonoBehaviour
                 MoveCamera();
                 CheckGround();
                 HeadBob();
-                if (Input.GetKeyDown(sprintKey))
+                if (sprint.IsPressed())
                 {
                     playerState = PlayerStates.SPRINT;
                 }
@@ -225,7 +224,7 @@ public class FirstPersonController : MonoBehaviour
                 MoveCamera();
                 CheckGround();
                 HeadBob();
-                if (Input.GetKeyUp(sprintKey))
+                if (sprint.WasReleasedThisFrame())
                 {
                     playerState = PlayerStates.MOVE;
                 }
@@ -340,7 +339,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (enableSprint)
         {
-            if (Input.GetKey(sprintKey))
+            if (sprint.IsPressed())
             {
                 _moveInputVector = move.ReadValue<Vector2>();
                 Vector3 targetVelocity = new Vector3(_moveInputVector.x, 0, _moveInputVector.y);
