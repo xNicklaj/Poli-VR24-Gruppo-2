@@ -13,6 +13,8 @@ public class Interactor : MonoBehaviour
 
     public FirstPersonController fpc;
 
+    private IInteractable selectedObject = null;
+
     private void Awake()
     {
         pc = new PlayerInputActions();
@@ -39,6 +41,7 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(selectedObject);
         RaycastHit hit;
         Debug.DrawRay(source.position, source.forward * range, Color.red);
         if (Physics.Raycast(source.position, source.forward, out hit, range) && 
@@ -46,12 +49,18 @@ public class Interactor : MonoBehaviour
         {
             fpc.DisplayCrosshair();
             Debug.Log("Interactable object found");
+            selectedObject = interactObj;
+            selectedObject.Select();
             if (interact.IsPressed())
             {
                 interactObj.Interact();
             }
         }
         else
+            if (selectedObject != null){
+                selectedObject.Deselect();
+                selectedObject = null;
+            }
             fpc.HideCrosshair();
     }
 }

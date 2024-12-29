@@ -17,14 +17,20 @@ public class ActionSetFlag : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    public void Select()
+    {
+        ;
+    }
+    public void Deselect() {; }
 
     public void SetFlag(EventFlag e, bool b)
     {

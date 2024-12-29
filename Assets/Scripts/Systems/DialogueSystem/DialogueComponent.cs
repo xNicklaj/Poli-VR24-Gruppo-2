@@ -8,6 +8,8 @@ public class DialogueComponent : ScriptableObject
     protected DialogueManager dm;
     private bool selectable;
 
+    [SerializeField] protected AudioSource audioToPlay;
+
     public void setDialogueManager(DialogueManager d){
         dm = d;
     }

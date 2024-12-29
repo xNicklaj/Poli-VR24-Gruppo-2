@@ -9,6 +9,7 @@ public class DialogueLine : DialogueComponent
     [TextArea][SerializeField] private String textString;
     [SerializeField] private Vector3 Position = new Vector3(0,0,0);
     [SerializeField] private List<DialogueAnswer> answers;
+    [ColorUsage(true,true)]
     [SerializeField] private Color lightColor;
     public bool positionRelativeToPlayer;
     public string getLine(){
