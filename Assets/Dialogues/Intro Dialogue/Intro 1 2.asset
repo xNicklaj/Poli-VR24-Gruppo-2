@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Intro 1 2
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 7f694cee2fbf1cc4db0a596b94c73baf, type: 2}
+  audioToPlay: {fileID: 0}
   textString: Riesci a leggere le mie parole?
-  Position: {x: 0, y: 0, z: 0}
+  Position: {x: 5, y: 3, z: 0}
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  lightColor: {r: 0.5471698, g: 0.47463122, b: 0, a: 0.5019608}
   positionRelativeToPlayer: 0

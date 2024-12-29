@@ -130,6 +130,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5601284748825229174, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384736, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_DynamicOccludee
@@ -265,6 +270,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850190357395, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045,
+        type: 3}
     - target: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: field of view
@@ -304,6 +315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177601484763113965, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: interact.m_Name
+      value: Interact
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -607,7 +623,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c5a16fb7d91b7f4eaf9ba7924836768,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2053259373}
   m_SourcePrefab: {fileID: 100100000, guid: 5c5a16fb7d91b7f4eaf9ba7924836768, type: 3}
 --- !u!114 &1417996595 stripped
 MonoBehaviour:
@@ -633,7 +653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: debugDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 57e0732c70aca074d97afd17471f8576,
+      objectReference: {fileID: 11400000, guid: 6d4b34411dac28e4bb930bd39ecb1b04,
         type: 2}
     - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
         type: 3}
@@ -645,6 +665,36 @@ PrefabInstance:
       propertyPath: playerJointReference
       value: 
       objectReference: {fileID: 522075641}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 835802653223250140, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
+        type: 3}
+      propertyPath: dialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1947775735963889302, guid: ba7bc4c465dcf7847a25bc4e9532f8b3,
         type: 3}
       propertyPath: m_Name
@@ -705,6 +755,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7bc4c465dcf7847a25bc4e9532f8b3, type: 3}
+--- !u!1 &2053259372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c5a16fb7d91b7f4eaf9ba7924836768,
+    type: 3}
+  m_PrefabInstance: {fileID: 1245456206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2053259373
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053259372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 289301614986012343, guid: 5c5a16fb7d91b7f4eaf9ba7924836768, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

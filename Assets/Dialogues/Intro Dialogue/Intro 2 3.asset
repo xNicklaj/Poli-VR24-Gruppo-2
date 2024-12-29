@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Intro 2 3
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 0bf4bdfda1ad8ca4d9a962f752e62b42, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: -5, y: 3, z: 0}
+  lightColor: {r: 0.15294118, g: 0, b: 0.5764706, a: 0.57254905}
   textString: E se @nome non fosse il tuo nome?
-  Position: {x: 0, y: 0, z: 0}
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

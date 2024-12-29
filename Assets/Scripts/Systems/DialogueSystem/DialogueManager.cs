@@ -1,60 +1,140 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private FirstPersonController playerReference;
     [SerializeField] private GameObject playerJointReference;
-    [SerializeField] private dialogueMesh dialogueMeshPrefab;
-    private Dialogue currentDialogue;
+    [SerializeField] private DialogueMesh dialogueMeshPrefab;
+    [SerializeField] private UnityEvent<string> dialogueEnded;
     [SerializeField] private Dialogue debugDialogue;
-    void Start()
+
+    private Dialogue currentDialogue;
+    private DialogueLine currentLine;
+    private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
+
+    void Update()
     {
-        
-    }
-    // Update is called once per frame
-
-    void Update(){
-        if(Input.GetButtonDown("Jump")){
-            Start_dialogue(debugDialogue);
+        if (Input.GetButtonDown("Jump"))
+        {
+            StartDialogue(debugDialogue);
         }
     }
-    void Start_dialogue(Dialogue dialogue){
+
+    public void StartDialogue(Dialogue dialogue)
+    {
         currentDialogue = dialogue;
-        DialogueLine firstComponent = currentDialogue.getFirstComponent();
-        Vector3 linePosition = new Vector3();
-        if (firstComponent.positionRelativeToPlayer){
-            linePosition = playerJointReference.transform.position+ Camera.main.transform.rotation* firstComponent.getPosition();
-        }
-        else{
-            linePosition = firstComponent.getPosition();
-        }
-        dialogueMesh dm = Instantiate(dialogueMeshPrefab,
-        linePosition,
-        Quaternion.LookRotation( linePosition - playerJointReference.transform.position ));
-        dm.textReference.text = firstComponent.getLine();
-        dm.lineLight.color = firstComponent.getLightColor();
-        dm.textReference.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, firstComponent.getLightColor());
+        currentLine = currentDialogue.getFirstComponent();
+        DisplayLine(currentLine);
     }
 
-    void Continue_dialogue(DialogueLine dialogueLine){
-        DialogueLine newComponent = dialogueLine.next;
-        Vector3 linePosition = new Vector3();
-        if (newComponent.positionRelativeToPlayer){
-            linePosition = playerJointReference.transform.position+ Camera.main.transform.rotation* newComponent.getPosition();
+    public void ContinueDialogue(DialogueComponent dialogueComponent)
+    {
+        DisableDialogueMeshes();
+
+        if (dialogueComponent.next == null)
+        {
+            if (!currentLine.hasAnswers())
+            {
+                EndDialogue();
+                return;
+            }
+
+            CreateDialogueAnswers();
+            return;
         }
-        else{
-            linePosition = newComponent.getPosition();
+
+        currentLine = dialogueComponent.next;
+        DisplayLine(currentLine);
+    }
+
+    private void EndDialogue()
+    {
+        dialogueEnded.Invoke(currentDialogue.name);
+        currentDialogue = null;
+
+        foreach (var dialogueMesh in dialogueMeshes)
+        {
+            Destroy(dialogueMesh.gameObject);
         }
-        dialogueMesh dm = Instantiate(dialogueMeshPrefab,
-        linePosition,
-        Quaternion.LookRotation( linePosition - playerJointReference.transform.position ));
-        dm.textReference.text = newComponent.getLine();
-        dm.lineLight.color = newComponent.getLightColor();
-        dm.textReference.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, newComponent.getLightColor());
+
+        dialogueMeshes.Clear();
+    }
+
+    private void DisplayLine(DialogueLine dialogueLine)
+    {
+        Vector3 linePosition = dialogueLine.positionRelativeToPlayer
+            ? playerJointReference.transform.position + Camera.main.transform.rotation * dialogueLine.getPosition()
+            : dialogueLine.getPosition();
+
+        var dialogueMesh = Instantiate(dialogueMeshPrefab, linePosition, Quaternion.LookRotation(linePosition - playerJointReference.transform.position));
+        dialogueMeshes.Add(dialogueMesh);
+
+        SetupDialogueMesh(dialogueMesh, dialogueLine);
+    }
+
+    private void CreateDialogueAnswers()
+    {
+        foreach (var answer in currentLine.getAnswers())
+        {
+            var position = answer.getPosition();
+            var rotation = Quaternion.LookRotation(position - playerJointReference.transform.position);
+
+            var dialogueAnswer = Instantiate(dialogueMeshPrefab, position, rotation);
+            dialogueMeshes.Add(dialogueAnswer);
+
+            SetupDialogueAnswerMesh(dialogueAnswer, answer);
+        }
+    }
+
+    private void SetupDialogueMesh(DialogueMesh dialogueMesh, DialogueLine dialogueLine)
+    {
+        dialogueMesh.dialogueManager = this;
+        dialogueMesh.dc = dialogueLine;
+        dialogueMesh.textReference.text = dialogueLine.getLine();
+        AdjustCollider(dialogueMesh);
+        ApplyLightingAndAudio(dialogueMesh, dialogueLine.getLightColor(), dialogueLine.GetAudio());
+    }
+
+    private void SetupDialogueAnswerMesh(DialogueMesh dialogueMesh, DialogueAnswer answer)
+    {
+        dialogueMesh.dialogueManager = this;
+        dialogueMesh.textReference.text = answer.getAnswerText();
+        dialogueMesh.dc = answer;
+        AdjustCollider(dialogueMesh);
+        ApplyLightingAndAudio(dialogueMesh, answer.getLightColor(), answer.GetAudio());
+    }
+
+    private void DisableDialogueMeshes()
+    {
+        foreach (var mesh in dialogueMeshes)
+        {
+            mesh.isSelectable = false;
+        }
+    }
+
+    private void AdjustCollider(DialogueMesh dialogueMesh)
+    {
+        var collider = dialogueMesh.GetComponent<CapsuleCollider>();
+        collider.height = dialogueMesh.textReference.preferredWidth;
+        collider.radius = dialogueMesh.textReference.preferredHeight / 2;
+    }
+
+    private void ApplyLightingAndAudio(DialogueMesh dialogueMesh, Color? lightColor, AudioSource audioSource)
+    {
+        if (lightColor.HasValue)
+        {
+            dialogueMesh.lineLight.color = lightColor.Value;
+            var particles = dialogueMesh.particles.main;
+            particles.startColor = lightColor.Value;
+        }
+
+        if (audioSource != null)
+        {
+            dialogueMesh.audioSource = audioSource;
+            dialogueMesh.audioSource.Play();
+        }
     }
 }

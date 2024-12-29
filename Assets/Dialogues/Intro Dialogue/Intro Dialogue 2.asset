@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effad0ca33770a24596dbb35853f2497, type: 3}
   m_Name: Intro Dialogue 2
   m_EditorClassIdentifier: 
-  firstComponent: {fileID: 11400000, guid: 0a5d3889e33372545bfc00f88f854319, type: 2}
+  firstComponent: {fileID: 11400000, guid: 9781bb7cde4316b4395b7b212e954d02, type: 2}

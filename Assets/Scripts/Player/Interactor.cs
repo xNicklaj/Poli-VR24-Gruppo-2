@@ -9,7 +9,7 @@ public class Interactor : MonoBehaviour
     public float range = 3f;
 
     private PlayerInputActions pc;
-    private InputAction interact;
+    [SerializeField] private InputAction interact;
 
     public FirstPersonController fpc;
 
@@ -35,32 +35,32 @@ public class Interactor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(selectedObject);
         RaycastHit hit;
+        Debug.Log(selectedObject); 
         Debug.DrawRay(source.position, source.forward * range, Color.red);
-        if (Physics.Raycast(source.position, source.forward, out hit, range) && 
+        if (Physics.Raycast(source.position, source.forward, out hit, range) &&
             hit.collider.gameObject.TryGetComponent<IInteractable>(out IInteractable interactObj))
         {
             fpc.DisplayCrosshair();
             Debug.Log("Interactable object found");
             selectedObject = interactObj;
             selectedObject.Select();
-            if (interact.IsPressed())
+            if (interact.WasPressedThisFrame())
             {
                 interactObj.Interact();
             }
         }
-        else
-            if (selectedObject != null){
-                selectedObject.Deselect();
-                selectedObject = null;
-            }
-            fpc.HideCrosshair();
+        else if (selectedObject != null && !selectedObject.Equals(null))
+        {
+            selectedObject.Deselect();
+            selectedObject = null;
+        }
+        fpc.HideCrosshair();
     }
 }

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Intro 1 3
   m_EditorClassIdentifier: 
   next: {fileID: 0}
+  audioToPlay: {fileID: 0}
   textString: Dimmi, chi sei?
-  Position: {x: 0, y: 0, z: 0}
+  Position: {x: -5, y: 3, z: 0}
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  lightColor: {r: 0, g: 1, b: 0.40106988, a: 0.5176471}
   positionRelativeToPlayer: 0

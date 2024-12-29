@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Intro Ans 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 0a5d3889e33372545bfc00f88f854319, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: -2, y: 2, z: 5}
+  lightColor: {r: 1, g: 0, b: 0, a: 0.49803922}
   answer_text_string: No

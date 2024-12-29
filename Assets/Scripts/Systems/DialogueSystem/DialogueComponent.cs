@@ -9,11 +9,26 @@ public class DialogueComponent : ScriptableObject
     private bool selectable;
 
     [SerializeField] protected AudioSource audioToPlay;
+    [SerializeField] protected Vector3 Position = new Vector3(0, 0, 0);
+    [ColorUsage(true,true)] [SerializeField] protected Color lightColor;
 
-    public void setDialogueManager(DialogueManager d){
+    public void setDialogueManager(DialogueManager d)
+    {
         dm = d;
     }
-    public void setSelectable(bool value){
+    public void setSelectable(bool value)
+    {
         selectable = value;
+    }
+    public AudioSource GetAudio()
+    {
+        return audioToPlay;
+    }
+    public Vector3 getPosition()
+    {
+        return Position;
+    }
+    public Color getLightColor(){
+        return lightColor;
     }
 }

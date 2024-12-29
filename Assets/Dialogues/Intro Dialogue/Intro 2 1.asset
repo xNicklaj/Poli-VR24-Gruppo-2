@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Intro 2 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
+  audioToPlay: {fileID: 0}
+  Position: {x: 0, y: 3, z: 5}
+  lightColor: {r: 1, g: 1, b: 1, a: 0.50980395}
   textString: "@nome, \xE8 il tuo nome?"
-  Position: {x: 0, y: 0, z: 0}
   answers:
   - {fileID: 11400000, guid: 6648dda89016c864ca735876bf46efba, type: 2}
   - {fileID: 11400000, guid: 080d302788c60534ea51a011d54844a2, type: 2}
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0
