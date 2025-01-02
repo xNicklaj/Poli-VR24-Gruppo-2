@@ -12,6 +12,7 @@ public class EventManager : Singleton<EventManager>
 
     #region Flags and Triggers
     public UnityEvent<EventFlag, bool> setFlag;
+    public UnityEvent<string> dialogueEnded;
     #endregion
 
     private void Awake()

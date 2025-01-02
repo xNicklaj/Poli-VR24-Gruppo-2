@@ -8,12 +8,18 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private FirstPersonController playerReference;
     [SerializeField] private GameObject playerJointReference;
     [SerializeField] private DialogueMesh dialogueMeshPrefab;
-    [SerializeField] private UnityEvent<string> dialogueEnded;
     [SerializeField] private Dialogue debugDialogue;
 
     private Dialogue currentDialogue;
     private DialogueLine currentLine;
     private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
+
+    private EventManager _em;
+
+    private void Awake()
+    {
+        _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+    }
 
     void Update()
     {
@@ -52,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        dialogueEnded.Invoke(currentDialogue.name);
+        _em.dialogueEnded.Invoke(currentDialogue.name);
         currentDialogue = null;
 
         foreach (var dialogueMesh in dialogueMeshes)

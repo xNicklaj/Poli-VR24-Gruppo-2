@@ -13,11 +13,13 @@ public class GameManager : Singleton<GameManager>
 
     private EventManager _em;
     private SceneManager _sm;
+    private DialogueManager _dm;
 
     private void Awake()
     {
         _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         _sm = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
+        _dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         // When saveRequested is invoked by any script, SaveGame is called
         _em.saveRequested.AddListener(SaveGame); 
         
@@ -30,7 +32,7 @@ public class GameManager : Singleton<GameManager>
         eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
         // When setFlag is invoked by any script, SetFlag is called
         _em.setFlag.AddListener(eventFlags.SetFlag);
-
+        //_em.dialogueEnded.AddListener(_dm.func);
         _sm.SetSceneByIndex(0);
     }
 
