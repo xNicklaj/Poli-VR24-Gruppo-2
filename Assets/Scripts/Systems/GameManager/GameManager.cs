@@ -9,15 +9,15 @@ public class GameManager : Singleton<GameManager>
 {
 
     public EventFlags eventFlags;
-    public GameObject savingPlane;
     public FirstPersonController player;
 
     private EventManager _em;
-
+    private SceneManager _sm;
 
     private void Awake()
     {
         _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        _sm = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
         // When saveRequested is invoked by any script, SaveGame is called
         _em.saveRequested.AddListener(SaveGame); 
         
@@ -30,6 +30,8 @@ public class GameManager : Singleton<GameManager>
         eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
         // When setFlag is invoked by any script, SetFlag is called
         _em.setFlag.AddListener(eventFlags.SetFlag);
+
+        _sm.SetSceneByIndex(0);
     }
 
     // Update is called once per frame
