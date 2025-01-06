@@ -12,7 +12,8 @@ using UnityEngine.InputSystem;
 using System.Text.RegularExpressions;
 using UnityEditorInternal;
 using UnityEditor.Animations;
-
+using TMPro;
+using UnityEngine.EventSystems;
 
 
 
@@ -175,6 +176,7 @@ public class FirstPersonController : MonoBehaviour
     #region Start Function
     void Start()
     {
+        
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
