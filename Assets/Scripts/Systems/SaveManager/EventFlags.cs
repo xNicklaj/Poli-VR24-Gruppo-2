@@ -6,7 +6,26 @@ using UnityEngine;
 public enum EventFlag
 {
     TestVar_HasCrossedPlane,
-    TestVar_HasInteracted
+    TestVar_HasInteracted,
+    HasLighter,
+    HasLantern,
+    HasSeed,
+    HasCrayon,
+    HasWateringCan,
+    MuseumEntered,
+    MuseumExited,
+    IntroDialogueEnded,
+    GodDialogueEnded,
+    ManDialogueEnded,
+    TreeDialogueEnded,
+    NakedDialogueEnded,
+    PowerDialogueEnded,
+    ReturnDialogueEnded,
+    SeedDialogueEnded,
+    SelfDialogueEnded,
+    EndDialogueEnded
+
+
 }
 
 public class EventFlags

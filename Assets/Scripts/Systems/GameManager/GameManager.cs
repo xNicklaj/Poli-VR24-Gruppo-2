@@ -15,6 +15,8 @@ public class GameManager : Singleton<GameManager>
     private SceneManager _sm;
     private DialogueManager _dm;
 
+    private String player_name {get;set;}
+
     private void Awake()
     {
         _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
