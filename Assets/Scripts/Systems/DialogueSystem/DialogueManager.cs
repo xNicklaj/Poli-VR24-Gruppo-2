@@ -100,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         dialogueMesh.dialogueManager = this;
         dialogueMesh.dc = dialogueLine;
         dialogueMesh.textReference.text = dialogueLine.getLine();
+        dialogueMesh.fpc = playerReference;
         AdjustCollider(dialogueMesh);
         ApplyLightingAndAudio(dialogueMesh, dialogueLine.getLightColor(), dialogueLine.GetAudio());
     }
@@ -109,6 +110,7 @@ public class DialogueManager : MonoBehaviour
         dialogueMesh.dialogueManager = this;
         dialogueMesh.textReference.text = answer.getAnswerText();
         dialogueMesh.dc = answer;
+        dialogueMesh.fpc = playerReference;
         AdjustCollider(dialogueMesh);
         ApplyLightingAndAudio(dialogueMesh, answer.getLightColor(), answer.GetAudio());
     }

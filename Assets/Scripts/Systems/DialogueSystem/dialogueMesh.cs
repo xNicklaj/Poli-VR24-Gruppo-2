@@ -13,6 +13,7 @@ public class DialogueMesh : MonoBehaviour, IInteractable
     public bool isSelected = false;
     public bool isSelectable = true;
     public DialogueComponent dc;
+    public FirstPersonController fpc;
 
 
     void Start()
@@ -24,7 +25,11 @@ public class DialogueMesh : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-
+        Vector3 direction = fpc.transform.position - transform.position;
+        
+        // Applica una rotazione di 180 gradi (inverte l'asse Z)
+        Quaternion lookRotation = Quaternion.LookRotation(-direction); 
+        transform.rotation = lookRotation;
     }
     public void Interact()
     {
