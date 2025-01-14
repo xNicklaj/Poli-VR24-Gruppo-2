@@ -10,8 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Text.RegularExpressions;
-using UnityEditorInternal;
-using UnityEditor.Animations;
+
 using TMPro;
 using UnityEngine.EventSystems;
 
