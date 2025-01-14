@@ -10,3 +10,4 @@ SwitchIL2CPPStats/
 *.csproj
 *.sln
 *.vsconfig
+Build/
