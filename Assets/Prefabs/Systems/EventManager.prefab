@@ -53,3 +53,9 @@ MonoBehaviour:
   setFlag:
     m_PersistentCalls:
       m_Calls: []
+  dialogueEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  unitySceneChanged:
+    m_PersistentCalls:
+      m_Calls: []

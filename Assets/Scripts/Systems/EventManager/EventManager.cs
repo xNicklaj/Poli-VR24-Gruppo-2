@@ -13,11 +13,12 @@ public class EventManager : Singleton<EventManager>
     #region Flags and Triggers
     public UnityEvent<EventFlag, bool> setFlag;
     public UnityEvent<string> dialogueEnded;
+    public UnityEvent unitySceneChanged;
     #endregion
 
     private void Awake()
     {
-           
+        DontDestroyOnLoad(this);
     }
 
     // Start is called before the first frame update

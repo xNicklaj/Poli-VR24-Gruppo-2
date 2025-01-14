@@ -42,7 +42,7 @@ public class Interactor : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        Debug.Log(selectedObject);
+
         Debug.DrawRay(source.position, source.forward * range, Color.red);
         if (Physics.Raycast(source.position, source.forward, out hit, range) &&
             hit.collider.gameObject.TryGetComponent<IInteractable>(out IInteractable interactObj))

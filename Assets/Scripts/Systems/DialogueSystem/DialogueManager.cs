@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        _em = GameObject.FindGameObjectWithTag("EventManager")?.GetComponent<EventManager>();
     }
 
     void Update()

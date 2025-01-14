@@ -10,12 +10,14 @@ public class Scene : MonoBehaviour
     private void Awake()
     {
         Setup();
+        Debug.Log("Hiding Scene on Startup");
+        this.Hide();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        this.Hide();
+        
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class Scene : MonoBehaviour
     {
         if (!isActiveAndEnabled) return;
 
+        player.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.transform.position = spawnPoint.position;
         player.transform.rotation = spawnPoint.rotation;
     }
