@@ -19,6 +19,8 @@ public class GameManager : Singleton<GameManager>
     private DialogueManager _dm;
     private SaveManager _svm;
 
+    [SerializeField] private bool isGamePaused = false;
+
     private String player_name {get;set;}
 
     private void Awake()
@@ -40,7 +42,7 @@ public class GameManager : Singleton<GameManager>
 
         Debug.Log("Binding scene change event...");
         // When the unity scene changes, reload the managers that need to be reloaded
-        _em.unitySceneChanged.AddListener(ReloadManagers);
+        _em.unitySceneChanged.AddListener(HandleSceneChange);
     }
 
     // Start is called before the first frame update
@@ -52,6 +54,18 @@ public class GameManager : Singleton<GameManager>
         _em.setFlag.AddListener(eventFlags.SetFlag);
 
         //_em.dialogueEnded.AddListener(_dm.func);
+    }
+
+    private void HandleSceneChange(bool isMenu)
+    {
+        if(isMenu)
+        {
+            
+        }
+        else
+        {
+            ReloadManagers();
+        }
     }
 
     private void ReloadManagers()
@@ -68,11 +82,6 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _em.GetComponent<EventManager>().unitySceneChanged.Invoke();
-        }
-
         // Code willingly unreachable just to show how to save. Will probably be replaced with a proper SaveManager though.
         if (false) 
         {
@@ -90,5 +99,26 @@ public class GameManager : Singleton<GameManager>
     public async void LoadGame()
     {
         eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void BackToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void PauseGame(bool isPaused)
+    {
+        isGamePaused = isPaused;
+        Time.timeScale = isGamePaused ? 0 : 1;
+    }
+
+    public bool IsGamePaused()
+    {
+        return isGamePaused;
     }
 }

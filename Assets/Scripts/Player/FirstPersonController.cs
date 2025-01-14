@@ -198,6 +198,7 @@ public class FirstPersonController : MonoBehaviour
     #region Update Function
     private void Update()
     {
+        if (GameManager.Instance.IsGamePaused()) return;
         switch (playerState)
         {
             case PlayerStates.MOVE:

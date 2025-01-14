@@ -5,10 +5,24 @@ using UnityEngine;
 public abstract class Singleton<T> : MonoBehaviour
     where T : Singleton<T>
 {
-    public static T Instance { get; private set; }
+    private static T instance;
+    public static T Instance {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType(typeof(T)) as T;
+
+            return instance;
+        }
+        set
+        {
+            instance = value;
+        }
+    }
 
     void Awake()
     {
+
         // Destroy this object if we already have a Singleton defined
         if (Instance != null)
         {

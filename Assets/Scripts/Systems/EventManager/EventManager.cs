@@ -13,7 +13,8 @@ public class EventManager : Singleton<EventManager>
     #region Flags and Triggers
     public UnityEvent<EventFlag, bool> setFlag;
     public UnityEvent<string> dialogueEnded;
-    public UnityEvent unitySceneChanged;
+    // True for main menu, false for in-game scene
+    public UnityEvent<bool> unitySceneChanged;
     #endregion
 
     private void Awake()

@@ -13,7 +13,7 @@ public class UnitySceneLoader : MonoBehaviour
     void Start()
     {
         Debug.Log("Scene Started. Invoking...");
-        GameObject.FindGameObjectWithTag("EventManager")?.GetComponent<EventManager>().unitySceneChanged.Invoke();
+        GameObject.FindGameObjectWithTag("EventManager")?.GetComponent<EventManager>().unitySceneChanged.Invoke(false);
         GameObject.FindGameObjectWithTag("SceneManager")?.GetComponent<SceneManager>().SetSceneByIndex(0);
     }
 
