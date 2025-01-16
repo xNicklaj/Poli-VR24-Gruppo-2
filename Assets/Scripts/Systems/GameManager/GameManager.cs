@@ -108,6 +108,7 @@ public class GameManager : Singleton<GameManager>
 
     public void BackToMainMenu()
     {
+        PauseGame(false);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 

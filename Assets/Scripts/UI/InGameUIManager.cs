@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +9,10 @@ public class InGameUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject pauseMenu;
+    public GameObject quitToMenu;
+    public GameObject quitToDesktop;
+    public GameObject saveDate;
+    public GameObject lastSaveWrapper;
 
     private PlayerInputActions inputActions;
     private InputAction exitMenu;
@@ -14,7 +20,8 @@ public class InGameUIManager : MonoBehaviour
     private void Awake()
     {
         inputActions = new PlayerInputActions();
-        pauseMenu.SetActive(false);
+        HideAllPauseMenus();
+        lastSaveWrapper.SetActive(false);
     }
 
     public void OnEnable()
@@ -52,6 +59,7 @@ public class InGameUIManager : MonoBehaviour
             }
             else
             {
+                RecalcSaveDate();
                 PauseGame();
             }
         }
@@ -59,14 +67,14 @@ public class InGameUIManager : MonoBehaviour
 
     private void PauseGame()
     {
-        pauseMenu.SetActive(true);
+        ShowPauseMenu();
         GameManager.Instance.PauseGame(true);
         Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
+        HideAllPauseMenus();
         GameManager.Instance.PauseGame(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -76,4 +84,41 @@ public class InGameUIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+        quitToDesktop.SetActive(false);
+        quitToMenu.SetActive(false);
+        lastSaveWrapper.SetActive(false);
+    }
+
+    public void ShowQuitToMenu()
+    {
+        pauseMenu.SetActive(false);
+        quitToDesktop.SetActive(false);
+        quitToMenu.SetActive(true);
+        lastSaveWrapper.SetActive(true);
+    }
+
+    public void ShowQuitToDesktop()
+    {
+        pauseMenu.SetActive(false);
+        quitToDesktop.SetActive(true);
+        quitToMenu.SetActive(false);
+        lastSaveWrapper.SetActive(true);
+    }
+
+    public void HideAllPauseMenus()
+    {
+        pauseMenu.SetActive(false);
+        quitToDesktop.SetActive(false);
+        quitToMenu.SetActive(false);
+        lastSaveWrapper.SetActive(false);
+    }
+
+    private void RecalcSaveDate()
+    {
+        if (SaveManager.GetLastModified() != DateTime.UnixEpoch)
+            saveDate.GetComponent<TextMeshPro>().text = SaveManager.GetLastModified().ToString("dd/MM/YYYY HH:mm:ss");
+    }
 }
