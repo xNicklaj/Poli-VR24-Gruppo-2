@@ -44,5 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d040f0cca820384b9e4081628b2c8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savingPlane: {fileID: 0}
   player: {fileID: 0}
+  EventManagerPrefab: {fileID: 44512398286523137, guid: 3081ae8d8d185bc4aa3d0cbfd230e5a8,
+    type: 3}
+  SaveManagerPrefab: {fileID: 6021874026319514762, guid: 0809376a95e6df7428acba7f52c9f513,
+    type: 3}
+  isGamePaused: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameManager : Singleton<GameManager>
@@ -19,6 +20,9 @@ public class GameManager : Singleton<GameManager>
     private DialogueManager _dm;
     private SaveManager _svm;
 
+    private PlayerInputActions pia;
+    private InputAction loadAction;
+
     [SerializeField] private bool isGamePaused = false;
 
     private String player_name {get;set;}
@@ -27,6 +31,7 @@ public class GameManager : Singleton<GameManager>
     {
         DontDestroyOnLoad(this);
 
+        // Load SceneManager and DialogueManager from scene, the rest is instanced.
         GameObject goEm;
         GameObject goSm;
         _sm = GameObject.FindGameObjectWithTag("SceneManager")?.GetComponent<SceneManager>();
@@ -38,19 +43,43 @@ public class GameManager : Singleton<GameManager>
         _svm = goSm.GetComponent<SaveManager>();
 
         // When saveRequested is invoked by any script, SaveGame is called
-        _em.saveRequested.AddListener(SaveGame);
+        EventManager.Instance.saveRequested.AddListener(SaveGame);
 
-        Debug.Log("Binding scene change event...");
         // When the unity scene changes, reload the managers that need to be reloaded
         _em.unitySceneChanged.AddListener(HandleSceneChange);
+        
+        // Initialize event flags. Why not in constructor? STFU just do it here or everything breaks.
+        eventFlags = new EventFlags();
+        eventFlags.InitializeFlags();
+#if UNITY_EDITOR
+        pia = new PlayerInputActions();
+#endif
     }
 
-    // Start is called before the first frame update
-    async void Start()
+#region DEBUG_LOAD
+#if UNITY_EDITOR
+    private void OnEnable()
     {
-        // Loads up all the event flags
-        eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
-        // When setFlag is invoked by any script, SetFlag is called
+        loadAction = pia.UI.LoadGame;
+        loadAction.Enable();
+        loadAction.performed += LoadGameWrapper;
+    }
+
+    private void OnDisable()
+    {
+        loadAction?.Disable();
+    }
+
+    public void LoadGameWrapper(InputAction.CallbackContext callbackContext)
+    {
+        LoadGame();
+    }
+#endif
+    #endregion
+
+    // Start is called before the first frame update
+    void Start()
+    {
         _em.setFlag.AddListener(eventFlags.SetFlag);
 
         //_em.dialogueEnded.AddListener(_dm.func);
@@ -58,16 +87,12 @@ public class GameManager : Singleton<GameManager>
 
     private void HandleSceneChange(bool isMenu)
     {
-        if(isMenu)
-        {
-            
-        }
-        else
-        {
+        // Reload manager if scene has changed but it's not in the main menu
+        if(!isMenu)
             ReloadManagers();
-        }
     }
 
+    // Does exactly what it says, plus sets the scene index to 0. You only need to call this when changing unity scene.
     private void ReloadManagers()
     {
         Debug.Log("Reloading Managers...");
@@ -96,9 +121,9 @@ public class GameManager : Singleton<GameManager>
         await SaveManager.SaveEventFlags(eventFlags);
     }
 
-    public async void LoadGame()
+    public void LoadGame()
     {
-        eventFlags = new EventFlags(await SaveManager.LoadEventFlags());
+        eventFlags = new EventFlags(SaveManager.LoadEventFlags());
     }
 
     public void QuitGame()
@@ -121,5 +146,10 @@ public class GameManager : Singleton<GameManager>
     public bool IsGamePaused()
     {
         return isGamePaused;
+    }
+
+    public bool GetFlagStatus(EventFlag flag)
+    {
+        return eventFlags.GetFlag(flag);
     }
 }

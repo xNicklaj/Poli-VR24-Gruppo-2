@@ -28,6 +28,7 @@ public class InGameUIManager : MonoBehaviour
     {
         exitMenu = inputActions.UI.ExitMenu;
         exitMenu.performed += OnExitMenu;
+        
 
         exitMenu.Enable();
     }
@@ -39,7 +40,8 @@ public class InGameUIManager : MonoBehaviour
 
     void Start()
     {
-        
+        EventManager.Instance?.saveFinished.AddListener(RecalcSaveDate);
+        RecalcSaveDate();
     }
 
     // Update is called once per frame
@@ -59,7 +61,6 @@ public class InGameUIManager : MonoBehaviour
             }
             else
             {
-                RecalcSaveDate();
                 PauseGame();
             }
         }
@@ -79,9 +80,14 @@ public class InGameUIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void BackToMenu()
+    {
+        GameManager.Instance.BackToMainMenu();
+    }
+
     public void QuitGame()
     {
-        Application.Quit();
+        GameManager.Instance.QuitGame();
     }
 
     public void ShowPauseMenu()
@@ -118,7 +124,8 @@ public class InGameUIManager : MonoBehaviour
 
     private void RecalcSaveDate()
     {
+        saveDate.GetComponent<TextMeshPro>();
         if (SaveManager.GetLastModified() != DateTime.UnixEpoch)
-            saveDate.GetComponent<TextMeshPro>().text = SaveManager.GetLastModified().ToString("dd/MM/YYYY HH:mm:ss");
+            saveDate.GetComponent<TextMeshProUGUI>().text = SaveManager.GetLastModified().ToString("dd/MM/yyyy HH:mm:ss");
     }
 }

@@ -1,5 +1,7 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 // Put here all the flags you need for the story
@@ -30,22 +32,28 @@ public enum EventFlag
 
 public class EventFlags
 {
-    private List<bool> events = new List<bool>();
+    [JsonProperty] private List<bool> events = new List<bool>();
 
     public EventFlags()
     {
-        
-        for (int i = 0; i < System.Enum.GetValues(typeof(EventFlag)).Length; i++)
-        {
-            events.Add(false);
-        }
+
     }
 
     public EventFlags(EventFlags eventFlags)
     {
+        events.Clear();
         for (int i = 0; i < eventFlags.events.Count; i++)
         {
             events.Add(eventFlags.events[i]);
+        }
+    }
+
+    public void InitializeFlags()
+    {
+        events.Clear();
+        for (int i = 0; i < System.Enum.GetValues(typeof(EventFlag)).Length; i++)
+        {
+            events.Add(false);
         }
     }
 
@@ -58,5 +66,14 @@ public class EventFlags
     {
         events[(int)flag] = value;
         Debug.Log("Flag " + flag + " set to " + value);
+        EventManager.Instance.flagHasBeenSet.Invoke(flag, value);
+    }
+
+    public void PrintFlags()
+    {
+        for (int i = 0; i < events.Count; i++)
+        {
+            Debug.Log(events[i]);
+        }
     }
 }

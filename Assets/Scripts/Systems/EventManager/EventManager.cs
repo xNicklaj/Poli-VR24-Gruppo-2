@@ -8,10 +8,13 @@ public class EventManager : Singleton<EventManager>
     #region Save Data IO
     public UnityEvent saveRequested;
     public UnityEvent loadRequested;
+    public UnityEvent saveFinished;
+    public UnityEvent loadFinished;
     #endregion
 
     #region Flags and Triggers
     public UnityEvent<EventFlag, bool> setFlag;
+    public UnityEvent<EventFlag, bool> flagHasBeenSet;
     public UnityEvent<string> dialogueEnded;
     // True for main menu, false for in-game scene
     public UnityEvent<bool> unitySceneChanged;

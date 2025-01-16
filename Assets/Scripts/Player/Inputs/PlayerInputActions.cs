@@ -222,6 +222,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LoadGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""624c18fa-8ee3-457f-93a1-6f4575fcdb97"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -233,6 +242,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""ExitMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9e83e90-ab45-4bc3-9166-57982cdbe9c1"",
+                    ""path"": ""<Keyboard>/f9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -311,6 +331,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_ExitMenu = m_UI.FindAction("ExitMenu", throwIfNotFound: true);
+        m_UI_LoadGame = m_UI.FindAction("LoadGame", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -449,11 +470,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_ExitMenu;
+    private readonly InputAction m_UI_LoadGame;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
         public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @ExitMenu => m_Wrapper.m_UI_ExitMenu;
+        public InputAction @LoadGame => m_Wrapper.m_UI_LoadGame;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -466,6 +489,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitMenu.started += instance.OnExitMenu;
             @ExitMenu.performed += instance.OnExitMenu;
             @ExitMenu.canceled += instance.OnExitMenu;
+            @LoadGame.started += instance.OnLoadGame;
+            @LoadGame.performed += instance.OnLoadGame;
+            @LoadGame.canceled += instance.OnLoadGame;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -473,6 +499,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExitMenu.started -= instance.OnExitMenu;
             @ExitMenu.performed -= instance.OnExitMenu;
             @ExitMenu.canceled -= instance.OnExitMenu;
+            @LoadGame.started -= instance.OnLoadGame;
+            @LoadGame.performed -= instance.OnLoadGame;
+            @LoadGame.canceled -= instance.OnLoadGame;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -545,5 +574,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnExitMenu(InputAction.CallbackContext context);
+        void OnLoadGame(InputAction.CallbackContext context);
     }
 }

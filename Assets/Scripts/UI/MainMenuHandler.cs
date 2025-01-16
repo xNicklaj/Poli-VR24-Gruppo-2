@@ -24,7 +24,8 @@ public class MainMenuHandler : MonoBehaviour
 
     public void LoadGame()
     {
-        Task.Run(() => GameManager.Instance.LoadGame());
+        GameManager.Instance.LoadGame();
+        GameManager.Instance.eventFlags.PrintFlags();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
     }
 

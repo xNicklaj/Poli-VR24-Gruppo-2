@@ -55,7 +55,7 @@ public class Interactor : MonoBehaviour
             {
                 fpc.DisplayCrosshair();
             }
-            Debug.Log("Interactable object found");
+            //Debug.Log("Interactable object found");
             selectedObject = interactObj;
             selectedObject.Select();
             if (interact.WasPressedThisFrame())
