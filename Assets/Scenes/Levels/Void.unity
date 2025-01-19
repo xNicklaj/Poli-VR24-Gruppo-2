@@ -4799,6 +4799,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e116f309c8bdb54f8dc4a427723ce70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1455729783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5532345508106164026, guid: 352956d3b74059b419ff11728e9f6907,
+    type: 3}
+  m_PrefabInstance: {fileID: 1490084248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458769206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4940,6 +4946,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 522075642}
     m_Modifications:
+    - target: {fileID: -2175128121264776978, guid: 352956d3b74059b419ff11728e9f6907,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1417996595}
     - target: {fileID: 2195342920602896354, guid: 352956d3b74059b419ff11728e9f6907,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5045,10 +5056,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8712056319408747486, guid: 352956d3b74059b419ff11728e9f6907,
+    - target: {fileID: 5532345508106164026, guid: 352956d3b74059b419ff11728e9f6907,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712056319408747486, guid: 352956d3b74059b419ff11728e9f6907,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5364,6 +5380,41 @@ PrefabInstance:
       propertyPath: playerJointReference
       value: 
       objectReference: {fileID: 522075641}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2100535318}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: showNameInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: inputNameEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6321638298012105606, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
       propertyPath: m_Name
@@ -7386,6 +7437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1785d9775b4514e9ff6b106af000a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameInputSystem: {fileID: 1455729783}
 --- !u!82 &2100535319
 AudioSource:
   m_ObjectHideFlags: 0
