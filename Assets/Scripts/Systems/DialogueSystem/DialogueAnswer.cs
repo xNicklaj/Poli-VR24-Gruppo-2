@@ -7,6 +7,8 @@ public class DialogueAnswer : DialogueComponent
 {
     
     [TextArea][SerializeField] private String answer_text_string;
+    public Dialogue next_dialogue;
+
     public string getAnswerText(){
         return answer_text_string;
     }

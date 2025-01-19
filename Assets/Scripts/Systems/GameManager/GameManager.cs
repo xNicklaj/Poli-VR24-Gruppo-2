@@ -27,10 +27,11 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private bool isGamePaused = false;
 
-    private String player_name {get;set;}
+    public String player_name;
 
     private void Awake()
     {
+        player_name = "nome_nullo";
         DontDestroyOnLoad(this);
 
         // Load SceneManager and DialogueManager from scene, the rest is instanced.

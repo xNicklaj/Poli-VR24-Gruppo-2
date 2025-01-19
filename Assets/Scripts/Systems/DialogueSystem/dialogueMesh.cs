@@ -26,28 +26,42 @@ public class DialogueMesh : MonoBehaviour, IInteractable
     void Update()
     {
         Vector3 direction = fpc.transform.position - transform.position;
-        
+
         // Applica una rotazione di 180 gradi (inverte l'asse Z)
-        Quaternion lookRotation = Quaternion.LookRotation(-direction); 
+        Quaternion lookRotation = Quaternion.LookRotation(-direction);
         transform.rotation = lookRotation;
     }
     public void Interact()
     {
-        if (isSelected){
-            dialogueManager.ContinueDialogue(dc);
-            isSelectable = false;
-            Deselect();
+        if (isSelected)
+        {
+            if (dc is DialogueLine)
+            {
+                dialogueManager.ContinueDialogue(dc);
+                isSelectable = false;
+                Deselect();
+            }
+            else if (dc is DialogueAnswer)
+            {
+                dialogueManager.EndDialogue();
+                dialogueManager.StartDialogue((dc as DialogueAnswer).next_dialogue);
+                isSelectable = false;
+                Deselect();
+            }
+
         }
     }
-    public void toggleSelectability(){
-        isSelectable=!isSelectable;
+    public void toggleSelectability()
+    {
+        isSelectable = !isSelectable;
     }
 
     public void Select()
     {
-        if(isSelectable && !isSelected){
+        if (isSelectable && !isSelected)
+        {
             particles.Play();
-            isSelected= true;
+            isSelected = true;
         }
     }
 

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Tree ans 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: ee9f3b128d94a3a4987fb08f6591e587, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: 0, y: 0, z: 0}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
   answer_text_string: No
+  next_dialogue: {fileID: 11400000, guid: 16bfa69c9dcc0eb4495dd9830487be82, type: 2}

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b29915ced6be34c82617d4fcd90bfa, type: 3}
-  m_Name: God Ans 2
+  m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
+  m_Name: God 6 3
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: de7a179d62c820e4b9ce2412b066336f, type: 2}
-  audioToPlay: {fileID: 0}
+  next: {fileID: 11400000, guid: b1283fa09b7594b4f9a08ff51de14810, type: 2}
+  textString: E cosa sbagliato?
   Position: {x: 0, y: 0, z: 0}
+  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
-  answer_text_string: "S\xEC"
-  next_dialogue: {fileID: 11400000, guid: 0ae92f6590dbedb49b641d68c8f85776, type: 2}
+  positionRelativeToPlayer: 0

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
-  m_Name: God 2 2
+  m_Name: God 6 6
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: 3247965167b269e42a42d46877e277d4, type: 2}
-  textString: Allora non importa, vero?
+  next: {fileID: 0}
+  textString: E se Nietzche avesse avuto ragione su tutta la linea?
   Position: {x: 0, y: 0, z: 0}
   answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}

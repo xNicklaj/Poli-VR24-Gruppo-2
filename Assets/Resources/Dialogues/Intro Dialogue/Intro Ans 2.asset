@@ -17,3 +17,4 @@ MonoBehaviour:
   Position: {x: 2, y: 2, z: 5}
   lightColor: {r: 0.09710693, g: 1, b: 0, a: 0.49803922}
   answer_text_string: "S\xEC"
+  next_dialogue: {fileID: 11400000, guid: f4cb312eff78b344f92bda52d2bb40f8, type: 2}

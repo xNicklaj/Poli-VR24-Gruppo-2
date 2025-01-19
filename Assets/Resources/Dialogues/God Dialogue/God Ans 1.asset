@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: God Ans 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: e3c27f64381a6e64aa065eb789bdde7d, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: 0, y: 0, z: 0}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
   answer_text_string: No
+  next_dialogue: {fileID: 11400000, guid: 6a02efdc54d20f14ba98e51bbc4324bd, type: 2}

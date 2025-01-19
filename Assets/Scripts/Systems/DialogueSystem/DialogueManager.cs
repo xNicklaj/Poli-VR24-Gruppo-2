@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -11,23 +12,26 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private GameObject playerJointReference;
     [SerializeField] private DialogueMesh dialogueMeshPrefab;
     [SerializeField] private Dialogue debugDialogue;
+    private Dictionary<string, Func<string>> format_data;
 
     private Dialogue currentDialogue;
     private DialogueLine currentLine;
     private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
 
     public UnityEvent inputNameEvent;
+    public UnityEvent changeFloorAndDomeEvent;
 
-    void Update()
+
+    public void Start()
     {
-        if (Input.GetButtonDown("Jump"))
+        format_data = new Dictionary<string, Func<string>>
         {
-            StartDialogue(debugDialogue);
-        }
+            { "player_name", ()=> GameManager.Instance.player_name }
+        };
     }
-
     public void StartDialogue(Dialogue dialogue)
     {
+
         //_em = EventManager.Instance;
         currentDialogue = dialogue;
         currentLine = currentDialogue.getFirstComponent();
@@ -54,14 +58,14 @@ public class DialogueManager : Singleton<DialogueManager>
         DisplayLine(currentLine);
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         string dialogueName = currentDialogue.name;
         currentDialogue = null;
 
         foreach (var dialogueMesh in dialogueMeshes)
         {
-            Destroy(dialogueMesh.gameObject);
+            DestroyLine(dialogueMesh);
         }
 
         dialogueMeshes.Clear();
@@ -82,9 +86,13 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueMesh.textReference.alpha = 0f;
         dialogueMesh.isSelectable = false;
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 2f));
-        sequence.Join(dialogueMesh.textReference.DOFade(1f, 2f));
-        sequence.AppendCallback(dialogueMesh.toggleSelectability);
+        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
+        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete=dialogueMesh.toggleSelectability;
+    }
+    private void DestroyLine(DialogueMesh dialogueMesh){
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(dialogueMesh.lineLight.DOIntensity(0f, 1.5f));
+        sequence.Join(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(()=>Destroy(dialogueMesh.gameObject));
     }
 
     private void CreateDialogueAnswers()
@@ -105,7 +113,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         dialogueMesh.dialogueManager = this;
         dialogueMesh.dc = dialogueLine;
-        dialogueMesh.textReference.text = dialogueLine.getLine();
+        dialogueMesh.textReference.text = FormatString(dialogueLine.getLine());
         dialogueMesh.fpc = playerReference;
         AdjustCollider(dialogueMesh);
         ApplyLightingAndAudio(dialogueMesh, dialogueLine.getLightColor(), dialogueLine.GetAudio());
@@ -151,12 +159,31 @@ public class DialogueManager : Singleton<DialogueManager>
             dialogueMesh.audioSource.Play();
         }
     }
+    private string FormatString(string template)
+    {
+        foreach (var entry in format_data)
+        {
+            template = template.Replace($"{{{entry.Key}}}", entry.Value.Invoke());
+        }
+        return template;
+    }
 
-    public void DialogueFollowUp(string dialogueName){
-        switch (dialogueName){
+    public void DialogueFollowUp(string dialogueName)
+    {
+        print(dialogueName);
+        switch (dialogueName)
+        {
             case "Intro Dialogue 1":
                 inputNameEvent.Invoke();
-            break;
+                break;
+            case "Intro Dialogue 3":
+                inputNameEvent.Invoke();
+                break;
+            case "God Dialogue 1":
+                changeFloorAndDomeEvent.Invoke();
+                break;
+
         }
     }
+
 }

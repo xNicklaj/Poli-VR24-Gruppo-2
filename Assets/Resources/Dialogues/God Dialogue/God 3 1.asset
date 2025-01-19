@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
-  m_Name: Tree 4 4
+  m_Name: God 3 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  textString: "Hai prove per dimostrare che non \xE8 pi\xF9 un albero?"
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
-  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: Allora non importa, vero?
+  answers: []
   positionRelativeToPlayer: 0

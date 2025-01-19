@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: effad0ca33770a24596dbb35853f2497, type: 3}
-  m_Name: God Dialogue 2
+  m_Name: Intro Dialogue 4
   m_EditorClassIdentifier: 
-  firstComponent: {fileID: 11400000, guid: d902e8ca63e054c47a85635fbe716b2c, type: 2}
+  firstComponent: {fileID: 11400000, guid: 2206bb923875c0946a3ad2d6404a3441, type: 2}

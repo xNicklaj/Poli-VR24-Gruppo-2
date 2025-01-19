@@ -50,10 +50,16 @@ MonoBehaviour:
   loadRequested:
     m_PersistentCalls:
       m_Calls: []
+  saveFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  loadFinished:
+    m_PersistentCalls:
+      m_Calls: []
   setFlag:
     m_PersistentCalls:
       m_Calls: []
-  dialogueEnded:
+  flagHasBeenSet:
     m_PersistentCalls:
       m_Calls: []
   unitySceneChanged:

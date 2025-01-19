@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: God 1 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
+  audioToPlay: {fileID: 0}
+  Position: {x: 0, y: 2.5, z: 5}
+  lightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   textString: E dimmi...
-  Position: {x: 0, y: 0, z: 0}
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0
