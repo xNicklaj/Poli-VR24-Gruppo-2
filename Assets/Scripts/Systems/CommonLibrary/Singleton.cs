@@ -20,20 +20,5 @@ public abstract class Singleton<T> : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
 
-        // Destroy this object if we already have a Singleton defined
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
-        Instance = (T)this;
-        DoAwake();
-    }
-
-    // Virtual method to allow implementations to use Awake
-    protected virtual void DoAwake() { }
 }

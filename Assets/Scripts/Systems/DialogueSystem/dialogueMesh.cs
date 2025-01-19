@@ -39,6 +39,9 @@ public class DialogueMesh : MonoBehaviour, IInteractable
             Deselect();
         }
     }
+    public void toggleSelectability(){
+        isSelectable=!isSelectable;
+    }
 
     public void Select()
     {

@@ -134,6 +134,7 @@ public class FirstPersonController : MonoBehaviour
         SPRINT,
         JUMP,
         CROUCH,
+        IDLE // used when player can't move
     }
     public PlayerStates playerState;
     #endregion

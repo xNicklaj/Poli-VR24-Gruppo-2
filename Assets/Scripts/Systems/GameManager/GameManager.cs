@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     public GameObject EventManagerPrefab;
     public GameObject SaveManagerPrefab;
+    [SerializeField] private  CanvasGroup TransitionLayout;
 
     private EventManager _em;
     private SceneManager _sm;
@@ -34,14 +36,13 @@ public class GameManager : Singleton<GameManager>
         // Load SceneManager and DialogueManager from scene, the rest is instanced.
         GameObject goEm;
         GameObject goSm;
-        _sm = GameObject.FindGameObjectWithTag("SceneManager")?.GetComponent<SceneManager>();
-        _dm = GameObject.FindGameObjectWithTag("DialogueManager")?.GetComponent<DialogueManager>();
-        
         goEm = Instantiate(EventManagerPrefab);
         _em = goEm.GetComponent<EventManager>();
         goSm = Instantiate(SaveManagerPrefab);
         _svm = goSm.GetComponent<SaveManager>();
 
+        _sm = GameObject.FindGameObjectWithTag("SceneManager")?.GetComponent<SceneManager>();
+        _dm = GameObject.FindGameObjectWithTag("DialogueManager")?.GetComponent<DialogueManager>();
         // When saveRequested is invoked by any script, SaveGame is called
         EventManager.Instance.saveRequested.AddListener(SaveGame);
 
@@ -81,8 +82,6 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         _em.setFlag.AddListener(eventFlags.SetFlag);
-
-        //_em.dialogueEnded.AddListener(_dm.func);
     }
 
     private void HandleSceneChange(bool isMenu)
@@ -101,6 +100,7 @@ public class GameManager : Singleton<GameManager>
         _dm = GameObject.FindGameObjectWithTag("DialogueManager").GetComponent<DialogueManager>();
         _sm.enabled = true;
         _dm.enabled = true;
+        
         _sm.SetSceneByIndex(0);
     }
 
@@ -123,7 +123,18 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadGame()
     {
+        
         eventFlags = new EventFlags(SaveManager.LoadEventFlags());
+    }
+
+    public void LoadScene(int sceneIndex){
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(TransitionLayout.DOFade(1f,1f));
+        sequence.AppendInterval(0.5f);
+        sequence.AppendCallback(()=>UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex));
+        sequence.AppendInterval(0.5f);
+        sequence.Append(TransitionLayout.DOFade(0f,1f));
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 
     public void QuitGame()

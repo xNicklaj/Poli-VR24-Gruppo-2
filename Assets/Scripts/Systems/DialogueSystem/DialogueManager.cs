@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : Singleton<DialogueManager>
 {
     [SerializeField] private FirstPersonController playerReference;
     [SerializeField] private GameObject playerJointReference;
@@ -14,12 +16,7 @@ public class DialogueManager : MonoBehaviour
     private DialogueLine currentLine;
     private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
 
-    private EventManager _em;
-
-    private void Awake()
-    {
-        _em = GameObject.FindGameObjectWithTag("EventManager")?.GetComponent<EventManager>();
-    }
+    public UnityEvent inputNameEvent;
 
     void Update()
     {
@@ -31,6 +28,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        //_em = EventManager.Instance;
         currentDialogue = dialogue;
         currentLine = currentDialogue.getFirstComponent();
         DisplayLine(currentLine);
@@ -58,7 +56,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        _em.dialogueEnded.Invoke(currentDialogue.name);
+        string dialogueName = currentDialogue.name;
         currentDialogue = null;
 
         foreach (var dialogueMesh in dialogueMeshes)
@@ -67,6 +65,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         dialogueMeshes.Clear();
+        DialogueFollowUp(dialogueName);
     }
 
     private void DisplayLine(DialogueLine dialogueLine)
@@ -79,6 +78,13 @@ public class DialogueManager : MonoBehaviour
         dialogueMeshes.Add(dialogueMesh);
 
         SetupDialogueMesh(dialogueMesh, dialogueLine);
+        dialogueMesh.lineLight.intensity = 0f;
+        dialogueMesh.textReference.alpha = 0f;
+        dialogueMesh.isSelectable = false;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 2f));
+        sequence.Join(dialogueMesh.textReference.DOFade(1f, 2f));
+        sequence.AppendCallback(dialogueMesh.toggleSelectability);
     }
 
     private void CreateDialogueAnswers()
@@ -130,7 +136,7 @@ public class DialogueManager : MonoBehaviour
         collider.radius = dialogueMesh.textReference.preferredHeight / 2;
     }
 
-    private void ApplyLightingAndAudio(DialogueMesh dialogueMesh, Color? lightColor, AudioSource audioSource)
+    private void ApplyLightingAndAudio(DialogueMesh dialogueMesh, Color? lightColor, AudioClip audioSource)
     {
         if (lightColor.HasValue)
         {
@@ -141,8 +147,16 @@ public class DialogueManager : MonoBehaviour
 
         if (audioSource != null)
         {
-            dialogueMesh.audioSource = audioSource;
+            dialogueMesh.audioSource.clip = audioSource;
             dialogueMesh.audioSource.Play();
+        }
+    }
+
+    public void DialogueFollowUp(string dialogueName){
+        switch (dialogueName){
+            case "Intro Dialogue 1":
+                inputNameEvent.Invoke();
+            break;
         }
     }
 }

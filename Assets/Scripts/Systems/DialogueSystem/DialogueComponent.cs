@@ -8,7 +8,7 @@ public class DialogueComponent : ScriptableObject
     protected DialogueManager dm;
     private bool selectable;
 
-    [SerializeField] protected AudioSource audioToPlay;
+    [SerializeField] protected AudioClip audioToPlay;
     [SerializeField] protected Vector3 Position = new Vector3(0, 0, 0);
     [ColorUsage(true,true)] [SerializeField] protected Color lightColor;
 
@@ -20,7 +20,7 @@ public class DialogueComponent : ScriptableObject
     {
         selectable = value;
     }
-    public AudioSource GetAudio()
+    public AudioClip GetAudio()
     {
         return audioToPlay;
     }
