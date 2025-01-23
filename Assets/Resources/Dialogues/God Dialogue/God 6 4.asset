@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
   m_Name: God 6 4
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: 00c4e057e41b7a843aed2a75c3c54f81, type: 2}
-  textString: Esisterebbero giusto e sbagliato?
-  Position: {x: 0, y: 0, z: 0}
+  next: {fileID: 11400000, guid: dcf9d13ddf1fc78428b62bb2fdaa07ca, type: 2}
+  audioToPlay: {fileID: 8300000, guid: 3ec04ff905061e243a3745858b8fd31d, type: 3}
+  Position: {x: 10, y: 2.5, z: 0}
+  lightColor: {r: 1, g: 0, b: 0, a: 1}
+  textString: Esistono giusto e sbagliato?
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

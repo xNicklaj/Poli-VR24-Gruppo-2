@@ -20,6 +20,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public UnityEvent inputNameEvent;
     public UnityEvent changeFloorAndDomeEvent;
+    public UnityEvent godChoiceTaken;
+    public UnityEvent godDialogueEnded;
+
 
 
     public void Start()
@@ -182,6 +185,13 @@ public class DialogueManager : Singleton<DialogueManager>
             case "God Dialogue 1":
                 changeFloorAndDomeEvent.Invoke();
                 break;
+            case "God Dialogue 3" or "God Dialogue 4":
+                godChoiceTaken.Invoke();
+                break;
+            case "God Dialogue 6":
+                godDialogueEnded.Invoke();
+                break;
+
 
         }
     }
