@@ -3576,9 +3576,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1200910376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 588}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: 48}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873184562
@@ -3596,10 +3596,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 150
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 16.95
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4031,7 +4031,7 @@ GameObject:
   - component: {fileID: 1010680242}
   - component: {fileID: 1010680241}
   - component: {fileID: 1010680240}
-  - component: {fileID: 1010680239}
+  - component: {fileID: 1010680243}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -4039,28 +4039,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1010680239
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010680238}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1010680240
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4126,6 +4104,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2100535317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1010680243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010680238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 1, z: 10}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &1070399283
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,7 +4663,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 141050850}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1853365700}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
@@ -6525,6 +6524,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850287510}
   m_CullTransparentMesh: 1
+--- !u!1 &1853365700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 141050850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858451626
 GameObject:
   m_ObjectHideFlags: 0
@@ -7682,10 +7687,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1785d9775b4514e9ff6b106af000a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerReference: {fileID: 1853365700}
+  matchBoxPreset: {fileID: 2483574560796066043, guid: d5e072c005124a7418693cda960893fd,
+    type: 3}
+  candlePreset: {fileID: 5295160307909409174, guid: c032f7a7638fb5542be6f651943dfd92,
+    type: 3}
   nameInputSystem: {fileID: 1455729783}
   floor: {fileID: 1010680238}
   dome: {fileID: 2053259372}
-  totalBlackRoomColor: {r: 0, g: 0, b: 0, a: 0}
+  totalBlackRoomColor: {r: 0.02745098, g: 0.039215688, b: 0.050980393, a: 0}
   blackRoomColor: {r: 0.09803922, g: 0.11764706, b: 0.13725491, a: 1}
   whiteRoomColor: {r: 1, g: 0.9529412, b: 0.87058824, a: 0}
   redRoomColor: {r: 0.2924528, g: 0, b: 0, a: 0}
@@ -7706,7 +7716,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ba8543281d53724bba37f8f0491e646, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

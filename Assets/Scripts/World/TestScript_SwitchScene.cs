@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TestScript_SwitchScene : MonoBehaviour, IInteractable
+public class TestScript_SwitchScene : IInteractable
 {
     public Scene scene;
     public bool isRelative;
@@ -23,18 +23,9 @@ public class TestScript_SwitchScene : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact()
+    public override void Interact()
     {
         _sm.SetScene(scene, isRelative);
     }
 
-    public void Select()
-    {
-        
-    }
-
-    public void Deselect()
-    {
-
-    }
 }

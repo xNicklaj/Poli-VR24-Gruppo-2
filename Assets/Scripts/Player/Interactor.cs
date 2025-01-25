@@ -47,7 +47,7 @@ public class Interactor : MonoBehaviour
         if (Physics.Raycast(source.position, source.forward, out hit, range) &&
             hit.collider.gameObject.TryGetComponent<IInteractable>(out IInteractable interactObj))
         {
-            if ((interactObj is DialogueMesh) && !(interactObj as DialogueMesh).isSelectable)
+            if (!interactObj.isSelectable)
             {
                 fpc.HideCrosshair();
             }

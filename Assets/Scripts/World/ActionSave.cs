@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSave : MonoBehaviour, IInteractable
+public class ActionSave : IInteractable
 {
 
     // Start is called before the first frame update
@@ -17,13 +17,7 @@ public class ActionSave : MonoBehaviour, IInteractable
 
     }
 
-    public void Select()
-    {
-        ;
-    }
-    public void Deselect() {; }
-
-    void IInteractable.Interact()
+    public override void Interact()
     {
         EventManager.Instance.saveRequested.Invoke();
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionAddToInventory : ActionSetFlag, IInteractable
+public class ActionAddToInventory : ActionSetFlag
 {
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class ActionAddToInventory : ActionSetFlag, IInteractable
         
     }
 
-    public void Interact()
+    public override void Interact()
     {
         SetFlag(flag, value);
         Destroy(this.gameObject);

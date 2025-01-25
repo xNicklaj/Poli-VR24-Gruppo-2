@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialogueMesh : MonoBehaviour, IInteractable
+public class DialogueMesh : IInteractable
 {
     public TextMeshPro textReference;
     public AudioSource audioSource;
     public Light lineLight;
     public ParticleSystem particles;
     public DialogueManager dialogueManager;
-    public bool isSelected = false;
-    public bool isSelectable = true;
     public DialogueComponent dc;
     public FirstPersonController fpc;
 
@@ -31,7 +29,7 @@ public class DialogueMesh : MonoBehaviour, IInteractable
         Quaternion lookRotation = Quaternion.LookRotation(-direction);
         transform.rotation = lookRotation;
     }
-    public void Interact()
+    public override void Interact()
     {
         if (isSelected)
         {
@@ -56,16 +54,17 @@ public class DialogueMesh : MonoBehaviour, IInteractable
         isSelectable = !isSelectable;
     }
 
-    public void Select()
+    public override void Select()
     {
         if (isSelectable && !isSelected)
         {
+            
             particles.Play();
             isSelected = true;
         }
     }
 
-    public void Deselect()
+    public override void Deselect()
     {
         particles.Stop();
         isSelected = false;

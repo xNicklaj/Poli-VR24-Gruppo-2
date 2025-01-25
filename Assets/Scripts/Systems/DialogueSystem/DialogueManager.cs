@@ -13,11 +13,9 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private DialogueMesh dialogueMeshPrefab;
     [SerializeField] private Dialogue debugDialogue;
     private Dictionary<string, Func<string>> format_data;
-
     private Dialogue currentDialogue;
     private DialogueLine currentLine;
     private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
-
     public UnityEvent inputNameEvent;
     public UnityEvent changeFloorAndDomeEvent;
     public UnityEvent godChoiceTaken;
@@ -75,7 +73,7 @@ public class DialogueManager : Singleton<DialogueManager>
         DialogueFollowUp(dialogueName);
     }
 
-    private void DisplayLine(DialogueLine dialogueLine)
+    public DialogueMesh DisplayLine(DialogueLine dialogueLine)
     {
         Vector3 linePosition = dialogueLine.positionRelativeToPlayer
             ? playerJointReference.transform.position + Camera.main.transform.rotation * dialogueLine.getPosition()
@@ -91,8 +89,22 @@ public class DialogueManager : Singleton<DialogueManager>
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
         sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete=dialogueMesh.toggleSelectability;
+        return dialogueMesh;
     }
-    private void DestroyLine(DialogueMesh dialogueMesh){
+    public DialogueMesh DisplayCandleLine(DialogueLine dialogueLine, Vector3 position)
+    {
+        var dialogueMesh = Instantiate(dialogueMeshPrefab, position, Quaternion.LookRotation(position - playerJointReference.transform.position));
+        dialogueMeshes.Add(dialogueMesh);
+        SetupDialogueMesh(dialogueMesh, dialogueLine);
+        dialogueMesh.lineLight.intensity = 0f;
+        dialogueMesh.textReference.alpha = 0f;
+        dialogueMesh.isSelectable = false;
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
+        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f));
+        return dialogueMesh;
+    }
+    public void DestroyLine(DialogueMesh dialogueMesh){
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogueMesh.lineLight.DOIntensity(0f, 1.5f));
         sequence.Join(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(()=>Destroy(dialogueMesh.gameObject));

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSetFlag : MonoBehaviour, IInteractable
+public class ActionSetFlag : IInteractable
 {
     public EventFlag flag;
     public bool value;
@@ -19,18 +19,12 @@ public class ActionSetFlag : MonoBehaviour, IInteractable
 
     }
 
-    public void Select()
-    {
-        ;
-    }
-    public void Deselect() {; }
-
     public void SetFlag(EventFlag e, bool b)
     {
         EventManager.Instance.setFlag.Invoke(e, b);
     }
 
-    void IInteractable.Interact()
+    public override void Interact()
     {
         SetFlag(flag, value);
     }

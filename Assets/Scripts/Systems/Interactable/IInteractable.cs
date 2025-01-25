@@ -1,8 +1,21 @@
-interface IInteractable
+using UnityEngine;
+
+public abstract class IInteractable : MonoBehaviour
 {
-    public void Interact();
+    public bool isSelectable = true;
+    public bool isSelected = false;
+    public abstract void Interact();
 
-    public void Select();
+    public virtual void Select()
+    {
+        if (isSelectable && !isSelected)
+        {
+            isSelected = true;
+        }
+    }
 
-    public void Deselect();
+    public virtual void Deselect()
+    {
+        isSelected = true;
+    }
 }

@@ -3,22 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class seed : MonoBehaviour, IInteractable
+public class seed : IInteractable
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject seedModel;
 
-    public void Deselect()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Interact()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Select()
+    public override void Interact()
     {
         throw new NotImplementedException();
     }

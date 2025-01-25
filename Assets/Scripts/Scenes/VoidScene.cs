@@ -2,11 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class VoidScene : MonoBehaviour
 {
+    [SerializeField] private GameObject playerReference;
+    [SerializeField] private GameObject matchBoxPreset;
+    [SerializeField] private GameObject candlePreset;
+
     [SerializeField] private GameObject nameInputSystem;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject dome;
@@ -28,6 +34,7 @@ public class VoidScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EventManager.Instance.flagHasBeenSet.AddListener(inventorySetFlagSorting);
         floor.GetComponent<Renderer>().material.color = blackRoomColor;
         dome.GetComponent<Renderer>().material.color = blackRoomColor;
 
@@ -37,7 +44,8 @@ public class VoidScene : MonoBehaviour
         else{
             print(DialogueManager.Instance);
             Sequence sequence = DOTween.Sequence();
-            sequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 1")));
+            sequence.AppendInterval(2f);
+            sequence.AppendCallback(()=>getSilent());
             
         }
     }
@@ -75,6 +83,23 @@ public class VoidScene : MonoBehaviour
         sequence.Append(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor,6f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor,6f));
         sequence.Join(GetComponent<AudioSource>().DOFade(0f,4f));
-        //sequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 6")));
+        sequence.AppendInterval(1f);
+        sequence.AppendCallback(()=>throwMatchBox());
+    }
+    private void throwMatchBox(){
+        Vector3 matchBoxPosition = playerReference.transform.position - playerReference.transform.forward*3f+playerReference.transform.up*3f;
+        var matchBoxInstance = Instantiate(matchBoxPreset,matchBoxPosition, new Quaternion());
+        matchBoxInstance.GetComponent<Rigidbody>().AddForce((playerReference.transform.forward+playerReference.transform.up)*20f);
+    }
+
+    private void inventorySetFlagSorting(EventFlag e, bool status){
+        if ((e == EventFlag.HasLighter)&&(status == true)){
+            startSelfDialogue(new Vector3(0f,0f,1f).normalized*7,"Self 1");
+        }
+    }
+    public void startSelfDialogue(Vector3 pos, string lineName){
+        GameObject candleInstance = Instantiate(candlePreset,pos,new Quaternion());
+        candleInstance.GetComponent<Candle>().dialogueLine = Resources.Load<DialogueLine>("Dialogues/Self Dialogue/"+lineName);
+        candleInstance.GetComponent<Candle>().setVoidScene(this);
     }
 }

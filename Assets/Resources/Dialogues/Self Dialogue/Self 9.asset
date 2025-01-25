@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
   m_Name: Self 9
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: aaf6b277334e59146b40a61c938bd586, type: 2}
-  textString: Cosa ti rattrista?
+  next: {fileID: 0}
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
+  lightColor: {r: 0.6952831, g: 0.5518868, b: 1, a: 1}
+  textString: Sei felice?
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0
