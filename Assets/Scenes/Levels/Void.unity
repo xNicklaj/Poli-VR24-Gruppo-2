@@ -733,6 +733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 4
   value: 1
 --- !u!114 &153811635
@@ -1131,12 +1133,12 @@ Light:
   m_GameObject: {fileID: 226477696}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.3773585, g: 0.33459345, b: 0.26343894, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1000
-  m_Range: 500
-  m_SpotAngle: 30
+  m_Range: 100
+  m_SpotAngle: 98.09496
   m_InnerSpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1177,8 +1179,8 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 5000
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -1192,13 +1194,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226477696}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8603019, y: 39.4, z: -2.2593455}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2100535317}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &226477699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,6 +2054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 6
   value: 0
 --- !u!114 &485808681
@@ -2173,6 +2177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 3
   value: 1
 --- !u!114 &491920407
@@ -2552,6 +2558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 3
   value: 0
 --- !u!114 &602921335
@@ -3454,6 +3462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 2
   value: 0
 --- !u!114 &859644041
@@ -4406,6 +4416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 2
   value: 1
 --- !u!114 &1235103921
@@ -5295,6 +5307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 4
   value: 0
 --- !u!114 &1504167884
@@ -5535,6 +5549,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
       propertyPath: changeFloorAndDomeEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5565,7 +5589,17 @@ PrefabInstance:
       objectReference: {fileID: 2100535318}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
       propertyPath: godDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2100535318}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2100535318}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
@@ -5595,8 +5629,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
       propertyPath: godDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: getSilent
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSeedDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
@@ -5605,9 +5654,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2100535318}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
       propertyPath: changeFloorAndDomeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2100535318}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakeSeedAppear
+      objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
       propertyPath: changeFloorAndDomeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -5635,6 +5699,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
       propertyPath: changeFloorAndDomeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: VoidScene, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -5651,6 +5725,16 @@ PrefabInstance:
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
         type: 3}
       propertyPath: godDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: SelfDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
+        type: 3}
+      propertyPath: FirstSeedDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 555956471719340609, guid: 2221a28b5481aaa4b90f0efb4190a5c3,
@@ -5751,6 +5835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 6
   value: 1
 --- !u!114 &1665387323
@@ -6389,6 +6475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf719914e1d85a4e9a0e2afe085fbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
 --- !u!1 &1850287510
 GameObject:
   m_ObjectHideFlags: 0
@@ -7688,13 +7776,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReference: {fileID: 1853365700}
+  nameInputSystem: {fileID: 1455729783}
+  floor: {fileID: 1010680238}
+  dome: {fileID: 2053259372}
   matchBoxPreset: {fileID: 2483574560796066043, guid: d5e072c005124a7418693cda960893fd,
     type: 3}
   candlePreset: {fileID: 5295160307909409174, guid: c032f7a7638fb5542be6f651943dfd92,
     type: 3}
-  nameInputSystem: {fileID: 1455729783}
-  floor: {fileID: 1010680238}
-  dome: {fileID: 2053259372}
+  SeedPreset: {fileID: 4545401407375913814, guid: 2d0fbad16e067e3459a5af7f5a77c0ac,
+    type: 3}
+  StoneDoorPreset: {fileID: 4464176341385285518, guid: a7f6344cc02a9a84aa551d1df6b0f00b,
+    type: 3}
   totalBlackRoomColor: {r: 0.02745098, g: 0.039215688, b: 0.050980393, a: 0}
   blackRoomColor: {r: 0.09803922, g: 0.11764706, b: 0.13725491, a: 1}
   whiteRoomColor: {r: 1, g: 0.9529412, b: 0.87058824, a: 0}

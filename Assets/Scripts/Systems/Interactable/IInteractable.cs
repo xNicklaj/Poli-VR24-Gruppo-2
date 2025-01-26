@@ -16,6 +16,6 @@ public abstract class IInteractable : MonoBehaviour
 
     public virtual void Deselect()
     {
-        isSelected = true;
+        isSelected = false;
     }
 }

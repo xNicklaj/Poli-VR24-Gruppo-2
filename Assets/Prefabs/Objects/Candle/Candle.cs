@@ -9,6 +9,8 @@ public class Candle : IInteractable
     // Start is called before the first frame update
     public DialogueLine dialogueLine;
     private DialogueMesh dialogueMesh;
+    public GameObject body;
+
     [SerializeField] private Light fire_light_emitter;
     [SerializeField] private Light base_light_emitter;
     private AudioSource audioSource;

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effad0ca33770a24596dbb35853f2497, type: 3}
   m_Name: Self Dialogue
   m_EditorClassIdentifier: 
-  firstComponent: {fileID: 11400000, guid: a4dcb225cd3d07d4b973afe63b204c95, type: 2}
+  firstComponent: {fileID: 11400000, guid: 2dd10e3cbac0890488f5daa36055b749, type: 2}

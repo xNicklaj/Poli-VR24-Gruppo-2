@@ -50,15 +50,15 @@ public class Interactor : MonoBehaviour
             if (!interactObj.isSelectable)
             {
                 fpc.HideCrosshair();
+                interactObj.Deselect();
             }
             else
             {
                 fpc.DisplayCrosshair();
+                selectedObject = interactObj;
+                selectedObject.Select();
             }
-            //Debug.Log("Interactable object found");
-            selectedObject = interactObj;
-            selectedObject.Select();
-            if (interact.WasPressedThisFrame())
+            if (interact.WasPressedThisFrame()&&interactObj.isSelected)
             {
                 interactObj.Interact();
             }

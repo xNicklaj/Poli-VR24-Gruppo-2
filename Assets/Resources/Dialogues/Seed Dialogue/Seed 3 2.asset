@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Seed 3 2
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  textString: Credi che basti quello che hai fatto?
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
-  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: "Credi che basti \nquello che hai fatto?"
+  answers: []
   positionRelativeToPlayer: 0

@@ -20,6 +20,9 @@ public class DialogueManager : Singleton<DialogueManager>
     public UnityEvent changeFloorAndDomeEvent;
     public UnityEvent godChoiceTaken;
     public UnityEvent godDialogueEnded;
+    public UnityEvent SelfDialogueEnded;
+    public UnityEvent FirstSeedDialogueEnded;
+
 
 
 
@@ -61,7 +64,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
-        string dialogueName = currentDialogue.name;
+        string dialogueName = null;
+        if (currentDialogue != null)
+        {
+            dialogueName = currentDialogue.name;
+        }
         currentDialogue = null;
 
         foreach (var dialogueMesh in dialogueMeshes)
@@ -88,26 +95,33 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueMesh.isSelectable = false;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
-        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete=dialogueMesh.toggleSelectability;
+        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete = dialogueMesh.toggleSelectability;
         return dialogueMesh;
     }
     public DialogueMesh DisplayCandleLine(DialogueLine dialogueLine, Vector3 position)
     {
+        currentLine = dialogueLine;
         var dialogueMesh = Instantiate(dialogueMeshPrefab, position, Quaternion.LookRotation(position - playerJointReference.transform.position));
         dialogueMeshes.Add(dialogueMesh);
         SetupDialogueMesh(dialogueMesh, dialogueLine);
         dialogueMesh.lineLight.intensity = 0f;
         dialogueMesh.textReference.alpha = 0f;
         dialogueMesh.isSelectable = false;
+        if (dialogueLine.name == "Self 9")
+        {
+            dialogueMesh.isSelectable = true;
+            currentDialogue = Resources.Load<Dialogue>("Dialogues/Self Dialogue/Self Dialogue");
+        }
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
         sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f));
         return dialogueMesh;
     }
-    public void DestroyLine(DialogueMesh dialogueMesh){
+    public void DestroyLine(DialogueMesh dialogueMesh)
+    {
         Sequence sequence = DOTween.Sequence();
         sequence.Append(dialogueMesh.lineLight.DOIntensity(0f, 1.5f));
-        sequence.Join(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(()=>Destroy(dialogueMesh.gameObject));
+        sequence.Join(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(() => Destroy(dialogueMesh.gameObject));
     }
 
     private void CreateDialogueAnswers()
@@ -202,6 +216,12 @@ public class DialogueManager : Singleton<DialogueManager>
                 break;
             case "God Dialogue 6":
                 godDialogueEnded.Invoke();
+                break;
+            case "Self Dialogue":
+                SelfDialogueEnded.Invoke();
+                break;
+            case "Seed Dialogue 1":
+                FirstSeedDialogueEnded.Invoke();
                 break;
 
 

@@ -4880,7 +4880,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf28ff229a64964caec0bbe342efd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   dialogueLine: {fileID: 0}
+  body: {fileID: 3381689725724301625}
   fire_light_emitter: {fileID: 7961853257189579533}
   base_light_emitter: {fileID: 4834541173790495305}
   fireAudio: {fileID: 8300000, guid: 8ba059090593ec74aab8296979cf6c24, type: 3}
@@ -5333,6 +5336,12 @@ PrefabInstance:
 --- !u!4 &2712851770565116803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe3414995190bd84c8408bb36450e24d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2463263604903748712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3381689725724301625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fe3414995190bd84c8408bb36450e24d,
     type: 3}
   m_PrefabInstance: {fileID: 2463263604903748712}
   m_PrefabAsset: {fileID: 0}

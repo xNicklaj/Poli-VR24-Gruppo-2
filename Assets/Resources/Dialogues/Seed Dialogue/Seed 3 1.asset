@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Seed 3 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 376242a0dd084a44788082ec607efd39, type: 2}
-  textString: Cosa pensi di avere ottenuto?
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
-  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: "Cosa pensi \ndi avere ottenuto?\n"
+  answers: []
   positionRelativeToPlayer: 0

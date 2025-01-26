@@ -60,14 +60,14 @@ public class DialogueMesh : IInteractable
         {
             
             particles.Play();
-            isSelected = true;
+            base.Select();
         }
     }
 
     public override void Deselect()
     {
         particles.Stop();
-        isSelected = false;
+        base.Deselect();
     }
 
 
