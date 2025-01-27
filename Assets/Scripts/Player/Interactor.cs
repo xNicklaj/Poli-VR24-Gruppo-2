@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Interactor : MonoBehaviour
 {
     public Transform source;
-    public float range = 3f;
+    public float range = 1.5f;
 
     private PlayerInputActions pc;
     [SerializeField] private InputAction interact;
