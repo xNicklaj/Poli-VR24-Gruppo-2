@@ -9,6 +9,7 @@ TagManager:
   - EventManager
   - SceneManager
   - DialogueManager
+  - PortalPlayerCollider
   layers:
   - Default
   - TransparentFX
