@@ -16,16 +16,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private Dialogue currentDialogue;
     private DialogueLine currentLine;
     private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
-    public UnityEvent inputNameEvent;
-    public UnityEvent changeFloorAndDomeEvent;
-    public UnityEvent godChoiceTaken;
-    public UnityEvent godDialogueEnded;
-    public UnityEvent SelfDialogueEnded;
-    public UnityEvent FirstSeedDialogueEnded;
-
-
-
-
+    public UnityEvent<string> dialogueEnded;
     public void Start()
     {
         format_data = new Dictionary<string, Func<string>>
@@ -200,32 +191,8 @@ public class DialogueManager : Singleton<DialogueManager>
     public void DialogueFollowUp(string dialogueName)
     {
         print(dialogueName);
-        switch (dialogueName)
-        {
-            case "Intro Dialogue 1":
-                inputNameEvent.Invoke();
-                break;
-            case "Intro Dialogue 3":
-                inputNameEvent.Invoke();
-                break;
-            case "God Dialogue 1":
-                changeFloorAndDomeEvent.Invoke();
-                break;
-            case "God Dialogue 3" or "God Dialogue 4":
-                godChoiceTaken.Invoke();
-                break;
-            case "God Dialogue 6":
-                godDialogueEnded.Invoke();
-                break;
-            case "Self Dialogue":
-                SelfDialogueEnded.Invoke();
-                break;
-            case "Seed Dialogue 1":
-                FirstSeedDialogueEnded.Invoke();
-                break;
-
-
-        }
+        dialogueEnded.Invoke(dialogueName);
+        
     }
 
 }

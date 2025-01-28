@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Cysharp.Threading.Tasks.Triggers;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,7 +21,10 @@ public class VoidScene : MonoBehaviour
     [SerializeField] private GameObject matchBoxPreset;
     [SerializeField] private GameObject candlePreset;
     [SerializeField] private GameObject SeedPreset;
-    [SerializeField] private GameObject StoneDoorPreset;
+    private GameObject seedInstance;
+    [SerializeField] private GameObject StoneDoorVoid;
+    [SerializeField] private GameObject StoneDoorVoidCollisionsOnly;
+
 
     [Header ("Color Parameters")]
     [SerializeField] [ColorUsage(false)]private Color totalBlackRoomColor;
@@ -55,12 +59,43 @@ public class VoidScene : MonoBehaviour
             
         }
     }
-    public void showNameInput(){
+    public void DialogueEndedFunctions(string dialogueName){
+        switch (dialogueName)
+        {
+            case "Intro Dialogue 1":
+                showNameInput();
+                break;
+            case "Intro Dialogue 3":
+                showNameInput();
+                break;
+            case "God Dialogue 1":
+                changeColor();
+                break;
+            case "God Dialogue 3" or "God Dialogue 4":
+                showGodDialogue();
+                break;
+            case "God Dialogue 6":
+                getSilent();
+                break;
+            case "Self Dialogue":
+                StartSeedDialogue();
+                break;
+            case "Seed Dialogue 1":
+                MakeSeedAppear();
+                break;
+            case "Seed Dialogue 2":
+                MakeSeedSelectable();
+                break;
+
+
+        }
+    }
+    private void showNameInput(){
         Debug.Log("anche senza dai");
         nameInputSystem.SetActive(true);
         nameInputSystem.GetComponent<NameInputSystem>().Appear();
     }
-    public void changeColor(){
+    private void changeColor(){
         gameSounds.GetComponent<AudioSource>().clip=colorChangeSound;
         gameSounds.GetComponent<AudioSource>().Play();
         DG.Tweening.Sequence sequence = DOTween.Sequence();
@@ -70,7 +105,7 @@ public class VoidScene : MonoBehaviour
         sequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 2")));
     }
 
-    public void showGodDialogue(){
+    private void showGodDialogue(){
         GetComponent<AudioSource>().volume=0f;
         gameSounds.GetComponent<AudioSource>().clip=godKilledSound;
         gameSounds.GetComponent<AudioSource>().Play();
@@ -82,7 +117,7 @@ public class VoidScene : MonoBehaviour
         sequence.Join(GetComponent<AudioSource>().DOFade(1f,4f));
         sequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 6")));
     }
-    public void getSilent(){
+    private void getSilent(){
         gameSounds.GetComponent<AudioSource>().clip=fluteSound;
         gameSounds.GetComponent<AudioSource>().Play();
         DG.Tweening.Sequence sequence = DOTween.Sequence();
@@ -102,6 +137,17 @@ public class VoidScene : MonoBehaviour
         if ((e == EventFlag.HasLighter)&&(status == true)){
             startSelfDialogue(new Vector3(0f,0f,1f).normalized*7,"Self 1");
         }
+        if ((e == EventFlag.HasSeed)&&(status == true)){
+            Vector3 rot = new Vector3(-playerReference.transform.forward.x,0,-playerReference.transform.forward.z);
+            StoneDoorVoidCollisionsOnly.transform.rotation = Quaternion.LookRotation(rot,Vector3.up);
+            StoneDoorVoid.transform.rotation = Quaternion.LookRotation(rot,Vector3.up);
+            Vector3 pos = new Vector3(playerReference.transform.position.x,0f,playerReference.transform.position.z);
+            Vector3 posNoY = new Vector3(playerReference.transform.position.x,StoneDoorVoid.transform.position.y,playerReference.transform.position.z);
+            StoneDoorVoidCollisionsOnly.transform.position=pos;
+            StoneDoorVoid.transform.position = posNoY;
+
+            StoneDoorVoid.transform.DOMoveY(0,1f).OnComplete(()=>Destroy(StoneDoorVoidCollisionsOnly.gameObject));
+        }
     }
     public void startSelfDialogue(Vector3 pos, string lineName){
         GameObject candleInstance = Instantiate(candlePreset,pos,new Quaternion());
@@ -114,14 +160,18 @@ public class VoidScene : MonoBehaviour
             Destroy(candle.gameObject);
         }
     }
-    public void StartSeedDialogue(){
+    private void StartSeedDialogue(){
         DG.Tweening.Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2.5f);
         sequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Seed Dialogue/Seed Dialogue 1")));
     }
-    public void MakeSeedAppear(){
-        Instantiate(SeedPreset,new Vector3(-10f,2f,0f),new Quaternion());
+    private void MakeSeedAppear(){
+        seedInstance = Instantiate(SeedPreset,new Vector3(-10f,2f,0f),new Quaternion());
         DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Seed Dialogue/Seed Dialogue 2"));
 
+    }
+    private void MakeSeedSelectable(){
+        seedInstance.GetComponent<seed>().particles.Play();
+        seedInstance.GetComponent<ActionSetFlag>().isSelectable = true;
     }
 }

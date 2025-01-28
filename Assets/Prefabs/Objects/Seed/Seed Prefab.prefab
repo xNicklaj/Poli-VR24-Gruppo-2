@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4869,6 +4869,8 @@ GameObject:
   - component: {fileID: 6272979695244141547}
   - component: {fileID: 8403902781492019953}
   - component: {fileID: 8947421432494819659}
+  - component: {fileID: 5776368868036424862}
+  - component: {fileID: 78323978693696572}
   m_Layer: 0
   m_Name: Seed Prefab
   m_TagString: Untagged
@@ -4905,9 +4907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68ac51cf2957fd4995d401f570c66dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSelectable: 1
-  isSelected: 0
   seedModel: {fileID: 4491753019128742165}
+  particles: {fileID: 6666385658564707321}
 --- !u!108 &8403902781492019953
 Light:
   m_ObjectHideFlags: 0
@@ -4993,6 +4994,45 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!136 &5776368868036424862
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545401407375913814}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.17
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!114 &78323978693696572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545401407375913814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 0
+  isSelected: 0
+  flag: 4
+  value: 1
 --- !u!1001 &3644679025713495108
 PrefabInstance:
   m_ObjectHideFlags: 0
