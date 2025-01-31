@@ -17,6 +17,8 @@ public class InGameUIManager : MonoBehaviour
     private PlayerInputActions inputActions;
     private InputAction exitMenu;
 
+    public AudioSource pauseSource;
+    public AudioSource unpauseSource;
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -69,6 +71,8 @@ public class InGameUIManager : MonoBehaviour
     private void PauseGame()
     {
         ShowPauseMenu();
+        pauseSource.mute = false;
+        pauseSource.Play();
         GameManager.Instance.PauseGame(true);
         Cursor.lockState = CursorLockMode.None;
     }
@@ -76,6 +80,8 @@ public class InGameUIManager : MonoBehaviour
     public void ResumeGame()
     {
         HideAllPauseMenus();
+        unpauseSource.mute = false;
+        unpauseSource.Play();
         GameManager.Instance.PauseGame(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
