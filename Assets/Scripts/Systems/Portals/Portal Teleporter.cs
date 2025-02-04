@@ -8,6 +8,8 @@ public class PortalTeleporter : MonoBehaviour
     public Transform player;
     public Transform receiver;
     [SerializeField]private bool arrival;
+
+
     private bool active = true;
 
     private bool playerIsOverlapping = false;
@@ -24,6 +26,7 @@ public class PortalTeleporter : MonoBehaviour
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.forward, portalToPlayer);
+            print("sono "+this+" prodotto "+dotProduct);
             if (dotProduct > 0f && active)
             {
                 float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
@@ -36,6 +39,9 @@ public class PortalTeleporter : MonoBehaviour
                 player.position = receiver.position + positionOffset;
 
                 playerIsOverlapping = false;
+            }
+            else{
+                active = false;
             }
         }
     }

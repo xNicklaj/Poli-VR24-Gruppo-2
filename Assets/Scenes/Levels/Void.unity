@@ -1669,6 +1669,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206687808}
   m_CullTransparentMesh: 1
+--- !u!1 &209432819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4464176341385285518, guid: a7f6344cc02a9a84aa551d1df6b0f00b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1120539426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &212141254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2655,6 +2661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A2_StoneWall6 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654647728644358734, guid: 9caea58431d8ece43b3203a392a3f489,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3963,6 +3974,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -462981019419857548, guid: 87c7d75af2e212f4bb88ab72859aea62,
         type: 3}
+    - target: {fileID: 399752999236998591, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 464299942433867666, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4569,6 +4585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A1_StoneWall5
+      objectReference: {fileID: 0}
+    - target: {fileID: 681784363327951800, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5195,6 +5216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AP4_A2_StoneWall4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7428989439243025047, guid: be2b7e10222080e449cec85b27b1fc3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7805514565344895021, guid: be2b7e10222080e449cec85b27b1fc3e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5297,7 +5323,7 @@ Transform:
   m_GameObject: {fileID: 751629980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.53, z: 0}
+  m_LocalPosition: {x: 0.1, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6653,6 +6679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AP4_A2_StoneWall6
       objectReference: {fileID: 0}
+    - target: {fileID: 7654647728644358734, guid: 9caea58431d8ece43b3203a392a3f489,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6746,6 +6777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A2_StoneWall6 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654647728644358734, guid: 9caea58431d8ece43b3203a392a3f489,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7278,6 +7314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AP4_A1_StoneWall3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1110047893672133140, guid: 9e906293818aa4a4f82f0d18475530c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7490,6 +7531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AP4_A1_StoneWall5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 681784363327951800, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7599,7 +7645,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1230784668}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4464176341385285518, guid: a7f6344cc02a9a84aa551d1df6b0f00b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1300190382}
   m_SourcePrefab: {fileID: 100100000, guid: a7f6344cc02a9a84aa551d1df6b0f00b, type: 3}
 --- !u!224 &1122210141 stripped
 RectTransform:
@@ -7782,6 +7832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A2_StoneWall4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428989439243025047, guid: be2b7e10222080e449cec85b27b1fc3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7805514565344895021, guid: be2b7e10222080e449cec85b27b1fc3e,
         type: 3}
@@ -8611,6 +8666,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AP4_A1_StoneWall5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 681784363327951800, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8622,6 +8682,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1120539426}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1300190382
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209432819}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3681a1b395d67cc48814f860267ac9de, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.35
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1319591925
 GameObject:
   m_ObjectHideFlags: 0
@@ -10402,6 +10558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A1_StoneWall3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110047893672133140, guid: 9e906293818aa4a4f82f0d18475530c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12825,6 +12986,9 @@ MonoBehaviour:
     type: 3}
   StoneDoorVoid: {fileID: 1319591925}
   StoneDoorVoidCollisionsOnly: {fileID: 1366578693}
+  StoneDoorVoidAudioSource: {fileID: 1300190382}
+  HouseDoorVoidCollisionsOnly: {fileID: 0}
+  HouseDoorVoidAudioSource: {fileID: 0}
   totalBlackRoomColor: {r: 0.02745098, g: 0.039215688, b: 0.050980393, a: 0}
   blackRoomColor: {r: 0.09803922, g: 0.11764706, b: 0.13725491, a: 1}
   whiteRoomColor: {r: 1, g: 0.9529412, b: 0.87058824, a: 0}
@@ -13197,6 +13361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AP4_A1_StoneWall5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 681784363327951800, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

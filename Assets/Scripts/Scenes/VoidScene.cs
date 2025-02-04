@@ -24,6 +24,9 @@ public class VoidScene : MonoBehaviour
     private GameObject seedInstance;
     [SerializeField] private GameObject StoneDoorVoid;
     [SerializeField] private GameObject StoneDoorVoidCollisionsOnly;
+    [SerializeField] private AudioSource StoneDoorVoidAudioSource;
+    [SerializeField] private GameObject HouseDoorVoidCollisionsOnly;
+    [SerializeField] private AudioSource HouseDoorVoidAudioSource;
 
 
     [Header ("Color Parameters")]
@@ -145,7 +148,7 @@ public class VoidScene : MonoBehaviour
             Vector3 posNoY = new Vector3(playerReference.transform.position.x,StoneDoorVoid.transform.position.y,playerReference.transform.position.z);
             StoneDoorVoidCollisionsOnly.transform.position=pos;
             StoneDoorVoid.transform.position = posNoY;
-
+            StoneDoorVoidAudioSource.Play();
             StoneDoorVoid.transform.DOMoveY(0,1f).OnComplete(()=>Destroy(StoneDoorVoidCollisionsOnly.gameObject));
         }
     }
