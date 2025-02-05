@@ -6,7 +6,11 @@ public class PortalCamera : MonoBehaviour
 {
     public Transform playerCamera;
     public Transform portal;
+    public Transform fence;
+
     public Transform otherPortal;
+    public Transform otherFence;
+
     [SerializeField] private bool arrival;
 
     // Update is called once per frame
@@ -18,12 +22,16 @@ public class PortalCamera : MonoBehaviour
         transform.position = pos;
         //transform.position = portal.position + playerOffsetFromPortal;
 
-        float angularDifferenceBetweenPortalRotation = Quaternion.Angle(portal.rotation, otherPortal.rotation);
+        float angularDifferenceBetweenPortalRotation = Vector3.Angle(fence.forward, otherFence.forward);
         if (arrival){
+            print("rotazione di "+fence+"è "+fence.rotation);
+            print("rotazione di "+otherFence+"è "+otherFence.rotation);
+            print("rotazione di "+otherPortal+"è "+otherPortal.rotation);
+
             angularDifferenceBetweenPortalRotation*=-1;
         }
-        Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotation, Vector3.up);
-        Vector3 newCameraDirection = portalRotationalDifference*playerCamera.forward;
+        //Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDifferenceBetweenPortalRotation, Vector3.up);
+        Vector3 newCameraDirection = angularDifferenceBetweenPortalRotation*playerCamera.forward;
         transform.rotation = Quaternion.LookRotation(newCameraDirection,Vector3.up);
     }
 }
