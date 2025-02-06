@@ -277,6 +277,107 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Clock"",
+            ""id"": ""605b206a-f86e-43c9-9f37-90685af471c4"",
+            ""actions"": [
+                {
+                    ""name"": ""ClockSwitchArm"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4075f50-d531-4ac0-b10e-74c8c5a09ae9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClockControlArm"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5114241-c40b-4040-b815-6f56b3f85a59"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClockExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""823ca9aa-ad91-484f-b5ed-c6a95fc13eb7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2f4ec670-43b6-4e97-9163-1d363634b6e2"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ClockSwitchArm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83aa9705-83f8-4b96-8ef9-e0bfc45ec952"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ClockSwitchArm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f9385a78-22a1-4762-9c1f-a5aa83a13130"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClockControlArm"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""3d245fb8-3157-4025-bff1-c510dfb9b906"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ClockControlArm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e59a9c82-5366-434f-98ff-9b16199f09e9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ClockControlArm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d8569d6-f1d4-4c07-8c7e-d750361220db"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ClockExit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -353,12 +454,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_ExitMenu = m_UI.FindAction("ExitMenu", throwIfNotFound: true);
         m_UI_LoadGame = m_UI.FindAction("LoadGame", throwIfNotFound: true);
+        // Clock
+        m_Clock = asset.FindActionMap("Clock", throwIfNotFound: true);
+        m_Clock_ClockSwitchArm = m_Clock.FindAction("ClockSwitchArm", throwIfNotFound: true);
+        m_Clock_ClockControlArm = m_Clock.FindAction("ClockControlArm", throwIfNotFound: true);
+        m_Clock_ClockExit = m_Clock.FindAction("ClockExit", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputActions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputActions.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Clock.enabled, "This will cause a leak and performance issues, PlayerInputActions.Clock.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -548,6 +655,68 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Clock
+    private readonly InputActionMap m_Clock;
+    private List<IClockActions> m_ClockActionsCallbackInterfaces = new List<IClockActions>();
+    private readonly InputAction m_Clock_ClockSwitchArm;
+    private readonly InputAction m_Clock_ClockControlArm;
+    private readonly InputAction m_Clock_ClockExit;
+    public struct ClockActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public ClockActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ClockSwitchArm => m_Wrapper.m_Clock_ClockSwitchArm;
+        public InputAction @ClockControlArm => m_Wrapper.m_Clock_ClockControlArm;
+        public InputAction @ClockExit => m_Wrapper.m_Clock_ClockExit;
+        public InputActionMap Get() { return m_Wrapper.m_Clock; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ClockActions set) { return set.Get(); }
+        public void AddCallbacks(IClockActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ClockActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ClockActionsCallbackInterfaces.Add(instance);
+            @ClockSwitchArm.started += instance.OnClockSwitchArm;
+            @ClockSwitchArm.performed += instance.OnClockSwitchArm;
+            @ClockSwitchArm.canceled += instance.OnClockSwitchArm;
+            @ClockControlArm.started += instance.OnClockControlArm;
+            @ClockControlArm.performed += instance.OnClockControlArm;
+            @ClockControlArm.canceled += instance.OnClockControlArm;
+            @ClockExit.started += instance.OnClockExit;
+            @ClockExit.performed += instance.OnClockExit;
+            @ClockExit.canceled += instance.OnClockExit;
+        }
+
+        private void UnregisterCallbacks(IClockActions instance)
+        {
+            @ClockSwitchArm.started -= instance.OnClockSwitchArm;
+            @ClockSwitchArm.performed -= instance.OnClockSwitchArm;
+            @ClockSwitchArm.canceled -= instance.OnClockSwitchArm;
+            @ClockControlArm.started -= instance.OnClockControlArm;
+            @ClockControlArm.performed -= instance.OnClockControlArm;
+            @ClockControlArm.canceled -= instance.OnClockControlArm;
+            @ClockExit.started -= instance.OnClockExit;
+            @ClockExit.performed -= instance.OnClockExit;
+            @ClockExit.canceled -= instance.OnClockExit;
+        }
+
+        public void RemoveCallbacks(IClockActions instance)
+        {
+            if (m_Wrapper.m_ClockActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IClockActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ClockActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ClockActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ClockActions @Clock => new ClockActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -605,5 +774,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnExitMenu(InputAction.CallbackContext context);
         void OnLoadGame(InputAction.CallbackContext context);
+    }
+    public interface IClockActions
+    {
+        void OnClockSwitchArm(InputAction.CallbackContext context);
+        void OnClockControlArm(InputAction.CallbackContext context);
+        void OnClockExit(InputAction.CallbackContext context);
     }
 }

@@ -27,5 +27,6 @@ public class ActionSetFlag : IInteractable
     public override void Interact()
     {
         SetFlag(flag, value);
+        isSelectable=false;
     }
 }

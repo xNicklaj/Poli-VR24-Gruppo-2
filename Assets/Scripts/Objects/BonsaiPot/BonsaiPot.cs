@@ -45,6 +45,7 @@ public class BonsaiPot : IInteractable
 
                     seed.position = this.transform.position + Vector3.up * 1.5f;
                     seed.DOMoveY(0.8f, 1f);
+                    EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,false);
                     state = plantState.PLANTED;
                 }
                 break;
@@ -79,6 +80,5 @@ public class BonsaiPot : IInteractable
                 break;
 
         }
-        throw new System.NotImplementedException();
     }
 }

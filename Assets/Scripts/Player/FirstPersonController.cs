@@ -105,7 +105,7 @@ public class FirstPersonController : MonoBehaviour
 
     #region Input Variables
 
-    private PlayerInputActions pc;
+    public PlayerInputActions pc;
     private InputAction move;
     private InputAction look;
     private InputAction sprint;

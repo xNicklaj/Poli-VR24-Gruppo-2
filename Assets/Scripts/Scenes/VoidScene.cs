@@ -55,10 +55,7 @@ public class VoidScene : MonoBehaviour
             print("yeah");
         }
         else{
-            print(DialogueManager.Instance);
-            DG.Tweening.Sequence sequence = DOTween.Sequence();
-            sequence.AppendInterval(2f);
-            sequence.AppendCallback(()=>MakeSeedAppear());
+            EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,true);
             
         }
     }
