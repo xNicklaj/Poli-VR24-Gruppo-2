@@ -55,7 +55,6 @@ public class FirstPersonController : MonoBehaviour
 
     public bool enableZoom = true;
     public bool holdToZoom = false;
-    public KeyCode zoomKey = KeyCode.Mouse1;
     public float zoomFOV = 30f;
     public float zoomStepTime = 5f;
 
@@ -109,6 +108,7 @@ public class FirstPersonController : MonoBehaviour
     private InputAction move;
     private InputAction look;
     private InputAction sprint;
+    private InputAction zoom;
     private Vector2 _moveInputVector;
     private Vector2 _lookInputVector;
 
@@ -158,10 +158,12 @@ public class FirstPersonController : MonoBehaviour
         move = pc.Player.Move;
         look = pc.Player.Look;
         sprint = pc.Player.Sprint;
+        zoom = pc.Player.Zoom;
 
         move.Enable();
         look.Enable();
         sprint.Enable();
+        zoom.Enable();
     }
     #endregion
     #region OnDisable Function
@@ -171,6 +173,7 @@ public class FirstPersonController : MonoBehaviour
         move.Disable();
         look.Disable();
         sprint.Disable();
+        zoom.Disable();
     }
     #endregion
     #region Start Function
@@ -205,7 +208,7 @@ public class FirstPersonController : MonoBehaviour
             case PlayerStates.MOVE:
                 //Moving function is in FixedState
 
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, FOV, sprintFOVStepTime * Time.deltaTime);
+                //playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, FOV, sprintFOVStepTime * Time.deltaTime);
                 MoveCamera();
                 CheckGround();
                 HeadBob();
@@ -297,8 +300,8 @@ public class FirstPersonController : MonoBehaviour
         if (enableZoom)
         {
             // Changes isZoomed when key is pressed
-            // Behavior for toogle zoom
-            if (Input.GetKeyDown(zoomKey) && !holdToZoom && !(playerState == PlayerStates.SPRINT))
+            // Behavior for toggle zoom
+            if (zoom.IsPressed() && !holdToZoom && !(playerState == PlayerStates.SPRINT))
             {
                 if (!isZoomed)
                 {
@@ -314,11 +317,11 @@ public class FirstPersonController : MonoBehaviour
             // Behavior for hold to zoom
             if (holdToZoom && !(playerState == PlayerStates.SPRINT))
             {
-                if (Input.GetKeyDown(zoomKey))
+                if (zoom.IsPressed())
                 {
                     isZoomed = true;
                 }
-                else if (Input.GetKeyUp(zoomKey))
+                else
                 {
                     isZoomed = false;
                 }
@@ -586,7 +589,6 @@ public class FirstPersonControllerEditor : Editor
 
         GUI.enabled = fpc.enableZoom;
         fpc.holdToZoom = EditorGUILayout.ToggleLeft(new GUIContent("Hold to Zoom", "Requires the player to hold the zoom key instead if pressing to zoom and unzoom."), fpc.holdToZoom);
-        fpc.zoomKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Zoom Key", "Determines what key is used to zoom."), fpc.zoomKey);
         fpc.zoomFOV = EditorGUILayout.Slider(new GUIContent("Zoom FOV", "Determines the field of view the camera zooms to."), fpc.zoomFOV, .1f, fpc.fov);
         fpc.zoomStepTime = EditorGUILayout.Slider(new GUIContent("Step Time", "Determines how fast the FOV transitions while zooming in."), fpc.zoomStepTime, .1f, 10f);
         GUI.enabled = true;
