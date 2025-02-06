@@ -249,6 +249,10 @@ public class FirstPersonController : MonoBehaviour
                 CheckGround();
                 HeadBob();
                 break;
+            case PlayerStates.IDLE:
+                CheckGround();
+                HeadBob();
+                break;
         }
     }
     #endregion
@@ -468,7 +472,7 @@ public class FirstPersonController : MonoBehaviour
         {
             switch (playerState)
             {
-                case PlayerStates.MOVE:
+                case PlayerStates.MOVE or PlayerStates.IDLE:
                     if (rb.velocity != Vector3.zero)
                     {
                         timer += Time.deltaTime * bobSpeed;

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,11 +8,21 @@ public class Cuckoo : IInteractable
 {
     [SerializeField] private FirstPersonController fpc;
     [SerializeField] private PlayerInput input;
+    [SerializeField] private GameObject playerCanvas;
+
     [SerializeField] private Transform hoursArm;
     [SerializeField] private Transform minutesArm;
     [SerializeField] private Renderer hoursArmMaterial;
     [SerializeField] private Renderer minutesArmMaterial;
     [SerializeField] private float selectionSpeed = 1f;
+    [SerializeField] private GameObject ClockTutorialUI;
+    private GameObject textInstance;
+
+    [Header("Bird Components")]
+    [SerializeField] private Transform door;
+    [SerializeField] private Transform arm;
+    [SerializeField] private Transform wings;
+
 
     private enum states
     {
@@ -22,69 +32,74 @@ public class Cuckoo : IInteractable
     }
     private states state = states.DESELECTED;
 
-    void Awake(){
+    void Awake()
+    {
         input = GetComponent<PlayerInput>();
-        input.enabled=true;
-        //input.DeactivateInput();
+        input.enabled = true;
+        input.DeactivateInput();
     }
     public override void Interact()
     {
         if (state == states.DESELECTED)
         {
             isSelectable = false;
-            fpc.playerState=FirstPersonController.PlayerStates.IDLE;
-
+            fpc.playerState = FirstPersonController.PlayerStates.IDLE;
             input.ActivateInput();
             state = states.HOURS_SELECTED;
+            fpc.HideCrosshair();
+            fpc.GetComponent<Interactor>().enabled=false;
+
+            textInstance = Instantiate(ClockTutorialUI,Vector2.zero, new Quaternion(),playerCanvas.transform);
+            textInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+            textInstance.GetComponent<CanvasGroup>().alpha=0f;
+            textInstance.GetComponent<CanvasGroup>().DOFade(1,0.5f);
         }
     }
-
-
-
-    public void OnClockSwitchArm(InputAction.CallbackContext context)
+    public void OnClockSwitchArm()
     {
-        print("prova");
-        if (context.started)
+        switch (state)
         {
-            print("pisello");
-            switch (state)
-            {
-                case states.HOURS_SELECTED:
-                    hoursArmMaterial.material.color = Color.white;
-                    state = states.MINUTES_SELECTED;
+            case states.HOURS_SELECTED:
+                hoursArmMaterial.material.color = Color.white;
+                state = states.MINUTES_SELECTED;
 
-                    break;
-                case states.MINUTES_SELECTED:
-                    minutesArmMaterial.material.color = Color.white;
-                    state = states.HOURS_SELECTED;
+                break;
+            case states.MINUTES_SELECTED:
+                minutesArmMaterial.material.color = Color.white;
+                state = states.HOURS_SELECTED;
 
-                    break;
-            }
+                break;
+
         }
     }
 
-    public void OnClockExit(InputAction.CallbackContext context)
+    public void OnClockExit()
     {
         if (state == states.DESELECTED)
         {
             return;
         }
-        if (context.started)
-        {
-            //isSelectable = false;
-            //hoursArmMaterial.material.color = Color.white;
-            //minutesArmMaterial.material.color = Color.white;
-            //state = states.DESELECTED;
-            //GetComponent<PlayerInput>().enabled = false;
-            //fpc.GetComponent<PlayerInput>().enabled = true;
+        textInstance.GetComponent<CanvasGroup>().DOFade(0,0.5f).OnComplete(()=>Destroy(textInstance.gameObject));
+        
+        fpc.playerState=FirstPersonController.PlayerStates.MOVE;
+        hoursArmMaterial.material.color = Color.white;
+        minutesArmMaterial.material.color = Color.white;
+        state = states.DESELECTED;
+        input.DeactivateInput();
+        isSelectable = true;
+        fpc.GetComponent<Interactor>().enabled=true;
+        
+        
+        float hoursArmRotation = hoursArm.localRotation.x*180;
+        float minutesArmRotation = minutesArm.localRotation.x*180;
+        if(hoursArmRotation>15&&hoursArmRotation<45&&minutesArmRotation<-75&&minutesArmRotation>-105){
+            print("orario corretto");
+            cuckooAnimation();
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if(input.actions["ClockControlArm"].WasPressedThisFrame()){
-            print("ma vaffanculo");
-        }
         switch (state)
         {
             case states.HOURS_SELECTED:
@@ -96,5 +111,14 @@ public class Cuckoo : IInteractable
                 minutesArm.Rotate(input.actions["ClockControlArm"].ReadValue<float>(), 0f, 0f);
                 break;
         }
+    }
+    void cuckooAnimation(){
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,-90f,0f),0.5f));
+        sequence.Join(arm.DOLocalMoveX(-0.02f,0.5f));
+        sequence.JoinCallback(()=>arm.GetComponent<AudioSource>().Play());
+        sequence.AppendInterval(1f);
+        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,0,0f),0.5f));
+        sequence.Join(arm.DOLocalMoveX(-0.002f,0.5f));
     }
 }

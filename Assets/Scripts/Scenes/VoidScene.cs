@@ -12,12 +12,14 @@ using UnityEngine.UIElements;
 public class VoidScene : MonoBehaviour
 {
     [SerializeField] private GameObject playerReference;
+    [SerializeField] private GameObject canvasReference;
+
 
     private List<GameObject> candles = new List<GameObject>();
-    [SerializeField] private GameObject nameInputSystem;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject dome;
     [Header("Presets")]
+    [SerializeField] private GameObject nameInputFieldPreset;
     [SerializeField] private GameObject matchBoxPreset;
     [SerializeField] private GameObject candlePreset;
     [SerializeField] private GameObject SeedPreset;
@@ -55,8 +57,7 @@ public class VoidScene : MonoBehaviour
             print("yeah");
         }
         else{
-            EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,true);
-            
+            EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,true);            
         }
     }
     public void DialogueEndedFunctions(string dialogueName){
@@ -91,8 +92,9 @@ public class VoidScene : MonoBehaviour
         }
     }
     private void showNameInput(){
-        Debug.Log("anche senza dai");
-        nameInputSystem.SetActive(true);
+        GameObject nameInputSystem = Instantiate(nameInputFieldPreset,Vector2.zero, new Quaternion(), canvasReference.transform);
+        nameInputSystem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        nameInputSystem.GetComponent<NameInputSystem>().player=playerReference;
         nameInputSystem.GetComponent<NameInputSystem>().Appear();
     }
     private void changeColor(){
