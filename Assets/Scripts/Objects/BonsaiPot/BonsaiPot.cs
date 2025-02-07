@@ -12,6 +12,8 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject HouseStonePortal;
     private AudioSource HouseStonePortalSoundSource;
     [SerializeField] private GameObject Trunk;
+    [SerializeField] private GameObject Branches;
+
     [SerializeField] private GameObject Leaves;
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
@@ -95,13 +97,20 @@ public class BonsaiPot : IInteractable
                 foreach(Transform leaf in Leaves.transform){
                     leaf.gameObject.GetComponent<MeshCollider>().convex=true;
                     leaf.gameObject.GetComponent<Rigidbody>().isKinematic=false;
-
-                    //leaf.gameObject.GetComponent<Rigidbody>().useGravity=true;
-
                     leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15f, 15f),1f,Random.Range(-15f, 15f)));
-
-
-
+                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 2"));
+                }
+                break;
+            case"Tree Dialogue 2":
+                foreach(Transform branch in Branches.transform){
+                    branch.DOScale(0,2.5f);
+                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 3"));
+                }
+                break;
+            case"Tree Dialogue 3":
+                foreach(Transform branch in Branches.transform){
+                    Trunk.transform.DOScale(0,2.5f);
+                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 }
                 break;
         }

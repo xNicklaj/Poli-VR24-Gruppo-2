@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Tree 2 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 445fa7788b146a14aa0724cb28873581, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: -1, y: 3, z: 75}
+  lightColor: {r: 0.5471698, g: 0, b: 0, a: 1}
   textString: Ha rami?
-  Position: {x: 0, y: 0, z: 0}
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0
