@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Tree 1 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: c1c2a1caed12ffb468cf671d8e340257, type: 2}
-  textString: Cosa hai ottenuto?
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: -4, y: 2.5, z: 73}
+  lightColor: {r: 0.8867924, g: 0.70187706, b: 0.23424703, a: 1}
+  textString: "Cosa \nhai ottenuto?"
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

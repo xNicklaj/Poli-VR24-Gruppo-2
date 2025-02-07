@@ -51,13 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34c6a9caa2a9db4680261a799821351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   textReference: {fileID: 325464695098847718}
   audioSource: {fileID: 8779349037718172411}
   lineLight: {fileID: 4392857995181924944}
   particles: {fileID: 6728803867685635334}
   dialogueManager: {fileID: 0}
-  isSelected: 0
-  isSelectable: 1
   dc: {fileID: 0}
   fpc: {fileID: 0}
 --- !u!82 &8779349037718172411
@@ -417,7 +417,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1227340803242525036, guid: 97bd5f7bebe674d4b9bdaa8b7fb1de01, type: 2}
+  - {fileID: 8290164734681730774, guid: 8eb4c3ed9d0c2ab4588793ba129ded1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 97bd5f7bebe674d4b9bdaa8b7fb1de01, type: 2}
-  m_sharedMaterial: {fileID: -1227340803242525036, guid: 97bd5f7bebe674d4b9bdaa8b7fb1de01,
+  m_fontAsset: {fileID: 11400000, guid: 8eb4c3ed9d0c2ab4588793ba129ded1a, type: 2}
+  m_sharedMaterial: {fileID: 8290164734681730774, guid: 8eb4c3ed9d0c2ab4588793ba129ded1a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -487,8 +487,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

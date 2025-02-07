@@ -18,6 +18,10 @@ public class Cuckoo : IInteractable
     [SerializeField] private GameObject ClockTutorialUI;
     private GameObject textInstance;
 
+    [HideInInspector]public bool completed=false;
+    [SerializeField] private GameObject wateringCanPrefab;
+
+
     [Header("Bird Components")]
     [SerializeField] private Transform door;
     [SerializeField] private Transform arm;
@@ -40,7 +44,7 @@ public class Cuckoo : IInteractable
     }
     public override void Interact()
     {
-        if (state == states.DESELECTED)
+        if (state == states.DESELECTED && completed==false)
         {
             isSelectable = false;
             fpc.playerState = FirstPersonController.PlayerStates.IDLE;
@@ -94,7 +98,9 @@ public class Cuckoo : IInteractable
         float minutesArmRotation = minutesArm.localRotation.x*180;
         if(hoursArmRotation>15&&hoursArmRotation<45&&minutesArmRotation<-75&&minutesArmRotation>-105){
             print("orario corretto");
+            completed = true;
             cuckooAnimation();
+            throwWateringCan();
         }
     }
     // Update is called once per frame
@@ -120,5 +126,11 @@ public class Cuckoo : IInteractable
         sequence.AppendInterval(1f);
         sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,0,0f),0.5f));
         sequence.Join(arm.DOLocalMoveX(-0.002f,0.5f));
+    }
+    
+    void throwWateringCan(){
+        Vector3 pos = fpc.transform.position - fpc.transform.forward*2f+fpc.transform.up*2f;
+        var wateringCanInstance = Instantiate(wateringCanPrefab,pos, new Quaternion());
+        wateringCanInstance.GetComponent<Rigidbody>().AddForce((fpc.transform.forward+fpc.transform.up)*10f);
     }
 }

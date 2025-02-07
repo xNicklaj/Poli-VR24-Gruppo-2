@@ -57,7 +57,7 @@ public class VoidScene : MonoBehaviour
             print("yeah");
         }
         else{
-            EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,true);            
+            //    
         }
     }
     public void DialogueEndedFunctions(string dialogueName){
