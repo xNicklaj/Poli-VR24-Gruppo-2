@@ -134,6 +134,7 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueMesh.dialogueManager = this;
         dialogueMesh.dc = dialogueLine;
         dialogueMesh.textReference.text = FormatString(dialogueLine.getLine());
+        dialogueMesh.textReference.fontSize=dialogueLine.getSize();
         dialogueMesh.fpc = playerReference;
         AdjustCollider(dialogueMesh);
         ApplyLightingAndAudio(dialogueMesh, dialogueLine.getLightColor(), dialogueLine.GetAudio());

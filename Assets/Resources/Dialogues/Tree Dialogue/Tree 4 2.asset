@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Tree 4 2
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 2543904537363ab4cabe15b726696dda, type: 2}
+  audioToPlay: {fileID: 0}
+  Position: {x: -3, y: 2.5, z: 69}
+  lightColor: {r: 1, g: 0.5339249, b: 0, a: 0.5019608}
   textString: Ma importa davvero in fondo?
-  Position: {x: 0, y: 0, z: 0}
+  textSize: 4
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0
