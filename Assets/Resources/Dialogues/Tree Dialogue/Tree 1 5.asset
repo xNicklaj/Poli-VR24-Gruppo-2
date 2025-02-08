@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: -1, y: 3, z: 75}
   lightColor: {r: 0.8867924, g: 0.70187706, b: 0.23424703, a: 1}
   textString: Quest'albero ha foglie?
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

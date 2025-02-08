@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: d0103498baecbc247884cfece69401aa, type: 2}
   audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  Position: {x: 1.7, y: 2.5, z: 71}
+  lightColor: {r: 0, g: 1, b: 0.075142145, a: 1}
   answer_text_string: "S\xEC"
   next_dialogue: {fileID: 11400000, guid: 3d4cb7c6e08b7914ba637c3bdf75015c, type: 2}

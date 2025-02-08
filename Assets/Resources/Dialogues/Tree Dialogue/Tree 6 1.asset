@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Tree 6 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  textString: "Giustamente, perch\xE9 non dovrebbe esserlo?"
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
+  lightColor: {r: 0, g: 1, b: 0.10928035, a: 1}
+  textString: "Giustamente, perch\xE9 non dovrebbe esserlo?"
+  textSize: 8
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

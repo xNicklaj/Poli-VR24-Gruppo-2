@@ -104,14 +104,11 @@ public class BonsaiPot : IInteractable
             case"Tree Dialogue 2":
                 foreach(Transform branch in Branches.transform){
                     branch.DOScale(0,2.5f);
-                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 3"));
-                }
-                break;
-            case"Tree Dialogue 3":
-                foreach(Transform branch in Branches.transform){
-                    Trunk.transform.DOScale(0,2.5f);
                     DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 }
+                break;
+            case"Tree Dialogue 5"or"Tree Dialogue 6":
+                                
                 break;
         }
     }

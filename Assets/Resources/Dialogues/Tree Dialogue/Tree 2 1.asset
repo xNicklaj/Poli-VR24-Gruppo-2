@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: -1, y: 3, z: 75}
   lightColor: {r: 0.5471698, g: 0, b: 0, a: 1}
   textString: Ha rami?
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

@@ -7,6 +7,7 @@ using UnityEngine;
 public class DialogueLine : DialogueComponent
 {
     [TextArea][SerializeField] private String textString;
+    [SerializeField] private int textSize = 8;
     
     [SerializeField] private List<DialogueAnswer> answers;
     
@@ -22,6 +23,9 @@ public class DialogueLine : DialogueComponent
     }
     public List<DialogueAnswer> getAnswers(){
         return answers;
+    }
+    public int getSize(){
+        return textSize;
     }
     
 }
