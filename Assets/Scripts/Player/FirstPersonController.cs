@@ -46,6 +46,9 @@ public class FirstPersonController : MonoBehaviour
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
 
+    // Hint
+    public GameObject hintGameObject;
+
     // Internal Variables
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -521,11 +524,13 @@ public class FirstPersonController : MonoBehaviour
     public void DisplayCrosshair()
     {
         crosshairObject.gameObject.SetActive(true);
+        hintGameObject.SetActive(true);
     }
 
     public void HideCrosshair()
     {
         crosshairObject.gameObject.SetActive(false);
+        hintGameObject.SetActive(false);
     }
     #endregion
 }
