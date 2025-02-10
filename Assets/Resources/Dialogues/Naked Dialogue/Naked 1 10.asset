@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
   m_Name: Naked 1 10
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: 5a0f875a2c2b63e47bc32576b88eee4a, type: 2}
-  textString: "Quanto di te \xE8 il semplice prodotto dell'ambiente in cui sei cresciuto?"
+  next: {fileID: 11400000, guid: 93e7e10d917c39f498c3710f65da4ea9, type: 2}
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
+  lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
+  textString: "Perch\xE9 non ti togli di dosso un'etica e una morale \nnate dalla
+    societ\xE0 in cui vivi?"
+  textSize: 8
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

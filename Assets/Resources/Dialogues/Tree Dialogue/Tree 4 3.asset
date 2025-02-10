@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Tree 4 3
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  audioToPlay: {fileID: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: 1, y: 2.5, z: 69}
-  lightColor: {r: 1, g: 0.5339249, b: 0, a: 0.5019608}
-  textString: "Guardalo, \xE8 ancora un albero?"
+  lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
+  textString: "Guardalo, \xE8 ancora \nun albero?"
   textSize: 4
   answers:
   - {fileID: 11400000, guid: f7f62199730e4944b80b372ab600a6a2, type: 2}

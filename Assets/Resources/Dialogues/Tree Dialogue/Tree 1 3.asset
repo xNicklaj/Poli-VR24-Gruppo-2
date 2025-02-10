@@ -15,7 +15,7 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: f1c60d2b281fce94da4c99ca5c0a2fcb, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: 1, y: 2.5, z: 69}
-  lightColor: {r: 0.8867924, g: 0.70187706, b: 0.23424703, a: 1}
+  lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
   textString: "Sei diverso \nda quel seme?"
   textSize: 4
   answers: []

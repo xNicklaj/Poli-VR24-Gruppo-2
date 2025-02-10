@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Tree 4 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 463e25fb7864abe468e53899aa2d4eda, type: 2}
-  audioToPlay: {fileID: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: -4, y: 2.5, z: 73}
-  lightColor: {r: 1, g: 0.5339249, b: 0, a: 0.5019608}
-  textString: "Quest'albero \xE8 vivo o morto?"
+  lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
+  textString: "Quest'albero \n\xE8 vivo o morto?"
   textSize: 4
   answers: []
   positionRelativeToPlayer: 0

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Tree 5 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 1.7, y: 2.5, z: 72}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
-  textString: "Hai prove per dimostrare che non \xE8 pi\xF9 un albero?"
-  textSize: 8
+  textString: "Hai prove per dimostrare \nche non \xE8 pi\xF9 un albero?"
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

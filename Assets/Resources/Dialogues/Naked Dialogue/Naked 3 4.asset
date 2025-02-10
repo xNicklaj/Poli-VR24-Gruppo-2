@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Naked 3 4
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 4edd9289760107f4f8eaf0da5bb42be2, type: 2}
-  textString: "Sei davvero di pi\xF9 di una macchina fatta per compiere imperativi
-    genetici?"
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
-  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: "Sei davvero di pi\xF9 di una macchina \nfatta per compiere imperativi
+    genetici?"
+  textSize: 8
+  answers: []
   positionRelativeToPlayer: 0

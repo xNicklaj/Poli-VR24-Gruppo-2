@@ -1,8 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
@@ -17,6 +17,11 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject Leaves;
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
+    [SerializeField] private Transform HousePortal;
+    [SerializeField] private Transform VoidPortal;
+    [SerializeField] private Transform VoidPortalStones;
+    [SerializeField] private Transform VoidPortalDisappearanceArea;
+
 
 
 
@@ -37,8 +42,6 @@ public class BonsaiPot : IInteractable
         state = plantState.PLANTED;
         DialogueManager.Instance.dialogueEnded.AddListener(SortDialogue);
         GameManager.Instance.eventFlags.SetFlag(EventFlag.HasWateringCan,true);
-
-
     }
 
     public override void Interact()
@@ -98,17 +101,25 @@ public class BonsaiPot : IInteractable
                     leaf.gameObject.GetComponent<MeshCollider>().convex=true;
                     leaf.gameObject.GetComponent<Rigidbody>().isKinematic=false;
                     leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15f, 15f),1f,Random.Range(-15f, 15f)));
-                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 2"));
                 }
+                DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 2"));
                 break;
             case"Tree Dialogue 2":
                 foreach(Transform branch in Branches.transform){
                     branch.DOScale(0,2.5f);
-                    DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 }
+                DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 break;
             case"Tree Dialogue 5"or"Tree Dialogue 6":
-                                
+                HousePortal.localPosition = new Vector3(5,-5,0);
+                HousePortal.Rotate(new Vector3(-1,-90,0));
+                HousePortal.gameObject.GetComponent<AudioSource>().Play();
+                HousePortal.DOLocalMoveY(0,3.5f);
+                VoidPortal.position = Vector3.zero;
+                foreach(Transform stone in VoidPortalStones){
+                    stone.gameObject.SetActive(false);
+                }
+                DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Naked Dialogue/Naked Dialogue 1"));
                 break;
         }
     }
