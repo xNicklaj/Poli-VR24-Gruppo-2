@@ -301,8 +301,6 @@ public class FirstPersonController : MonoBehaviour
                 pitch += sensitivity * _lookInputVector.y;
             }
 
-
-            print(look.activeControl);
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 

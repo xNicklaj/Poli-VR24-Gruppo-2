@@ -35,9 +35,9 @@ public class PortalCamera : MonoBehaviour
         float angularDifferenceBetweenPortalRotation = Vector3.Angle(fence.forward, otherFence.forward);
         if (arrival)
         {
-            print("rotazione di " + fence + " è " + fence.rotation);
-            print("rotazione di " + otherFence + " è " + otherFence.rotation);
-            print("rotazione di " + otherPortal + " è " + otherPortal.rotation);
+            //print("rotazione di " + fence + " è " + fence.rotation);
+            //print("rotazione di " + otherFence + " è " + otherFence.rotation);
+            //print("rotazione di " + otherPortal + " è " + otherPortal.rotation);
 
             angularDifferenceBetweenPortalRotation *= -1;
         }

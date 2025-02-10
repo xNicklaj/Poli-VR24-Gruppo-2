@@ -988,6 +988,11 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: gamepadSensitivity
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Name
@@ -1068,6 +1073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: interact.m_Name
       value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511562198324212775, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4846,6 +4856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DefaultActionMap
       value: Clock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500222307671011533, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1500222307671011533, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
