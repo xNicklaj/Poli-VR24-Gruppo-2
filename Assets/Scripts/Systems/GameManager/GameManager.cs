@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 
 public class GameManager : Singleton<GameManager>
@@ -28,6 +29,14 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private bool isGamePaused = false;
 
     public String player_name;
+
+    private PlayerInputActions pc;
+    public enum DeviceType
+    {
+        Keyboard,
+        Gamepad
+    }
+    public DeviceType currentDevice = DeviceType.Keyboard;
 
     private void Awake()
     {
@@ -56,6 +65,19 @@ public class GameManager : Singleton<GameManager>
 #if UNITY_EDITOR
         pia = new PlayerInputActions();
 #endif
+
+        InputSystem.onEvent.Call((_) =>
+        {
+            var device = InputSystem.GetDeviceById(_.deviceId);
+            if (device is Gamepad)
+            {
+                currentDevice = DeviceType.Gamepad;
+            }
+            if (device is Keyboard || device is Mouse)
+            {
+                currentDevice = DeviceType.Keyboard;
+            }
+        });
     }
 
 #region DEBUG_LOAD

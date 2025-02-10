@@ -38,6 +38,7 @@ public class FirstPersonController : MonoBehaviour
     public bool invertCamera = false;
     public bool cameraCanMove = true;
     public float mouseSensitivity = 2f;
+    public float gamepadSensitivity = 4f;
     public float maxLookAngle = 50f;
 
     // Crosshair
@@ -283,18 +284,25 @@ public class FirstPersonController : MonoBehaviour
         if (cameraCanMove)
         {
             _lookInputVector = look.ReadValue<Vector2>();
-            yaw = transform.localEulerAngles.y + _lookInputVector.x * mouseSensitivity;
+
+            var sensitivity = GameManager.Instance.currentDevice == GameManager.DeviceType.Keyboard ? mouseSensitivity : gamepadSensitivity;
+
+            yaw = transform.localEulerAngles.y + _lookInputVector.x * sensitivity;
+            
+
 
             if (!invertCamera)
             {
-                pitch -= mouseSensitivity * _lookInputVector.y;
+                pitch -= sensitivity * _lookInputVector.y;
             }
             else
             {
                 // Inverted Y
-                pitch += mouseSensitivity * _lookInputVector.y;
+                pitch += sensitivity * _lookInputVector.y;
             }
 
+
+            print(look.activeControl);
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
 

@@ -10,31 +10,9 @@ public class Hintcontroller : MonoBehaviour
     public GameObject kmHint;
     public GameObject gpHint;
 
-    public PlayerInputActions pc;
-    private DeviceType currentType = DeviceType.Keyboard;
-
-    enum DeviceType
-    {
-        Keyboard,
-        Gamepad
-    }
-
     void Awake()
     {
-        pc = new PlayerInputActions();
-
-        InputSystem.onEvent.Call((_) =>
-        {
-            var device = InputSystem.GetDeviceById(_.deviceId);
-            if (device is Gamepad)
-            {
-                currentType = DeviceType.Gamepad;
-            }
-            if (device is Keyboard || device is Mouse)
-            {
-                currentType = DeviceType.Keyboard;
-            }
-        });
+        
     }
 
     void Start()
@@ -45,7 +23,7 @@ public class Hintcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentType == DeviceType.Keyboard)
+        if(GameManager.Instance.currentDevice == GameManager.DeviceType.Keyboard)
         {
             kmHint.SetActive(true);
             gpHint.SetActive(false);
