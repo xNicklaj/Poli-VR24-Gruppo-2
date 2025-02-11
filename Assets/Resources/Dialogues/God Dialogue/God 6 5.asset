@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   audioToPlay: {fileID: 8300000, guid: 8598392a94dcd2e4e9f303e8f7f3149d, type: 3}
-  Position: {x: 0, y: 5, z: 0}
+  Position: {x: 0, y: 3, z: 0}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: "E se Nietzche avesse avuto ragione \nsu tutta la linea?"
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

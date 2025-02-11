@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks.Triggers;
 using DG.Tweening;
+using GLTFast.Schema;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,9 +16,6 @@ public class VoidScene : MonoBehaviour
 {
     [SerializeField] private GameObject playerReference;
     [SerializeField] private GameObject canvasReference;
-
-
-    private List<GameObject> candles = new List<GameObject>();
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject dome;
     [SerializeField] private Light domeSpotlight;
@@ -25,13 +23,14 @@ public class VoidScene : MonoBehaviour
     [SerializeField] private GameObject nameInputFieldPreset;
     [SerializeField] private GameObject matchBoxPreset;
     [SerializeField] private GameObject candlePreset;
+    [SerializeField] private GameObject CandleFather;
+
     [SerializeField] private GameObject SeedPreset;
     private GameObject seedInstance;
     [SerializeField] private GameObject StoneDoorVoid;
     [SerializeField] private GameObject StoneDoorVoidCollisionsOnly;
     [SerializeField] private AudioSource StoneDoorVoidAudioSource;
-    [SerializeField] private GameObject HouseDoorVoidCollisionsOnly;
-    [SerializeField] private AudioSource HouseDoorVoidAudioSource;
+    [SerializeField] private GameObject StoneDoorHouse;
     [SerializeField] private GameObject TripletPreset;
     [SerializeField] private GameObject TripletFather;
     [SerializeField] private GameObject DNAPrefab;
@@ -39,6 +38,8 @@ public class VoidScene : MonoBehaviour
     [SerializeField] private GameObject EyesClosedPrefab;
     [SerializeField] private GameObject EyesClosedTextPrefab;
     [SerializeField] private GameObject FloatingManPrefab;
+    [SerializeField] private GameObject bonsai;
+
     private GameObject FloatingManInstance;
     [Header("Color Parameters")]
     [SerializeField][ColorUsage(false)] private Color totalBlackRoomColor;
@@ -68,7 +69,7 @@ public class VoidScene : MonoBehaviour
         }
         else
         {
-            DialogueManager.Instance.dialogueEnded.Invoke("Naked Dialogue 3");    
+            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));   
         }
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -80,6 +81,9 @@ public class VoidScene : MonoBehaviour
                 break;
             case "Intro Dialogue 3":
                 showNameInput();
+                break;
+            case "Intro Dialogue 4":
+                DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 1"));
                 break;
             case "God Dialogue 1":
                 changeColor();
@@ -127,6 +131,7 @@ public class VoidScene : MonoBehaviour
         sequence.Append(floor.GetComponent<Renderer>().material.DOColor(whiteRoomColor, 3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(whiteRoomColor, 3.5f));
         sequence.Join(GetComponent<AudioSource>().DOFade(0, 3.5f));
+        sequence.Join(domeSpotlight.DOIntensity(1000,3.5f));
         sequence.AppendCallback(() => DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 2")));
     }
 
@@ -139,6 +144,8 @@ public class VoidScene : MonoBehaviour
         DG.Tweening.Sequence sequence = DOTween.Sequence();
         sequence.Append(floor.GetComponent<Renderer>().material.DOColor(redRoomColor, 3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(redRoomColor, 3.5f));
+        sequence.Join(domeSpotlight.DOColor(redRoomColor, 3.5f));
+
         sequence.JoinCallback(() => GetComponent<AudioSource>().Play());
         sequence.Join(GetComponent<AudioSource>().DOFade(1f, 4f));
         sequence.AppendCallback(() => DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 6")));
@@ -178,18 +185,19 @@ public class VoidScene : MonoBehaviour
             StoneDoorVoid.transform.position = posNoY;
             StoneDoorVoidAudioSource.Play();
             StoneDoorVoid.transform.DOMoveY(0, 1f).OnComplete(() => Destroy(StoneDoorVoidCollisionsOnly.gameObject));
+            StoneDoorHouse.transform.position=new Vector3(StoneDoorHouse.transform.position.x,0,StoneDoorHouse.transform.position.z);
+            bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.NOT_PLANTED;
         }
     }
     public void startSelfDialogue(Vector3 pos, string lineName)
     {
-        GameObject candleInstance = Instantiate(candlePreset, pos, new Quaternion());
+        GameObject candleInstance = Instantiate(candlePreset, pos, new Quaternion(),CandleFather.transform);
         candleInstance.GetComponent<Candle>().dialogueLine = Resources.Load<DialogueLine>("Dialogues/Self Dialogue/" + lineName);
         candleInstance.GetComponent<Candle>().setVoidScene(this);
-        candles.Add(candleInstance);
     }
     public void destroyCandles()
     {
-        foreach (GameObject candle in candles)
+        foreach (Transform candle in CandleFather.transform)
         {
             Destroy(candle.gameObject);
         }

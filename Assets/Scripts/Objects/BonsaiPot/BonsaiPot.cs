@@ -18,6 +18,8 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
     [SerializeField] private Transform HousePortal;
+    [SerializeField] private VoidScene VoidScene;
+
     [SerializeField] private Transform VoidPortal;
     [SerializeField] private Transform VoidPortalStones;
     [SerializeField] private Transform VoidPortalDisappearanceArea;
@@ -25,13 +27,13 @@ public class BonsaiPot : IInteractable
 
 
 
-    private enum plantState
+    public enum plantState
     {
         NOT_PLANTED,
         PLANTED,
         GROWN,
     }
-    private plantState state;
+    public plantState state;
     void Start()
     {
         HouseStonePortalSoundSource = HouseStonePortal.GetComponent<AudioSource>();
@@ -39,7 +41,7 @@ public class BonsaiPot : IInteractable
         Leaves.SetActive(false);
         Flowers.SetActive(false);
         seed.position = this.transform.position - Vector3.up * 2;
-        state = plantState.PLANTED;
+        state = plantState.NOT_PLANTED;
         DialogueManager.Instance.dialogueEnded.AddListener(SortDialogue);
     }
 
@@ -57,6 +59,7 @@ public class BonsaiPot : IInteractable
                     seed.DOMoveY(0.8f, 1f);
                     EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,false);
                     state = plantState.PLANTED;
+                    VoidScene.destroyCandles();
                 }
                 break;
             case plantState.PLANTED:
