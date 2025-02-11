@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d479fbd8fddbbd418d0d7f2cebac588, type: 3}
   m_Name: Naked 3 7
   m_EditorClassIdentifier: 
-  next: {fileID: 11400000, guid: 5cfca1be68ac7924aa1a5d5c9a638fc6, type: 2}
-  textString: "Perch\xE9 non ti togli i limiti?"
-  Position: {x: 0, y: 0, z: 0}
-  answers: []
+  next: {fileID: 11400000, guid: ff047ed6674470540bc41c54e928db0a, type: 2}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: -12, y: 3, z: 0}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: Cosa sono sinistra e destra?
+  textSize: 8
+  answers: []
   positionRelativeToPlayer: 0

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Naked 2 1
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: aa7e177106edf1943a2435071d594dd4, type: 2}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 0, y: 3, z: -6}
+  lightColor: {r: 0.4716981, g: 0.02002491, b: 0.09325312, a: 1}
   textString: Le riconosci?
-  Position: {x: 0, y: 0, z: 0}
+  textSize: 8
   answers: []
-  lightColor: {r: 0, g: 0, b: 0, a: 0}
   positionRelativeToPlayer: 0

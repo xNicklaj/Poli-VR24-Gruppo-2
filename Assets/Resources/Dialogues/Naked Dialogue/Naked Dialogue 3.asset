@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effad0ca33770a24596dbb35853f2497, type: 3}
   m_Name: Naked Dialogue 3
   m_EditorClassIdentifier: 
-  firstComponent: {fileID: 11400000, guid: 56207d72c95decc43995e01ce0a9ee12, type: 2}
+  firstComponent: {fileID: 11400000, guid: aa70a91a056720d45b8edb29af8c271d, type: 2}

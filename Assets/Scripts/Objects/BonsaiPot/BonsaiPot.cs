@@ -41,7 +41,6 @@ public class BonsaiPot : IInteractable
         seed.position = this.transform.position - Vector3.up * 2;
         state = plantState.PLANTED;
         DialogueManager.Instance.dialogueEnded.AddListener(SortDialogue);
-        GameManager.Instance.eventFlags.SetFlag(EventFlag.HasWateringCan,true);
     }
 
     public override void Interact()
@@ -88,6 +87,7 @@ public class BonsaiPot : IInteractable
                     }
                     DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 1"));
                 }
+                state = plantState.GROWN;
                 break;
             case plantState.GROWN:
                 break;
@@ -114,8 +114,9 @@ public class BonsaiPot : IInteractable
                 HousePortal.localPosition = new Vector3(5,-5,0);
                 HousePortal.Rotate(new Vector3(-1,-90,0));
                 HousePortal.gameObject.GetComponent<AudioSource>().Play();
-                HousePortal.DOLocalMoveY(0,3.5f);
+                HousePortal.DOLocalMoveY(0,2.5f);
                 VoidPortal.position = Vector3.zero;
+                VoidPortalDisappearanceArea.position = Vector3.zero;
                 foreach(Transform stone in VoidPortalStones){
                     stone.gameObject.SetActive(false);
                 }

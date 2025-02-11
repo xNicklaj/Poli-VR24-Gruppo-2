@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Naked 1 7
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: b2eae4c29d7a748469099e9edf86573a, type: 2}
-  audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 0, y: 3, z: 3}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: Della famiglia che ti ha cresciuto?
   textSize: 8

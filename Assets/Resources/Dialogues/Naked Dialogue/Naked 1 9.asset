@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Naked 1 9
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: d94dba14e21d53f4cbbe0e6d419a9a06, type: 2}
-  audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 6, y: 3, z: 12}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: "Perch\xE9 non ti togli queste idee superflue \nnate dall'esterno?"
   textSize: 8

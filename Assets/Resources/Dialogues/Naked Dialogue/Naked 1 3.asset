@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Naked 1 3
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 751c12472e41245408632ec94b058954, type: 2}
-  audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 6, y: 3, z: -12}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: Ti senti ancora {player_name}?
   textSize: 8

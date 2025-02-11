@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Naked 1 8
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: ef31b99f6739f7943aa813cb3ef98608, type: 2}
-  audioToPlay: {fileID: 0}
-  Position: {x: 0, y: 0, z: 0}
+  audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
+  Position: {x: 0, y: 1.5, z: 3}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: "Degli algoritmi che ti guidano \nogni giorno?"
   textSize: 8
