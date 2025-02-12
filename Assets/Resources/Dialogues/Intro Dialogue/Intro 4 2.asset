@@ -16,6 +16,7 @@ MonoBehaviour:
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: -5, y: 3, z: 0}
   lightColor: {r: 0.15294118, g: 0, b: 0.5764706, a: 0.57254905}
-  textString: E se {player_name} non fosse il tuo nome?
+  textString: "E se {player_name} \nnon fosse il tuo nome?"
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

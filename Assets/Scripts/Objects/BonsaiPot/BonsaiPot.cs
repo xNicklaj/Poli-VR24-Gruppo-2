@@ -9,6 +9,11 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class BonsaiPot : IInteractable
 {
     [SerializeField] private AudioClip treeGrowingAudio;
+    [SerializeField] private AudioClip wateringSound;
+    [SerializeField] private AudioClip seedPlantingSound;
+    [SerializeField] private AudioClip leavesFlyingSound;
+
+
     [SerializeField] private GameObject HouseStonePortal;
     private AudioSource HouseStonePortalSoundSource;
     [SerializeField] private GameObject Trunk;
@@ -56,7 +61,7 @@ public class BonsaiPot : IInteractable
                     HouseStonePortal.transform.DOMoveY(-5, 3f);
 
                     seed.position = this.transform.position + Vector3.up * 1.5f;
-                    seed.DOMoveY(0.8f, 1f);
+                    seed.DOMoveY(0.8f, 1f).OnComplete(()=>AudioSource.PlayClipAtPoint(seedPlantingSound,seed.position,0.5f));
                     EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,false);
                     state = plantState.PLANTED;
                     VoidScene.destroyCandles();
@@ -66,7 +71,8 @@ public class BonsaiPot : IInteractable
                 if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasWateringCan) &&
                 !GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
                 {
-                    AudioSource.PlayClipAtPoint(treeGrowingAudio,transform.position,0.5f);
+                    AudioSource.PlayClipAtPoint(wateringSound,transform.position,0.5f);
+                    AudioSource.PlayClipAtPoint(treeGrowingAudio,transform.position,0.2f);
                     float trunkScale = Trunk.transform.localScale.x;
                     Trunk.transform.localScale = Vector3.zero;
                     Trunk.SetActive(true);
@@ -105,12 +111,14 @@ public class BonsaiPot : IInteractable
                     leaf.gameObject.GetComponent<Rigidbody>().isKinematic=false;
                     leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15f, 15f),1f,Random.Range(-15f, 15f)));
                 }
+                AudioSource.PlayClipAtPoint(leavesFlyingSound,transform.position,0.5f);
                 DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 2"));
                 break;
             case"Tree Dialogue 2":
                 foreach(Transform branch in Branches.transform){
                     branch.DOScale(0,2.5f);
                 }
+                AudioSource.PlayClipAtPoint(treeGrowingAudio,transform.position,0.2f);
                 DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 break;
             case"Tree Dialogue 5"or"Tree Dialogue 6":

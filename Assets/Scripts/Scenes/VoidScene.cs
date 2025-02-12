@@ -43,9 +43,17 @@ public class VoidScene : MonoBehaviour
     private GameObject FloatingManInstance;
     [Header("Color Parameters")]
     [SerializeField][ColorUsage(false)] private Color totalBlackRoomColor;
+    [SerializeField][ColorUsage(false)] private Color totalBlackRoomColorCaustics;
+
     [SerializeField][ColorUsage(false)] private Color blackRoomColor;
+    [SerializeField][ColorUsage(false)] private Color blackRoomColorCaustics;
+
     [SerializeField][ColorUsage(false)] private Color whiteRoomColor;
+    [SerializeField][ColorUsage(false)] private Color whiteRoomColorCaustics;
+
     [SerializeField][ColorUsage(false)] private Color redRoomColor;
+    [SerializeField][ColorUsage(false)] private Color redRoomColorCaustics;
+
     [Header("Audio Parameters")]
     [SerializeField] private GameObject gameSounds;
     [SerializeField] private AudioClip colorChangeSound;
@@ -60,7 +68,8 @@ public class VoidScene : MonoBehaviour
     void Start()
     {
         EventManager.Instance.flagHasBeenSet.AddListener(inventorySetFlagSorting);
-        floor.GetComponent<Renderer>().material.color = blackRoomColor;
+        floor.GetComponent<Renderer>().material.SetColor("_BaseColor",blackRoomColor);
+        floor.GetComponent<Renderer>().material.SetColor("_CausticsColor",blackRoomColorCaustics);
         dome.GetComponent<Renderer>().material.color = blackRoomColor;
 
         if (GameManager.Instance.eventFlags.GetFlag(EventFlag.IntroDialogueEnded))
@@ -69,7 +78,7 @@ public class VoidScene : MonoBehaviour
         }
         else
         {
-            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));   
+            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Seed Dialogue/Seed Dialogue 1"));   
         }
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -128,10 +137,11 @@ public class VoidScene : MonoBehaviour
         gameSounds.GetComponent<AudioSource>().clip = colorChangeSound;
         gameSounds.GetComponent<AudioSource>().Play();
         DG.Tweening.Sequence sequence = DOTween.Sequence();
-        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(whiteRoomColor, 3.5f));
+        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(whiteRoomColor,"_BaseColor",3.5f));
+        sequence.Join(floor.GetComponent<Renderer>().material.DOColor(whiteRoomColorCaustics,"_CausticsColor",3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(whiteRoomColor, 3.5f));
         sequence.Join(GetComponent<AudioSource>().DOFade(0, 3.5f));
-        sequence.Join(domeSpotlight.DOIntensity(1000,3.5f));
+        sequence.Join(domeSpotlight.DOIntensity(200,3.5f));
         sequence.AppendCallback(() => DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 2")));
     }
 
@@ -142,7 +152,8 @@ public class VoidScene : MonoBehaviour
         gameSounds.GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().clip = godKilledSoundtrack;
         DG.Tweening.Sequence sequence = DOTween.Sequence();
-        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(redRoomColor, 3.5f));
+        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(redRoomColor,"_BaseColor",3.5f));
+        sequence.Join(floor.GetComponent<Renderer>().material.DOColor(redRoomColorCaustics,"_CausticsColor",3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(redRoomColor, 3.5f));
         sequence.Join(domeSpotlight.DOColor(redRoomColor, 3.5f));
 
@@ -155,7 +166,8 @@ public class VoidScene : MonoBehaviour
         gameSounds.GetComponent<AudioSource>().clip = fluteSound;
         gameSounds.GetComponent<AudioSource>().Play();
         DG.Tweening.Sequence sequence = DOTween.Sequence();
-        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor, 6f));
+        sequence.Append(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor,"_BaseColor",3.5f));
+        sequence.Join(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColorCaustics,"_CausticsColor",3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor, 6f));
         sequence.Join(GetComponent<AudioSource>().DOFade(0f, 4f));
         sequence.AppendInterval(1f);
@@ -284,7 +296,8 @@ public class VoidScene : MonoBehaviour
         seq.AppendInterval(2f);
         seq.Append(eyesClosedText.GetComponent<CanvasGroup>().DOFade(0f,0.75f));
         seq.AppendInterval(2f);
-        seq.Append(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor, 3.5f));
+        seq.Append(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor,"_BaseColor",3.5f));
+        seq.Join(floor.GetComponent<Renderer>().material.DOColor(totalBlackRoomColorCaustics,"_CausticsColor",3.5f));
         seq.Join(dome.GetComponent<Renderer>().material.DOColor(totalBlackRoomColor, 3.5f));
         seq.JoinCallback(()=>domeSpotlight.gameObject.SetActive(false));
         seq.AppendCallback(()=>FloatingManInstance=Instantiate(FloatingManPrefab,new Vector3(0f,0f,6f),new Quaternion(0f,-180f,0f,1)));
