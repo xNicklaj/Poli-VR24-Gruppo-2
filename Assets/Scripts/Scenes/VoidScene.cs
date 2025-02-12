@@ -78,7 +78,7 @@ public class VoidScene : MonoBehaviour
         }
         else
         {
-            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Seed Dialogue/Seed Dialogue 1"));   
+            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));   
         }
     }
     public void DialogueEndedFunctions(string dialogueName)
