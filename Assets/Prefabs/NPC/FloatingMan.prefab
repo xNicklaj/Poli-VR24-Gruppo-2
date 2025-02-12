@@ -5075,6 +5075,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6244108682677487108}
+  - component: {fileID: 7966454253565886991}
+  - component: {fileID: 5292478602261681420}
   m_Layer: 0
   m_Name: FloatingMan
   m_TagString: Untagged
@@ -5101,6 +5103,46 @@ Transform:
   - {fileID: 5113726351210452857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7966454253565886991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172745141966021585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230489d01f1dbfe4ba0ebf74b1003117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  transitionAudio: {fileID: 8300000, guid: 21ea3914ecac9be49b648711caca3c7a, type: 3}
+  playerReference: {fileID: 0}
+  scene: {fileID: 0}
+  postProcessingVolume: {fileID: 0}
+  isRelative: 0
+--- !u!135 &5292478602261681420
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172745141966021585}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.3
+  m_Center: {x: 0, y: 3, z: 0.8}
 --- !u!1001 &3749287829967250003
 PrefabInstance:
   m_ObjectHideFlags: 0

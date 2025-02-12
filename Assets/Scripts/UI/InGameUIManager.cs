@@ -11,8 +11,10 @@ public class InGameUIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject quitToMenu;
     public GameObject quitToDesktop;
+    public GameObject museumExitForm;
     public GameObject saveDate;
     public GameObject lastSaveWrapper;
+    [SerializeField] private GameObject playerReference;
 
     private PlayerInputActions inputActions;
     private InputAction exitMenu;
@@ -71,19 +73,29 @@ public class InGameUIManager : MonoBehaviour
     private void PauseGame()
     {
         ShowPauseMenu();
+        playerReference.GetComponent<Interactor>().enabled=false;
         pauseSource.mute = false;
         pauseSource.Play();
         GameManager.Instance.PauseGame(true);
         Cursor.lockState = CursorLockMode.None;
     }
+    public void ExitMuseum(){
+        showMuseumExitForm();
+        GameManager.Instance.PauseGame(true);
+        Cursor.lockState = CursorLockMode.None;
+    }
+    
 
     public void ResumeGame()
     {
+        if(!museumExitForm.activeInHierarchy){
+            unpauseSource.mute = false;
+            unpauseSource.Play();
+        }
         HideAllPauseMenus();
-        unpauseSource.mute = false;
-        unpauseSource.Play();
         GameManager.Instance.PauseGame(false);
         Cursor.lockState = CursorLockMode.Locked;
+        playerReference.GetComponent<Interactor>().enabled=true;
     }
 
     public void BackToMenu()
@@ -102,6 +114,14 @@ public class InGameUIManager : MonoBehaviour
         quitToDesktop.SetActive(false);
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(false);
+        museumExitForm.SetActive(false);
+    }
+    public void showMuseumExitForm(){
+        pauseMenu.SetActive(false);
+        quitToDesktop.SetActive(false);
+        quitToMenu.SetActive(false);
+        lastSaveWrapper.SetActive(false);
+        museumExitForm.SetActive(true);
     }
 
     public void ShowQuitToMenu()
@@ -110,6 +130,7 @@ public class InGameUIManager : MonoBehaviour
         quitToDesktop.SetActive(false);
         quitToMenu.SetActive(true);
         lastSaveWrapper.SetActive(true);
+        museumExitForm.SetActive(false);
     }
 
     public void ShowQuitToDesktop()
@@ -118,6 +139,7 @@ public class InGameUIManager : MonoBehaviour
         quitToDesktop.SetActive(true);
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(true);
+        museumExitForm.SetActive(false);
     }
 
     public void HideAllPauseMenus()
@@ -126,6 +148,7 @@ public class InGameUIManager : MonoBehaviour
         quitToDesktop.SetActive(false);
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(false);
+        museumExitForm.SetActive(false);
     }
 
     private void RecalcSaveDate()

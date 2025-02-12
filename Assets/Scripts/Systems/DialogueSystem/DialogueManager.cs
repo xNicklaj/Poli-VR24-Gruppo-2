@@ -15,7 +15,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private Dictionary<string, Func<string>> format_data;
     private Dialogue currentDialogue;
     private DialogueLine currentLine;
-    private readonly List<DialogueMesh> dialogueMeshes = new List<DialogueMesh>();
+    private readonly Queue<DialogueMesh> dialogueMeshes = new Queue<DialogueMesh>();
     public UnityEvent<string> dialogueEnded;
     public void Start()
     {
@@ -73,12 +73,16 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public DialogueMesh DisplayLine(DialogueLine dialogueLine)
     {
+        if(dialogueMeshes.Count>2){
+            DialogueMesh mesh = dialogueMeshes.Dequeue();
+            mesh.textReference.DOFade(0f,1.5f).OnComplete(()=>Destroy(mesh.gameObject));            
+        }
         Vector3 linePosition = dialogueLine.positionRelativeToPlayer
             ? playerJointReference.transform.position + Camera.main.transform.rotation * dialogueLine.getPosition()
             : dialogueLine.getPosition();
 
         var dialogueMesh = Instantiate(dialogueMeshPrefab, linePosition, Quaternion.LookRotation(linePosition - playerJointReference.transform.position));
-        dialogueMeshes.Add(dialogueMesh);
+        dialogueMeshes.Enqueue(dialogueMesh);
 
         SetupDialogueMesh(dialogueMesh, dialogueLine);
         dialogueMesh.lineLight.intensity = 0f;
@@ -92,8 +96,8 @@ public class DialogueManager : Singleton<DialogueManager>
     public DialogueMesh DisplayCandleLine(DialogueLine dialogueLine, Vector3 position)
     {
         currentLine = dialogueLine;
-        var dialogueMesh = Instantiate(dialogueMeshPrefab, position, Quaternion.LookRotation(position - playerJointReference.transform.position));
-        dialogueMeshes.Add(dialogueMesh);
+        DialogueMesh dialogueMesh = Instantiate(dialogueMeshPrefab, position, Quaternion.LookRotation(position - playerJointReference.transform.position));
+        dialogueMeshes.Enqueue(dialogueMesh);
         SetupDialogueMesh(dialogueMesh, dialogueLine);
         dialogueMesh.lineLight.intensity = 0f;
         dialogueMesh.textReference.alpha = 0f;
@@ -123,7 +127,7 @@ public class DialogueManager : Singleton<DialogueManager>
             var rotation = Quaternion.LookRotation(position - playerJointReference.transform.position);
 
             var dialogueAnswer = Instantiate(dialogueMeshPrefab, position, rotation);
-            dialogueMeshes.Add(dialogueAnswer);
+            dialogueMeshes.Enqueue(dialogueAnswer);
 
             SetupDialogueAnswerMesh(dialogueAnswer, answer);
         }

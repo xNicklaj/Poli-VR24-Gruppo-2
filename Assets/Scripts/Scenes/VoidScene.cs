@@ -9,12 +9,15 @@ using GLTFast.Schema;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class VoidScene : MonoBehaviour
 {
+    [SerializeField] private Scene MuseumScene;
     [SerializeField] private GameObject playerReference;
+    [SerializeField] private Volume volumeReference;
     [SerializeField] private GameObject canvasReference;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject dome;
@@ -78,7 +81,8 @@ public class VoidScene : MonoBehaviour
         }
         else
         {
-            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));   
+            DOTween.Sequence().AppendInterval(3.5f);
+            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));
         }
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -304,7 +308,11 @@ public class VoidScene : MonoBehaviour
         seq.AppendCallback(()=>playerReference.GetComponent<FirstPersonController>().transform.position = new Vector3(0f,playerReference.GetComponent<FirstPersonController>().transform.position.y,-24f));
         seq.AppendCallback(()=>playerReference.GetComponent<FirstPersonController>().transform.LookAt(new Vector3(0f,playerReference.GetComponent<FirstPersonController>().transform.position.y,0f)));
         seq.Append(eyesClosed.GetComponent<CanvasGroup>().DOFade(0f,4f));
-        seq.AppendCallback(()=>playerReference.GetComponent<FirstPersonController>().playerState=FirstPersonController.PlayerStates.MOVE)
+        seq.AppendCallback(()=>playerReference.GetComponent<FirstPersonController>().playerState=FirstPersonController.PlayerStates.MOVE);
+        seq.AppendCallback(()=>FloatingManInstance.GetComponent<FloatingMan>().scene=MuseumScene);
+        seq.AppendCallback(()=>FloatingManInstance.GetComponent<FloatingMan>().postProcessingVolume=volumeReference);
+        seq.AppendCallback(()=>FloatingManInstance.GetComponent<FloatingMan>().playerReference=playerReference)
+
         .OnComplete(()=>Destroy(eyesClosed)).OnComplete(()=>Destroy(eyesClosedText));
 
     }
