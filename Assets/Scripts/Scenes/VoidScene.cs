@@ -81,8 +81,9 @@ public class VoidScene : MonoBehaviour
         }
         else
         {
-            DOTween.Sequence().AppendInterval(3.5f);
-            DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1"));
+            DG.Tweening.Sequence introsequence = DOTween.Sequence();
+            introsequence.AppendInterval(5f);
+            introsequence.AppendCallback(()=>DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Intro Dialogue/Intro Dialogue 1")));
         }
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -192,9 +193,9 @@ public class VoidScene : MonoBehaviour
         }
         if ((e == EventFlag.HasSeed) && (status == true))
         {
-            Vector3 rot = new Vector3(-playerReference.transform.forward.x, 0, -playerReference.transform.forward.z);
-            StoneDoorVoidCollisionsOnly.transform.rotation = Quaternion.LookRotation(rot, Vector3.up);
-            StoneDoorVoid.transform.rotation = Quaternion.LookRotation(rot, Vector3.up);
+            Vector3 rot = new Vector3(-playerReference.transform.forward.x, StoneDoorVoidCollisionsOnly.transform.position.y, -playerReference.transform.forward.z);
+            StoneDoorVoidCollisionsOnly.transform.LookAt(rot);
+            StoneDoorVoid.transform.transform.LookAt(rot);
             Vector3 pos = new Vector3(playerReference.transform.position.x, 0f, playerReference.transform.position.z);
             Vector3 posNoY = new Vector3(playerReference.transform.position.x, StoneDoorVoid.transform.position.y, playerReference.transform.position.z);
             StoneDoorVoidCollisionsOnly.transform.position = pos;
@@ -313,7 +314,7 @@ public class VoidScene : MonoBehaviour
         seq.AppendCallback(()=>FloatingManInstance.GetComponent<FloatingMan>().postProcessingVolume=volumeReference);
         seq.AppendCallback(()=>FloatingManInstance.GetComponent<FloatingMan>().playerReference=playerReference)
 
-        .OnComplete(()=>Destroy(eyesClosed)).OnComplete(()=>Destroy(eyesClosedText));
+        .OnComplete(()=>Destroy(eyesClosed.gameObject)).OnComplete(()=>Destroy(eyesClosedText.gameObject));
 
     }
 }

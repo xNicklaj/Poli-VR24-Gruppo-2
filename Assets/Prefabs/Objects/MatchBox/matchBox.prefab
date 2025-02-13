@@ -111,7 +111,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.4000003, y: 1.0000001, z: 4}
+  m_Size: {x: 3.7, y: 2, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2215699667376130092
 Rigidbody:
@@ -345,5 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628936f5a2e9704a984be223b44f7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
   flag: 2
   value: 1

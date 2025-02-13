@@ -63,8 +63,8 @@ public class BonsaiPot : IInteractable
                     seed.position = this.transform.position + Vector3.up * 1.5f;
                     seed.DOMoveY(0.8f, 1f).OnComplete(()=>AudioSource.PlayClipAtPoint(seedPlantingSound,seed.position,0.5f));
                     EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,false);
-                    state = plantState.PLANTED;
                     VoidScene.destroyCandles();
+                    state = plantState.PLANTED;
                 }
                 break;
             case plantState.PLANTED:
@@ -127,6 +127,7 @@ public class BonsaiPot : IInteractable
                 HousePortal.gameObject.GetComponent<AudioSource>().Play();
                 HousePortal.DOLocalMoveY(0,2.5f);
                 VoidPortal.position = Vector3.zero;
+                VoidPortal.LookAt(new Vector3(0,VoidPortal.position.y,12));
                 VoidPortalDisappearanceArea.position = Vector3.zero;
                 foreach(Transform stone in VoidPortalStones){
                     stone.gameObject.SetActive(false);

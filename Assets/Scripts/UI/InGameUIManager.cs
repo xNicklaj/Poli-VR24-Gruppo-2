@@ -3,22 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject quitToMenu;
     public GameObject quitToDesktop;
     public GameObject museumExitForm;
+    [Header("Menu First Buttons")]
+    [SerializeField] private Button QuitMenuFirstButton;
+    [SerializeField] private Button QuitDesktopMenuFirstButton;
+    [SerializeField] private Button EscMenuFirstButton;
+    [SerializeField] private Button MuseumFormFirstButton;
+    [Header("Save Parameters")]
     public GameObject saveDate;
     public GameObject lastSaveWrapper;
+    [Header("Other Parameters")]
     [SerializeField] private GameObject playerReference;
 
     private PlayerInputActions inputActions;
     private InputAction exitMenu;
-
+    [Header("Audio Parameters")]
     public AudioSource pauseSource;
     public AudioSource unpauseSource;
     private void Awake()
@@ -93,6 +103,7 @@ public class InGameUIManager : MonoBehaviour
             unpauseSource.Play();
         }
         HideAllPauseMenus();
+        EventSystem.current.SetSelectedGameObject(null);
         GameManager.Instance.PauseGame(false);
         Cursor.lockState = CursorLockMode.Locked;
         playerReference.GetComponent<Interactor>().enabled=true;
@@ -115,6 +126,9 @@ public class InGameUIManager : MonoBehaviour
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(false);
         museumExitForm.SetActive(false);
+        if(GameManager.Instance.currentDevice != GameManager.DeviceType.Keyboard){
+        EventSystem.current.SetSelectedGameObject(EscMenuFirstButton.gameObject);
+        }
     }
     public void showMuseumExitForm(){
         pauseMenu.SetActive(false);
@@ -122,6 +136,9 @@ public class InGameUIManager : MonoBehaviour
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(false);
         museumExitForm.SetActive(true);
+        if(GameManager.Instance.currentDevice != GameManager.DeviceType.Keyboard){
+        EventSystem.current.SetSelectedGameObject(MuseumFormFirstButton.gameObject);
+        }
     }
 
     public void ShowQuitToMenu()
@@ -131,6 +148,9 @@ public class InGameUIManager : MonoBehaviour
         quitToMenu.SetActive(true);
         lastSaveWrapper.SetActive(true);
         museumExitForm.SetActive(false);
+        if(GameManager.Instance.currentDevice != GameManager.DeviceType.Keyboard){
+        EventSystem.current.SetSelectedGameObject(QuitMenuFirstButton.gameObject);
+        }
     }
 
     public void ShowQuitToDesktop()
@@ -140,6 +160,10 @@ public class InGameUIManager : MonoBehaviour
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(true);
         museumExitForm.SetActive(false);
+        if(GameManager.Instance.currentDevice != GameManager.DeviceType.Keyboard){
+        EventSystem.current.SetSelectedGameObject(QuitDesktopMenuFirstButton.gameObject);
+        }
+
     }
 
     public void HideAllPauseMenus()
@@ -149,6 +173,8 @@ public class InGameUIManager : MonoBehaviour
         quitToMenu.SetActive(false);
         lastSaveWrapper.SetActive(false);
         museumExitForm.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+
     }
 
     private void RecalcSaveDate()

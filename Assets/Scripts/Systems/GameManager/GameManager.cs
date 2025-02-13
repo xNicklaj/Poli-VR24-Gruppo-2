@@ -67,8 +67,7 @@ public class GameManager : Singleton<GameManager>
 #endif
 
         InputSystem.onEvent.Call((_) =>
-        {
-            var device = InputSystem.GetDeviceById(_.deviceId);
+        {  var device = InputSystem.GetDeviceById(_.deviceId);
             if (device is Gamepad)
             {
                 currentDevice = DeviceType.Gamepad;
@@ -78,6 +77,7 @@ public class GameManager : Singleton<GameManager>
                 currentDevice = DeviceType.Keyboard;
             }
         });
+          
     }
 
 #region DEBUG_LOAD

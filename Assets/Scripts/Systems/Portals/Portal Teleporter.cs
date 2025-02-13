@@ -7,15 +7,17 @@ public class PortalTeleporter : MonoBehaviour
 {
     public Transform player;
     public Transform receiver;
-    [SerializeField]private bool arrival;
+    [SerializeField] private bool arrival;
 
 
     private bool active = true;
 
     private bool playerIsOverlapping = false;
 
-    void Start(){
-        if (arrival){
+    void Start()
+    {
+        if (arrival)
+        {
             active = !active;
         }
     }
@@ -26,21 +28,17 @@ public class PortalTeleporter : MonoBehaviour
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.forward, portalToPlayer);
-            //print("sono "+this+" prodotto "+dotProduct);
             if (dotProduct > 0f && active)
             {
-                float rotationDiff = Quaternion.Angle(transform.rotation, receiver.rotation);
-                if(arrival){
-                    rotationDiff *=-1f;
-                }
-                rotationDiff += 180;
+                float rotationDiff = Vector3.SignedAngle(transform.forward, receiver.forward,Vector3.up) + 180;                
                 player.Rotate(Vector3.up, rotationDiff);
-                Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f)*portalToPlayer;
+                Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = receiver.position + positionOffset;
 
                 playerIsOverlapping = false;
             }
-            else{
+            else
+            {
                 active = false;
             }
         }
