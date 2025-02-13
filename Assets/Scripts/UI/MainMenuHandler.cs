@@ -30,9 +30,13 @@ public class MainMenuHandler : MonoBehaviour
         EventFlags eventFlags = SaveManager.LoadEventFlags();
         if (!eventFlags.Equals(null) && subText)
         {
-            if ((!eventFlags.playerName.Equals(null)) && !(eventFlags.playerName == "Player") && !(eventFlags.playerName == "nome_nullo"))
+            if (eventFlags.playerName != null)
             {
-                subText.text = "Cosa vuoi fare della tua vita, " + eventFlags.playerName + "?";
+                if ((!(eventFlags.playerName == "null")) && !(eventFlags.playerName == "Player") && !(eventFlags.playerName == "nome_nullo"))
+                {
+                    subText.gameObject.SetActive(true);
+                    subText.text = "Cosa vuoi fare della tua vita, " + eventFlags.playerName + "?";
+                }
             }
             if (eventFlags.GetFlag(EventFlag.MuseumExited))
             {
@@ -51,18 +55,18 @@ public class MainMenuHandler : MonoBehaviour
 
     public void PlayGame()
     {
-        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1,false);
+        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
     }
     public void goToMuseum()
     {
-        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1,true);
+        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, true);
     }
 
     public void LoadGame()
     {
         GameManager.Instance.LoadGame();
         GameManager.Instance.eventFlags.PrintFlags();
-        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1,false);
+        GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
     }
 
     public void QuitGame()

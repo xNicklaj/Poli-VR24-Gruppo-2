@@ -5033,6 +5033,7 @@ MonoBehaviour:
   isSelected: 0
   flag: 4
   value: 1
+  saveOnSet: 1
 --- !u!1001 &3644679025713495108
 PrefabInstance:
   m_ObjectHideFlags: 0

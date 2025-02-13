@@ -54,6 +54,7 @@ public class NameInputSystem : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(inputField.transform.DOMoveY(inputField.transform.position.y- 10.0f,1f));
         sequence.Join(canvasGroup.DOFade(0f,1f)).OnComplete(()=>Disappear());
+        EventManager.Instance.saveRequested.Invoke();
     }
     
 }
