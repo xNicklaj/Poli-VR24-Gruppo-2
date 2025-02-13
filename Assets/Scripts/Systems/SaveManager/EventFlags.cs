@@ -33,6 +33,7 @@ public enum EventFlag
 public class EventFlags
 {
     [JsonProperty] private List<bool> events = new List<bool>();
+    [JsonProperty] public string playerName = "Player";
 
     public EventFlags()
     {

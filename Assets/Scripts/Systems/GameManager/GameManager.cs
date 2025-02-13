@@ -146,8 +146,8 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadGame()
     {
-        
         eventFlags = new EventFlags(SaveManager.LoadEventFlags());
+        player_name = eventFlags.playerName;
     }
 
     public void LoadScene(int sceneIndex){

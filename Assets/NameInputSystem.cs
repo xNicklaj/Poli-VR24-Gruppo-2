@@ -50,6 +50,7 @@ public class NameInputSystem : MonoBehaviour
         submit.Disable();
         inputField.DeactivateInputField();
         GameManager.Instance.player_name=inputField.text;
+        GameManager.Instance.eventFlags.playerName = inputField.text;
         Sequence sequence = DOTween.Sequence();
         sequence.Append(inputField.transform.DOMoveY(inputField.transform.position.y- 10.0f,1f));
         sequence.Join(canvasGroup.DOFade(0f,1f)).OnComplete(()=>Disappear());
