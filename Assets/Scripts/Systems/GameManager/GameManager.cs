@@ -152,13 +152,17 @@ public class GameManager : Singleton<GameManager>
         player_name = eventFlags.playerName;
     }
 
-    public void LoadScene(int sceneIndex){
+    public void LoadScene(int sceneIndex, bool goToMuseum){
         Sequence sequence = DOTween.Sequence();
         sequence.Append(TransitionLayout.DOFade(1f,1f));
         sequence.AppendInterval(0.5f);
         sequence.AppendCallback(()=>UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex));
         sequence.AppendInterval(0.5f);
+        if(goToMuseum){
+            sequence.AppendCallback(()=>_sm.SetScene(_sm.scenes[1]));
+        }
         sequence.Append(TransitionLayout.DOFade(0f,1f));
+        
         //UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 

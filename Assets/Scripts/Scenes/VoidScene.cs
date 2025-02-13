@@ -16,7 +16,7 @@ using UnityEngine.UIElements;
 
 public class VoidScene : MonoBehaviour
 {
-    [SerializeField] private Scene MuseumScene;
+    public Scene MuseumScene;
     [SerializeField] private GameObject playerReference;
     [SerializeField] private Volume volumeReference;
     [SerializeField] private GameObject canvasReference;
@@ -126,6 +126,8 @@ public class VoidScene : MonoBehaviour
                 MakeHelixAppear();
                 break;
             case "Naked Dialogue 3":
+                GameManager.Instance.eventFlags.SetFlag(EventFlag.NakedDialogueEnded,true);
+                EventManager.Instance.saveRequested.Invoke();
                 closeEyes();
                 break;
 
@@ -386,6 +388,28 @@ public class VoidScene : MonoBehaviour
             playerReference.transform.position = new Vector3(0f,0f,70f);
             StoneDoorVoidTeleporter.toggleActive();
             StoneDoorHouseTeleporter.toggleActive();
+        }
+        else if (CheckFlag(EventFlag.NakedDialogueEnded) && !CheckFlag(EventFlag.MuseumEntered))
+        {
+            floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
+            floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
+            dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
+            GetComponent<AudioSource>().volume = 0f;
+            bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
+            DG.Tweening.Sequence introsequence = DOTween.Sequence();
+            introsequence.AppendInterval(4f);
+            introsequence.AppendCallback(()=>DialogueManager.Instance.dialogueEnded.Invoke("Naked Dialogue 3"));
+        }
+        else if (CheckFlag(EventFlag.MuseumEntered) && !CheckFlag(EventFlag.MuseumExited))
+        {
+            floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
+            floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
+            dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
+            GetComponent<AudioSource>().volume = 0f;
+            bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
+            DG.Tweening.Sequence introsequence = DOTween.Sequence();
+            introsequence.AppendCallback(()=>SceneManager.Instance.SetScene(MuseumScene, false));
+            introsequence.AppendInterval(4f);
         }
         else
         {

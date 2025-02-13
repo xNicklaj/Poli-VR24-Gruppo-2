@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5020318bf8304114d88a156d5f6cc258
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - UIPreset: {fileID: 86550606560889564, guid: 2c9aed5a3b738b249bdcf1d4e9d4137d,
+      type: 3}
+  - playerCanvas: {instanceID: 0}
+  - bookPageFlipAudio: {instanceID: 0}
+  - particles: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

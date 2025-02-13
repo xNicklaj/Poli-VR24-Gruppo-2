@@ -43,6 +43,7 @@ public class FloatingMan : IInteractable
         seq.Append(DOTween.To(()=>colorAdjustments.postExposure.value, x=> colorAdjustments.postExposure.value=x,0f,3.5f));
         seq.AppendCallback(()=>playerReference.GetComponent<FirstPersonController>().playerState=FirstPersonController.PlayerStates.MOVE);
         GameManager.Instance.eventFlags.SetFlag(EventFlag.MuseumEntered,true);
+        EventManager.Instance.saveRequested.Invoke();
         
     }
 

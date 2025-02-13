@@ -5,29 +5,24 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Book : IInteractable
+public class Painting : IInteractable
 {
     [SerializeField] private GameObject UIPreset;
-    [SerializeField] private GameObject playerCanvas;
-    [SerializeField] private AudioClip bookPageFlipAudio;
-    [SerializeField] private ParticleSystem particles;
-    [SerializeField][TextArea] private string text;
+    [SerializeField] private Canvas canvasReference;
+    [SerializeField][TextArea(10,15)] private string text;
     [SerializeField]private float persistenceTime=3f;
     private GameObject textInstance;
     public override void Interact()
     {
-        if(particles){
-            particles.Stop();
-        }
-        Transform test = playerCanvas.transform.Find("bookText(Clone)");
+
+        Transform test = canvasReference.transform.Find("StatueText(Clone)");
         if(test!=null){
             Destroy(test.gameObject);
             }
-        textInstance = Instantiate(UIPreset,playerCanvas.transform);
+        textInstance = Instantiate(UIPreset,canvasReference.transform);
         textInstance.transform.SetAsFirstSibling();
-        if(bookPageFlipAudio != null) AudioSource.PlayClipAtPoint(bookPageFlipAudio,new Vector3(-4f,1.2f,75f),0.5f);
         textInstance.GetComponent<CanvasGroup>().alpha=0f;
-        textInstance.GetComponent<bookText>().textReference.text=text;
+        textInstance.GetComponent<paintingText>().textReference.text=text;
         DG.Tweening.Sequence sequence = DOTween.Sequence();
         sequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(1,1f));
         sequence.AppendInterval(persistenceTime);
