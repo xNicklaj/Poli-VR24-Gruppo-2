@@ -22,7 +22,7 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject Leaves;
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
-    [SerializeField] private ParticleSystem particles;
+    public ParticleSystem particles;
     [SerializeField] private Transform HousePortal;
     [SerializeField] private VoidScene VoidScene;
     [SerializeField] private Transform VoidPortal;
@@ -38,15 +38,18 @@ public class BonsaiPot : IInteractable
         PLANTED,
         GROWN,
     }
-    public plantState state;
-    void Start()
+    public plantState state = plantState.NOT_PLANTED;
+    void Awake()
     {
-        HouseStonePortalSoundSource = HouseStonePortal.GetComponent<AudioSource>();
         Trunk.SetActive(false);
         Leaves.SetActive(false);
         Flowers.SetActive(false);
+    }
+    void Start()
+    {
+        HouseStonePortalSoundSource = HouseStonePortal.GetComponent<AudioSource>();
         seed.position = this.transform.position - Vector3.up * 2;
-        state = plantState.NOT_PLANTED;
+
         DialogueManager.Instance.dialogueEnded.AddListener(SortDialogue);
     }
 
@@ -57,23 +60,23 @@ public class BonsaiPot : IInteractable
             case plantState.NOT_PLANTED:
                 if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
                 {
+                    print("pianto il seme");
                     particles.Stop();
                     HouseStonePortalSoundSource.Play();
                     HouseStonePortal.transform.DOMoveY(-5, 3f);
 
                     seed.position = this.transform.position + Vector3.up * 1.5f;
-                    seed.DOMoveY(0.8f, 1f).OnComplete(()=>AudioSource.PlayClipAtPoint(seedPlantingSound,seed.position,0.5f));
-                    EventManager.Instance.setFlag.Invoke(EventFlag.HasSeed,false);
+                    seed.DOMoveY(0.8f, 1f).OnComplete(() => AudioSource.PlayClipAtPoint(seedPlantingSound, seed.position, 0.5f));
+                    GameManager.Instance.eventFlags.SetFlag(EventFlag.HasSeed, false);
                     VoidScene.destroyCandles();
                     state = plantState.PLANTED;
                 }
                 break;
             case plantState.PLANTED:
-                if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasWateringCan) &&
-                !GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
+                if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasWateringCan) && !GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
                 {
-                    AudioSource.PlayClipAtPoint(wateringSound,transform.position,0.5f);
-                    AudioSource.PlayClipAtPoint(treeGrowingAudio,transform.position,0.2f);
+                    AudioSource.PlayClipAtPoint(wateringSound, transform.position, 0.5f);
+                    AudioSource.PlayClipAtPoint(treeGrowingAudio, transform.position, 0.2f);
                     float trunkScale = Trunk.transform.localScale.x;
                     Trunk.transform.localScale = Vector3.zero;
                     Trunk.SetActive(true);
@@ -95,44 +98,61 @@ public class BonsaiPot : IInteractable
                         flower.localScale = Vector3.zero;
                         flower.transform.DOScale(flowerScale, 6f);
                     }
+                    state = plantState.GROWN;
+                    EventManager.Instance.saveRequested.Invoke(); // Tell the GameManager to save the game
+                    GetComponent<BoxCollider>().enabled = false;
                     DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 1"));
                 }
-                state = plantState.GROWN;
-                EventManager.Instance.saveRequested.Invoke(); // Tell the GameManager to save the game
-                GetComponent<BoxCollider>().enabled = false;
                 break;
             case plantState.GROWN:
                 break;
 
         }
     }
-    void SortDialogue(string dialogueName){
-        switch(dialogueName){
+    public void setGrown()
+    {
+        Trunk.SetActive(true);
+        Branches.SetActive(false);
+        Leaves.SetActive(true);
+        foreach (Transform leaf in Leaves.transform)
+        {
+            leaf.gameObject.GetComponent<MeshCollider>().convex = true;
+            leaf.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5f, 5f), 1f, Random.Range(-5f, 5f)));
+        }
+    }
+    void SortDialogue(string dialogueName)
+    {
+        switch (dialogueName)
+        {
             case "Tree Dialogue 1":
-                foreach(Transform leaf in Leaves.transform){
-                    leaf.gameObject.GetComponent<MeshCollider>().convex=true;
-                    leaf.gameObject.GetComponent<Rigidbody>().isKinematic=false;
-                    leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15f, 15f),1f,Random.Range(-15f, 15f)));
+                foreach (Transform leaf in Leaves.transform)
+                {
+                    leaf.gameObject.GetComponent<MeshCollider>().convex = true;
+                    leaf.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    leaf.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15f, 15f), 1f, Random.Range(-15f, 15f)));
                 }
-                AudioSource.PlayClipAtPoint(leavesFlyingSound,transform.position,0.5f);
+                AudioSource.PlayClipAtPoint(leavesFlyingSound, transform.position, 0.5f);
                 DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 2"));
                 break;
-            case"Tree Dialogue 2":
-                foreach(Transform branch in Branches.transform){
-                    branch.DOScale(0,2.5f);
+            case "Tree Dialogue 2":
+                foreach (Transform branch in Branches.transform)
+                {
+                    branch.DOScale(0, 2.5f);
                 }
-                AudioSource.PlayClipAtPoint(treeGrowingAudio,transform.position,0.2f);
+                AudioSource.PlayClipAtPoint(treeGrowingAudio, transform.position, 0.2f);
                 DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 4"));
                 break;
-            case"Tree Dialogue 5"or"Tree Dialogue 6":
-                HousePortal.localPosition = new Vector3(5,-5,0);
-                HousePortal.Rotate(new Vector3(-1,-90,0));
+            case "Tree Dialogue 5" or "Tree Dialogue 6":
+                HousePortal.localPosition = new Vector3(5, -5, 0);
+                HousePortal.Rotate(new Vector3(-1, -90, 0));
                 HousePortal.gameObject.GetComponent<AudioSource>().Play();
-                HousePortal.DOLocalMoveY(0,2.5f);
+                HousePortal.DOLocalMoveY(0, 2.5f);
                 VoidPortal.position = Vector3.zero;
-                VoidPortal.LookAt(new Vector3(0,VoidPortal.position.y,12));
+                VoidPortal.LookAt(new Vector3(0, VoidPortal.position.y, 12));
                 VoidPortalDisappearanceArea.position = Vector3.zero;
-                foreach(Transform stone in VoidPortalStones){
+                foreach (Transform stone in VoidPortalStones)
+                {
                     stone.gameObject.SetActive(false);
                 }
                 DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Naked Dialogue/Naked Dialogue 1"));

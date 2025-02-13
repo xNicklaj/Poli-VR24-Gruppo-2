@@ -197,7 +197,6 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         print(dialogueName);
         dialogueEnded.Invoke(dialogueName);
-        
     }
 
 }

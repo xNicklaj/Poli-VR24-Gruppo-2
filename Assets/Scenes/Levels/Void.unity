@@ -6268,6 +6268,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 498885552}
   m_SourcePrefab: {fileID: 100100000, guid: c16ca27753aa74a44b13852020f9ee00, type: 3}
+--- !u!114 &618253449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
+    type: 3}
+  m_PrefabInstance: {fileID: 618253448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9c637cead6b2f4e8691e0448411455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623792227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7172427546135046186, guid: c16ca27753aa74a44b13852020f9ee00,
@@ -7512,6 +7524,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 618253448}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &751629982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3202573474384072556, guid: c16ca27753aa74a44b13852020f9ee00,
+    type: 3}
+  m_PrefabInstance: {fileID: 618253448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac197a3ef2441a845a19aff0b6fa08d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &762285897
 GameObject:
   m_ObjectHideFlags: 0
@@ -26433,9 +26457,11 @@ MonoBehaviour:
   SeedPreset: {fileID: 4545401407375913814, guid: 2d0fbad16e067e3459a5af7f5a77c0ac,
     type: 3}
   StoneDoorVoid: {fileID: 1319591925}
+  StoneDoorVoidTeleporter: {fileID: 1230784669}
   StoneDoorVoidCollisionsOnly: {fileID: 1366578693}
   StoneDoorVoidAudioSource: {fileID: 1300190382}
   StoneDoorHouse: {fileID: 1733916472}
+  StoneDoorHouseTeleporter: {fileID: 751629982}
   TripletPreset: {fileID: 635459101572547893, guid: ae1a2b81152bbf14e9b512cbf452d83b,
     type: 3}
   TripletFather: {fileID: 403394815}
@@ -26448,6 +26474,7 @@ MonoBehaviour:
   FloatingManPrefab: {fileID: 7172745141966021585, guid: 0da5248a8a243224d945ad1d55a74045,
     type: 3}
   bonsai: {fileID: 1661851106}
+  cuckoo: {fileID: 618253449}
   totalBlackRoomColor: {r: 0.02745098, g: 0.039215688, b: 0.050980393, a: 0}
   totalBlackRoomColorCaustics: {r: 0.027450982, g: 0.039215688, b: 0.050980397, a: 0}
   blackRoomColor: {r: 0.09803922, g: 0.11764706, b: 0.13725491, a: 1}

@@ -7,7 +7,7 @@ public class PortalTeleporter : MonoBehaviour
 {
     public Transform player;
     public Transform receiver;
-    [SerializeField] private bool arrival;
+    public bool arrival;
 
 
     private bool active = true;
@@ -18,7 +18,7 @@ public class PortalTeleporter : MonoBehaviour
     {
         if (arrival)
         {
-            active = !active;
+            toggleActive();
         }
     }
     // Update is called once per frame
@@ -57,7 +57,10 @@ public class PortalTeleporter : MonoBehaviour
         if (other.tag == "Player")
         {
             playerIsOverlapping = false;
-            active = !active;
+            toggleActive();
         }
+    }
+    public void toggleActive(){
+        active = !active;
     }
 }

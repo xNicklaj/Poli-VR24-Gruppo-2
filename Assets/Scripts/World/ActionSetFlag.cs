@@ -29,6 +29,8 @@ public class ActionSetFlag : IInteractable
     {
         SetFlag(flag, value);
         isSelectable = false;
-        EventManager.Instance.saveRequested.Invoke();
+        if(saveOnSet){
+            EventManager.Instance.saveRequested.Invoke();
+        }
     }
 }
