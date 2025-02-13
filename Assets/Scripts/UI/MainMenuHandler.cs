@@ -28,7 +28,7 @@ public class MainMenuHandler : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(startButton.gameObject);
         }
         EventFlags eventFlags = SaveManager.LoadEventFlags();
-        if (!eventFlags.Equals(null))
+        if (!eventFlags.Equals(null) && subText)
         {
             if ((!eventFlags.playerName.Equals(null)) && !(eventFlags.playerName == "Player") && !(eventFlags.playerName == "nome_nullo"))
             {

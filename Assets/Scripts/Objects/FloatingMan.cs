@@ -21,7 +21,9 @@ public class FloatingMan : IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        _sm = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
+        if(GameObject.FindGameObjectWithTag("SceneManager")){
+            _sm = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
+        }
     }
 
     // Update is called once per frame
