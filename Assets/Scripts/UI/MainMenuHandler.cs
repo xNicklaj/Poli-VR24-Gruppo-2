@@ -23,10 +23,6 @@ public class MainMenuHandler : MonoBehaviour
     {
         if (continueButton != null)
             continueButton.GetComponent<Button>().interactable = SaveManager.GetLastModified() != DateTime.UnixEpoch;
-        if (GameManager.Instance.currentDevice != GameManager.DeviceType.Keyboard)
-        {
-            EventSystem.current.SetSelectedGameObject(startButton.gameObject);
-        }
         EventFlags eventFlags = SaveManager.LoadEventFlags();
         if (!eventFlags.Equals(null) && subText)
         {
@@ -44,7 +40,6 @@ public class MainMenuHandler : MonoBehaviour
                 museumButton.gameObject.SetActive(true);
             }
         }
-
     }
 
     // Update is called once per frame
@@ -55,6 +50,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void PlayGame()
     {
+        GameManager.Instance.eventFlags = new EventFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
     }
     public void goToMuseum()
