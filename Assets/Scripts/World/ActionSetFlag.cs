@@ -6,6 +6,7 @@ public class ActionSetFlag : IInteractable
 {
     public EventFlag flag;
     public bool value;
+    public bool saveOnSet = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class ActionSetFlag : IInteractable
     public override void Interact()
     {
         SetFlag(flag, value);
-        isSelectable=false;
+        isSelectable = false;
+        EventManager.Instance.saveRequested.Invoke();
     }
 }

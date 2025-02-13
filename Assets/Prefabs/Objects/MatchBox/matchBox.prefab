@@ -349,3 +349,4 @@ MonoBehaviour:
   isSelected: 0
   flag: 2
   value: 1
+  saveOnSet: 1

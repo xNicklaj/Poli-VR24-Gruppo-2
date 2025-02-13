@@ -97,6 +97,8 @@ public class BonsaiPot : IInteractable
                     DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Tree Dialogue/Tree Dialogue 1"));
                 }
                 state = plantState.GROWN;
+                EventManager.Instance.saveRequested.Invoke(); // Tell the GameManager to save the game
+                GetComponent<BoxCollider>().enabled = false;
                 break;
             case plantState.GROWN:
                 break;

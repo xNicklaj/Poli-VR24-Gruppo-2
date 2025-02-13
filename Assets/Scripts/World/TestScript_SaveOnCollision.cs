@@ -5,11 +5,16 @@ using UnityEngine;
 public class TestScript_SaveOnCollision : MonoBehaviour
 {
     EventManager _em;
+    public bool onExit = false;
+    public bool triggerOnce = true;
+
+    [SerializeField]
+    private bool _hasTriggered = false;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        _em = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        
     }
 
     // Update is called once per frame
@@ -20,9 +25,23 @@ public class TestScript_SaveOnCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (onExit) return;
+        if (triggerOnce && _hasTriggered) return;
         if (other.tag == "Player")
         {
-            _em.saveRequested.Invoke(); // Tell the GameManager to save the game
+            EventManager.Instance.saveRequested.Invoke(); // Tell the GameManager to save the game
+            if(triggerOnce) _hasTriggered = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (onExit) return;
+        if (triggerOnce && _hasTriggered) return;
+        if (other.tag == "Player")
+        {
+            EventManager.Instance.saveRequested.Invoke(); // Tell the GameManager to save the game
+            if (triggerOnce) _hasTriggered = true;
         }
     }
 }
