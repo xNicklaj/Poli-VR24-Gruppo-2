@@ -3,7 +3,12 @@ guid: 6e9fdcf07ea87964abb686dc6646f4f3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - UIPreset: {fileID: 86550606560889564, guid: 2c9aed5a3b738b249bdcf1d4e9d4137d,
+      type: 3}
+  - playerCanvas: {instanceID: 0}
+  - bookPageFlipAudio: {instanceID: 0}
+  - particles: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

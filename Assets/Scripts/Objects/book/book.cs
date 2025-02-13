@@ -25,7 +25,7 @@ public class Book : IInteractable
             }
         textInstance = Instantiate(UIPreset,Vector2.zero, new Quaternion(),playerCanvas.transform);
         textInstance.transform.SetAsFirstSibling();
-        AudioSource.PlayClipAtPoint(bookPageFlipAudio,new Vector3(-4f,1.2f,75f),0.5f);
+        if(bookPageFlipAudio != null) AudioSource.PlayClipAtPoint(bookPageFlipAudio,new Vector3(-4f,1.2f,75f),0.5f);
         textInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         textInstance.GetComponent<CanvasGroup>().alpha=0f;
         textInstance.GetComponent<TextMeshProUGUI>().text=text;

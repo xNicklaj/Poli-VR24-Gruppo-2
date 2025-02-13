@@ -998,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: gamepadSensitivity
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -3828,30 +3828,58 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 864702352}
+    - targetCorrespondingSourceObject: {fileID: 6972392148495252458, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 864702356}
     - targetCorrespondingSourceObject: {fileID: 3187075543736678182, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1601122416}
+    - targetCorrespondingSourceObject: {fileID: 3187075543736678182, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1601122420}
     - targetCorrespondingSourceObject: {fileID: 2377488190722537355, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1386790375}
+    - targetCorrespondingSourceObject: {fileID: 2377488190722537355, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1386790379}
     - targetCorrespondingSourceObject: {fileID: 6470238702093556528, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1396821664}
-    - targetCorrespondingSourceObject: {fileID: 634232364485922573, guid: 55713c263c2240545aeeaeed9f996db5,
+    - targetCorrespondingSourceObject: {fileID: 6470238702093556528, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 996595093}
+      addedObject: {fileID: 1396821668}
+    - targetCorrespondingSourceObject: {fileID: 8449022392694355924, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2116314852}
+    - targetCorrespondingSourceObject: {fileID: 8449022392694355924, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2116314853}
     - targetCorrespondingSourceObject: {fileID: 2380780605015516801, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 635732356}
+    - targetCorrespondingSourceObject: {fileID: 2380780605015516801, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 635732358}
     - targetCorrespondingSourceObject: {fileID: 5094765332966200954, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 784620827}
+    - targetCorrespondingSourceObject: {fileID: 5094765332966200954, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784620831}
     - targetCorrespondingSourceObject: {fileID: 1638124317033632281, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
@@ -3864,50 +3892,130 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 898343921}
+    - targetCorrespondingSourceObject: {fileID: 1222620405213257909, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 898343923}
     - targetCorrespondingSourceObject: {fileID: 6544434767822023126, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1168975697}
+    - targetCorrespondingSourceObject: {fileID: 6544434767822023126, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1168975699}
     - targetCorrespondingSourceObject: {fileID: 1465607706298338170, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 855495772}
+    - targetCorrespondingSourceObject: {fileID: 1465607706298338170, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 855495774}
     - targetCorrespondingSourceObject: {fileID: 4080632568517126484, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 969159977}
+    - targetCorrespondingSourceObject: {fileID: 4080632568517126484, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 969159979}
     - targetCorrespondingSourceObject: {fileID: 4465440342552269431, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1648618565}
+    - targetCorrespondingSourceObject: {fileID: 4465440342552269431, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1648618567}
     - targetCorrespondingSourceObject: {fileID: 8816946139577763046, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 449653385}
+    - targetCorrespondingSourceObject: {fileID: 8816946139577763046, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 449653387}
     - targetCorrespondingSourceObject: {fileID: 3204515566070715523, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907850073}
+    - targetCorrespondingSourceObject: {fileID: 3204515566070715523, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1907850075}
     - targetCorrespondingSourceObject: {fileID: 3311955591844652864, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1508890177}
+    - targetCorrespondingSourceObject: {fileID: 3311955591844652864, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1508890179}
     - targetCorrespondingSourceObject: {fileID: 3845688384559776301, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 463231434}
+    - targetCorrespondingSourceObject: {fileID: 3845688384559776301, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 463231436}
     - targetCorrespondingSourceObject: {fileID: 3410446695959907458, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 720136509}
+    - targetCorrespondingSourceObject: {fileID: 3410446695959907458, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720136511}
+    - targetCorrespondingSourceObject: {fileID: 6114900303155507254, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106509769}
+    - targetCorrespondingSourceObject: {fileID: 6114900303155507254, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2106509770}
+    - targetCorrespondingSourceObject: {fileID: 4248701798426923235, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1514229441}
+    - targetCorrespondingSourceObject: {fileID: 4248701798426923235, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1514229442}
+    - targetCorrespondingSourceObject: {fileID: 3677428596978440952, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1693628728}
+    - targetCorrespondingSourceObject: {fileID: 3677428596978440952, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1693628729}
+    - targetCorrespondingSourceObject: {fileID: 6856317483239216991, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1219981734}
+    - targetCorrespondingSourceObject: {fileID: 6856317483239216991, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1219981735}
     - targetCorrespondingSourceObject: {fileID: 3256559946411551804, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1864956763}
+    - targetCorrespondingSourceObject: {fileID: 3256559946411551804, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1864956765}
     - targetCorrespondingSourceObject: {fileID: 8028382107341886300, guid: 55713c263c2240545aeeaeed9f996db5,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1164456494}
+    - targetCorrespondingSourceObject: {fileID: 8028382107341886300, guid: 55713c263c2240545aeeaeed9f996db5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1164456496}
   m_SourcePrefab: {fileID: 100100000, guid: 55713c263c2240545aeeaeed9f996db5, type: 3}
 --- !u!4 &439540224 stripped
 Transform:
@@ -4050,6 +4158,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.812071, y: 1.4664707, z: 6.183432}
   m_Center: {x: -3.873647, y: -0.5280572, z: -2.9983683}
+--- !u!114 &449653387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449653383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La grande onda di Kanagawa</b>\n\nXilografia celebre che rappresenta
+    una massiccia onda minacciosa in contrasto con il Monte Fuji sullo sfondo. Esprime
+    l\u2019immensit\xE0 e la potenza della natura, incarnando la raffinata estetica
+    e la narrazione visiva dell\u2019arte giapponese tradizionale."
+  persistenceTime: 3
 --- !u!1 &459378223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4326,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.215023, y: 1.0397857, z: 6.0290184}
   m_Center: {x: -4.0972333, y: -0.5173112, z: -3.04211}
+--- !u!114 &463231436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463231432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Figlio dell'uomo</b>\n\nRitratto enigmatico di un uomo con il volto parzialmente
+    celato da una mela sospesa. L\u2019opera sfida le convenzioni dell'identit\xE0
+    e dell'apparenza, invitando a riflettere sul mistero che si cela dietro ci\xF2
+    che \xE8 visibile."
+  persistenceTime: 3
 --- !u!1 &471048424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6637,6 +6791,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 163.89804, y: 122.47937, z: 398.928}
   m_Center: {x: -90.809265, y: 60.73967, z: 199.7071}
+--- !u!114 &635732358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635732354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>David di Michelangelo</b>\n\nScultura in marmo realizzata tra il 1501
+    e il 1504, raffigura il giovane eroe biblico in contrapposto dinamico. Con anatomia
+    studiata e forza espressiva, incarna l\u2019ideale rinascimentale di bellezza,
+    coraggio e umanesimo."
+  persistenceTime: 3
 --- !u!108 &645114589 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 1486713095668414175, guid: c16ca27753aa74a44b13852020f9ee00,
@@ -7404,6 +7581,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.830947, y: 1.4424428, z: 6.0139956}
   m_Center: {x: -3.9195228, y: -0.5217218, z: -3.039655}
+--- !u!114 &720136511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720136507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La ragazza con l'orecchino di Perla</b>\n\nRitratto intriso di mistero,
+    incentrato su uno sguardo enigmatico e la luce delicata che accarezza il volto.
+    Vermeer crea un\u2019intima atmosfera di sospensione, donando all\u2019opera
+    una qualit\xE0 senza tempo e un fascino intrigante."
+  persistenceTime: 3
 --- !u!1001 &721636254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7569,7 +7769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762285900}
   - component: {fileID: 762285899}
-  - component: {fileID: 762285898}
+  - component: {fileID: 762285901}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7577,26 +7777,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &762285898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762285897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &762285899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7627,6 +7807,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762285901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762285897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &767946445 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1638124317033632281, guid: 55713c263c2240545aeeaeed9f996db5,
@@ -7854,6 +8076,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2151673, y: 1.893838, z: 1.5545878}
   m_Center: {x: 0, y: 0.9394464, z: 0.00016525388}
+--- !u!114 &784620831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784620825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La Piet\xE0</b>\n\nRealizzata tra il 1498 e il 1499, mostra la Vergine
+    Maria che sostiene il corpo di Cristo. L\u2019opera trasmette dolcezza, dolore
+    e spiritualit\xE0, evidenziando la maestria tecnica e il pathos rinascimentale."
+  persistenceTime: 3
 --- !u!1 &797563660
 GameObject:
   m_ObjectHideFlags: 0
@@ -8417,6 +8661,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8.29239, y: 1.225231, z: 6.479918}
   m_Center: {x: -3.6461947, y: -0.51860636, z: -2.7399588}
+--- !u!114 &855495774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855495770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Davide e Golia</b>\n\nScena drammatica in cui il giovane eroe si confronta
+    con il gigante, resa con realistici contrasti di luce e ombra. L\u2019uso intenso
+    del chiaroscuro accentua la tensione e l\u2019emotivit\xE0 del momento, incarnando
+    lo spirito rivoluzionario del barocco."
+  persistenceTime: 3
 --- !u!1 &859644038
 GameObject:
   m_ObjectHideFlags: 0
@@ -8949,6 +9216,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 109.70941, y: 185.58821, z: 87.44181}
   m_Center: {x: 9.961524, y: 93.5658, z: 3.964579}
+--- !u!114 &864702356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864702350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Il Discobolo</b>\n\nScultura greca del V secolo a.C. che ritrae un atleta
+    nel momento del lancio del disco. Celebra l\u2019armonia del movimento e la perfezione
+    del corpo, simbolo dell\u2019estetica e dell\u2019eccellenza ellenica."
+  persistenceTime: 3
 --- !u!1 &873184560
 GameObject:
   m_ObjectHideFlags: 0
@@ -9140,6 +9429,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5420313, y: 0.93968177, z: 6.080415}
   m_Center: {x: -4.037303, y: -0.030159095, z: -2.9425244}
+--- !u!114 &898343923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898343919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La Persistenza della Memoria</b>\n\nUn capolavoro surrealista in cui
+    orologi molli si sciolgono in un paesaggio onirico. L\u2019opera indaga la fluidit\xE0
+    del tempo e la natura evanescente della memoria, invitando lo spettatore a esplorare
+    il subconscio e la relativit\xE0 dell\u2019esperienza umana."
+  persistenceTime: 3
 --- !u!1 &899320768
 GameObject:
   m_ObjectHideFlags: 0
@@ -9559,6 +9871,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.9506297, y: 1.705854, z: 6.0886254}
   m_Center: {x: -3.898672, y: -0.5818427, z: -3.0123093}
+--- !u!114 &969159979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969159975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Notte stellata</b>\n\nDipinto espressivo in cui un cielo vorticoso e
+    luminoso sovrasta un tranquillo villaggio. Le pennellate dinamiche e i colori
+    intensi rivelano il tumulto interiore dell\u2019artista, fondendo realt\xE0 e
+    immaginazione in un\u2019evocativa danza notturna."
+  persistenceTime: 3
 --- !u!1 &972395843
 GameObject:
   m_ObjectHideFlags: 0
@@ -9607,33 +9942,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 439540223}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &996595091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 634232364485922573, guid: 55713c263c2240545aeeaeed9f996db5,
-    type: 3}
-  m_PrefabInstance: {fileID: 439540223}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &996595093
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996595091}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.6057251, y: 0.350294, z: 0.45052016}
-  m_Center: {x: 0.015771512, y: 0.174369, z: 1.5036324}
 --- !u!4 &997483203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 161566536759527682, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
@@ -10567,6 +10875,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.6081805, y: 0.9385962, z: 6.0736804}
   m_Center: {x: -4.041976, y: -0.42840856, z: -3.009597}
+--- !u!114 &1164456496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164456492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La gioconda</b>\n\nLa Gioconda, conosciuta come Monna Lisa, \xE8 il ritratto
+    iconico del Rinascimento realizzato da Leonardo da Vinci. Il suo sorriso enigmatico
+    e lo sguardo sfumato hanno affascinato il mondo, rendendola simbolo della perfezione
+    tecnica e del mistero dell\u2019animo umano. Un eterno enigma che continua a
+    ispirare interpretazioni e meraviglia."
+  persistenceTime: 3
 --- !u!1 &1168975695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6544434767822023126, guid: 55713c263c2240545aeeaeed9f996db5,
@@ -10594,6 +10926,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.213683, y: 4.2672415, z: 0.56959313}
   m_Center: {x: 0.59857863, y: 3.653047, z: 7.896466}
+--- !u!114 &1168975699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168975695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Viandante sul mare di Nebbia</b>\n\nDipinto romantico che ritrae un uomo
+    solitario in un paesaggio avvolto dalla foschia. La figura, immersa nell\u2019immensit\xE0
+    e nel mistero della natura, incarna la ricerca interiore e il sublime, evocando
+    l\u2019infinito e l\u2019ignoto."
+  persistenceTime: 3
 --- !u!4 &1182142580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7021416525528127732, guid: 9caea58431d8ece43b3203a392a3f489,
@@ -10867,6 +11222,56 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &1219981732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6856317483239216991, guid: 55713c263c2240545aeeaeed9f996db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 439540223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1219981734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219981732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La Creazione di Adamo</b>\n\nAffresco iconico che ritrae il momento divino
+    in cui Dio infonde vita ad Adamo. Con la celebre puntigliatura dei dita quasi
+    in contatto, l\u2019opera celebra l\u2019unione tra il divino e l\u2019umano,
+    esemplificando l\u2019ideale rinascimentale di armonia e perfezione anatomica."
+  persistenceTime: 3
+--- !u!65 &1219981735
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219981732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.2231102, y: 0.3951931, z: 1.7173901}
+  m_Center: {x: -4.0560217, y: 1.8125296, z: 0.35869503}
 --- !u!1 &1230784667
 GameObject:
   m_ObjectHideFlags: 0
@@ -12016,6 +12421,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5091828, y: 1.0687455, z: 1.7854233}
   m_Center: {x: 0.17837572, y: 0.042719368, z: -0.89406747}
+--- !u!114 &1386790379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386790373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Il Pensatore</b>\n\nIn bronzo, raffigura un uomo immerso nei suoi pensieri.
+    Originariamente parte del Portale dell\u2019Inferno, simboleggia riflessione,
+    intelletto e condizione umana, divenendo emblema universale della ricerca interiore."
+  persistenceTime: 3
 --- !u!1 &1396821662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6470238702093556528, guid: 55713c263c2240545aeeaeed9f996db5,
@@ -12043,6 +12470,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 62.48843, y: 203.18454, z: 60.014324}
   m_Center: {x: 2.1603, y: 101.651566, z: 2.1532288}
+--- !u!114 &1396821668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396821662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Venere di Milo</b>\n\nScoperta nel 1820, questa scultura ellenistica
+    in marmo, priva di braccia, esalta il mistero e la bellezza ideale. Incorpora
+    perfezione formale ed eleganza, incarnando la grazia dell\u2019arte antica.\r\n\r\n"
+  persistenceTime: 3
 --- !u!1 &1397044423
 GameObject:
   m_ObjectHideFlags: 0
@@ -17801,6 +18250,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4953835791967640653, guid: 352956d3b74059b419ff11728e9f6907,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5532345508106164026, guid: 352956d3b74059b419ff11728e9f6907,
         type: 3}
       propertyPath: m_Name
@@ -18098,6 +18552,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.879296, y: 1.3699507, z: 5.9394455}
   m_Center: {x: -3.973097, y: -0.5365804, z: -3.0877357}
+--- !u!114 &1508890179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508890175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Il Bacio</b>\n\nCapolavoro simbolista caratterizzato da ornamenti dorati
+    e motivi decorative. Klimt esprime l\u2019intensit\xE0 di un abbraccio eterno,
+    fondendo sensualit\xE0 e delicatezza in una composizione elegante che celebra
+    l\u2019amore e l\u2019intimit\xE0."
+  persistenceTime: 3
 --- !u!1 &1510022191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6145339145827891680, guid: 75e18d74c4af1c44aa7d12ea76f320b8,
@@ -18110,6 +18587,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 860233529}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1514229439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4248701798426923235, guid: 55713c263c2240545aeeaeed9f996db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 439540223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1514229441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514229439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La scuola di Atene</b>\n\nAffresco rinascimentale che riunisce i pi\xF9
+    grandi filosofi e intellettuali dell\u2019antichit\xE0 in un\u2019architettura
+    ideale. Raffaello crea un dialogo armonioso tra pensiero, matematica e bellezza,
+    esaltando il sapere e la perfezione delle proporzioni."
+  persistenceTime: 3
+--- !u!65 &1514229442
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514229439}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7570249, y: 0.4166627, z: 2.1686218}
+  m_Center: {x: -1.3813912, y: -0.2916687, z: 0.0658586}
 --- !u!1 &1523601197
 GameObject:
   m_ObjectHideFlags: 0
@@ -18595,6 +19122,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 168.21829, y: 258.15628, z: 163.1803}
   m_Center: {x: -0.00008010864, y: 162.98775, z: 27.853111}
+--- !u!114 &1601122420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601122414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Statue Moai</b>\n\nImponenti statue monolitiche scolpite dalla civilt\xE0
+    dell\u2019Isola di Pasqua (XII\u2013XVII secolo). Rappresentano antenati venerati,
+    incarnando il legame tra spiritualit\xE0, potere e comunit\xE0, e testimoniano
+    l\u2019abilit\xE0 artistica antica."
+  persistenceTime: 3
 --- !u!1 &1603704024
 GameObject:
   m_ObjectHideFlags: 0
@@ -18890,6 +19440,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.7221885, y: 1.291001, z: 5.9377685}
   m_Center: {x: -3.966923, y: -0.14550045, z: -3.075361}
+--- !u!114 &1648618567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648618563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Quarto stato</b>\n\nDipinto realistico che enfatizza la forza e la dignit\xE0
+    della classe operaia. La composizione collettiva e i toni intensi celebrano la
+    lotta per i diritti e l\u2019emancipazione, rendendo l\u2019opera un potente
+    simbolo sociale e politico."
+  persistenceTime: 3
 --- !u!1 &1661851106 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2295082109733255540, guid: 75e18d74c4af1c44aa7d12ea76f320b8,
@@ -23892,6 +24465,56 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1693628726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3677428596978440952, guid: 55713c263c2240545aeeaeed9f996db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 439540223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1693628728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693628726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>La guernica</b>\n\nMonumento contro la violenza e la brutalit\xE0 della
+    guerra. Con composizione drammatica in toni monocromatici, l\u2019opera trasmette
+    disperazione e caos, diventando un\u2019emblematica denuncia della sofferenza
+    umana e un simbolo universale di protesta."
+  persistenceTime: 3
+--- !u!65 &1693628729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693628726}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8296322, y: 0.708699, z: 2.9064167}
+  m_Center: {x: -1.2807161, y: -0.45384243, z: -0.3946743}
 --- !u!1 &1720952025
 GameObject:
   m_ObjectHideFlags: 0
@@ -25269,6 +25892,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9231708, y: 0.5460279, z: 2.1994038}
   m_Center: {x: -1.4632654, y: -0.22698611, z: -1.028491}
+--- !u!114 &1864956765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864956761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>L'Urlo</b>\n\nOpera intensa che, con linee fluide e colori vibranti,
+    esprime l\u2019angoscia esistenziale e il tormento interiore. Il volto inquieto
+    e la composizione drammatica coinvolgono lo spettatore in un\u2019esperienza
+    emotiva di smarrimento e vulnerabilit\xE0."
+  persistenceTime: 3
 --- !u!4 &1875647680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 161566536759527682, guid: 5eca7b7d6f83ef9419ea43a9e37b0060,
@@ -25329,6 +25975,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.8692656, y: 0.60744303, z: 6.2826314}
   m_Center: {x: -3.9331744, y: -0.19628368, z: -3.0817065}
+--- !u!114 &1907850075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907850071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Relativit\xE0</b>\n\nOpera ingegnosa che sfida le leggi della gravit\xE0
+    mediante architetture impossibili e prospettive multiple. Le scale e i corridoi
+    intersecanti creano un enigma visivo, invitando a riconsiderare la percezione
+    dello spazio e la relativit\xE0 delle forme."
+  persistenceTime: 3
 --- !u!1 &1945129060
 GameObject:
   m_ObjectHideFlags: 0
@@ -26705,6 +27374,56 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7561352, y: 0.47099304, z: 0.6383127}
   m_Center: {x: -0.042276174, y: -0.20063782, z: -0.020662397}
+--- !u!1 &2106509767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6114900303155507254, guid: 55713c263c2240545aeeaeed9f996db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 439540223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2106509769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106509767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: '<b>Estintore</b>
+
+
+    Un semplicissimo estintore...'
+  persistenceTime: 3
+--- !u!65 &2106509770
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106509767}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60340565, y: 1.6978172, z: 0.6729492}
+  m_Center: {x: 0.07002843, y: 0.8398889, z: -0.16352515}
 --- !u!1 &2112670884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1205407696430475905, guid: 75e18d74c4af1c44aa7d12ea76f320b8,
@@ -26760,6 +27479,55 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &2116314850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8449022392694355924, guid: 55713c263c2240545aeeaeed9f996db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 439540223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116314852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116314850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9fdcf07ea87964abb686dc6646f4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelectable: 1
+  isSelected: 0
+  UIPreset: {fileID: 86550606560889564, guid: 3252ff22478daed42918e3b6a308c5cf, type: 3}
+  playerCanvas: {fileID: 1455729783}
+  bookPageFlipAudio: {fileID: 0}
+  particles: {fileID: 0}
+  text: "<b>Il pensatoio</b>\n\nOpera provocatoria che sfida i concetti tradizionali
+    d\u2019arte. Con ironia e concettualismo, mette in discussione il processo creativo,
+    invitando lo spettatore a riflettere sul rapporto tra idea e oggetto artistico."
+  persistenceTime: 3
+--- !u!65 &2116314853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116314850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6223582, y: 0.33598423, z: 0.44483566}
+  m_Center: {x: 0.022674337, y: 0.18066835, z: -0.015578747}
 --- !u!1 &2116712431
 GameObject:
   m_ObjectHideFlags: 0
