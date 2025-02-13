@@ -24,7 +24,7 @@ public class MainMenuHandler : MonoBehaviour
         if (continueButton != null)
             continueButton.GetComponent<Button>().interactable = SaveManager.GetLastModified() != DateTime.UnixEpoch;
         EventFlags eventFlags = SaveManager.LoadEventFlags();
-        if (!eventFlags.Equals(null) && subText)
+        if (eventFlags != null && subText)
         {
             if (eventFlags.playerName != null)
             {
