@@ -22,7 +22,7 @@ public class ActionSetFlag : IInteractable
 
     public void SetFlag(EventFlag e, bool b)
     {
-        EventManager.Instance.setFlag.Invoke(e, b);
+        GameManager.Instance.eventFlags.SetFlag(e, b);
     }
 
     public override void Interact()
