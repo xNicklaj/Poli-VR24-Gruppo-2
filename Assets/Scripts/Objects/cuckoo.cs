@@ -97,7 +97,7 @@ public class Cuckoo : IInteractable
         float hoursArmRotation = hoursArm.localRotation.x*180;
         float minutesArmRotation = minutesArm.localRotation.x*180;
         if(hoursArmRotation>15&&hoursArmRotation<45&&minutesArmRotation<-75&&minutesArmRotation>-105){
-            print("orario corretto");
+            //print("orario corretto");
             completed = true;
             cuckooAnimation();
             throwWateringCan();

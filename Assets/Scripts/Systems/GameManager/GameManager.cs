@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
@@ -76,6 +77,7 @@ public class GameManager : Singleton<GameManager>
             {
                 currentDevice = DeviceType.Keyboard;
             }
+            _em.deviceChanged.Invoke(currentDevice == DeviceType.Gamepad);
         });
           
     }
