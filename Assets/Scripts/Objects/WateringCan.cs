@@ -18,8 +18,8 @@ public class WateringCan : ActionSetFlag
     }
     public override void Interact()
     {
-        SetFlag(flag, value);
-        isSelectable=false;
+        GameManager.Instance.eventFlags.SetFlag(flag, value);
+        isSelectable =false;
         Destroy(this.gameObject);
     }
 }
