@@ -22,9 +22,9 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject Leaves;
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
+    [SerializeField] private ParticleSystem particles;
     [SerializeField] private Transform HousePortal;
     [SerializeField] private VoidScene VoidScene;
-
     [SerializeField] private Transform VoidPortal;
     [SerializeField] private Transform VoidPortalStones;
     [SerializeField] private Transform VoidPortalDisappearanceArea;
@@ -57,6 +57,7 @@ public class BonsaiPot : IInteractable
             case plantState.NOT_PLANTED:
                 if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
                 {
+                    particles.Stop();
                     HouseStonePortalSoundSource.Play();
                     HouseStonePortal.transform.DOMoveY(-5, 3f);
 
