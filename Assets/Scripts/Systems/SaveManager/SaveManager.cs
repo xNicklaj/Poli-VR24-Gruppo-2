@@ -37,7 +37,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         EventFlags data = null;
         Debug.Log("Loading save data...");
-        Debug.Log(File.ReadAllText(SAVE_PATH));
+        if(File.Exists(SAVE_PATH)) Debug.Log(File.ReadAllText(SAVE_PATH));
         // Convert JSON to EventFlags object
         if (File.Exists(SAVE_PATH))
             data = JsonConvert.DeserializeObject<EventFlags>(File.ReadAllText(SAVE_PATH));
