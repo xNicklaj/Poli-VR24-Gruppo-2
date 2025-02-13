@@ -103,7 +103,7 @@ MonoBehaviour:
   isSelected: 0
   flag: 6
   value: 1
-  saveOnSet: 0
+  saveOnSet: 1
 --- !u!82 &3803930603577670528
 AudioSource:
   m_ObjectHideFlags: 0
