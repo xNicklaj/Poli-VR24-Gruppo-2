@@ -17,6 +17,7 @@ public class MuseumScene : Scene
     }
     public override void Setup()
     {
+        EventManager.Instance.showInventory.Invoke(false);
         Debug.Log("The scene MUSEUM has been setup.");
     }
 }

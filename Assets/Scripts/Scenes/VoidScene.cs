@@ -115,7 +115,7 @@ public class VoidScene : MonoBehaviour
             case "Seed Dialogue 2":
                 MakeSeedSelectable();
                 break;
-            case "Tree Dialogue 5"or"Tree Dialogue 6":
+            case "Tree Dialogue 5" or "Tree Dialogue 6":
                 GameManager.Instance.eventFlags.SetFlag(EventFlag.TreeDialogueEnded,true);
                 EventManager.Instance.saveRequested.Invoke();
                 break;
@@ -128,6 +128,7 @@ public class VoidScene : MonoBehaviour
             case "Naked Dialogue 3":
                 GameManager.Instance.eventFlags.SetFlag(EventFlag.NakedDialogueEnded,true);
                 EventManager.Instance.saveRequested.Invoke();
+                EventManager.Instance.showInventory.Invoke(false);
                 closeEyes();
                 break;
 
