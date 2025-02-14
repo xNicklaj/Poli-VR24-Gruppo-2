@@ -126,6 +126,7 @@ public class Cuckoo : IInteractable
                 break;
         }
         CheckCompleted();
+        if (completed) OnClockExit();
     }
     void cuckooAnimation(){
         Sequence sequence = DOTween.Sequence();
