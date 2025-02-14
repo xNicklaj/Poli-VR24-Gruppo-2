@@ -20,6 +20,11 @@ public class MainMenuHandler : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject mainMenu;
 
+    public GameObject firstOptionsEntry;
+    public GameObject firstMainMenuEntry;
+
+    public EventSystem eventSystem;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +53,14 @@ public class MainMenuHandler : MonoBehaviour
     public void showOptions(){
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
+        eventSystem.firstSelectedGameObject = firstOptionsEntry;
+        eventSystem.SetSelectedGameObject(firstOptionsEntry);
     }
     public void showMainMenu(){
         EventManager.Instance.settingsChanged.Invoke();
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
+        eventSystem.SetSelectedGameObject(firstMainMenuEntry);
     }
 
     public void PlayGame()
