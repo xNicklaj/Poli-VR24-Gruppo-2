@@ -25,6 +25,11 @@ public class MainMenuHandler : MonoBehaviour
 
     public EventSystem eventSystem;
 
+    private void Awake()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +70,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void PlayGame()
     {
+        Cursor.visible = false;
         GameManager.Instance.eventFlags = new EventFlags();
         GameManager.Instance.eventFlags.InitializeFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
@@ -76,6 +82,7 @@ public class MainMenuHandler : MonoBehaviour
 
     public void LoadGame()
     {
+        Cursor.visible = false;
         GameManager.Instance.LoadGame();
         GameManager.Instance.eventFlags.PrintFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);

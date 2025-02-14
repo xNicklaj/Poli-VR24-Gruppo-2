@@ -37,6 +37,7 @@ public class FloatingMan : IInteractable
         postProcessingVolume.profile.TryGet<ColorAdjustments>(out var colorAdjustments);
         playerReference.GetComponent<FirstPersonController>().playerState=FirstPersonController.PlayerStates.IDLE;
         isSelectable=false;
+        EventManager.Instance.showInventory.Invoke(false);
         Sequence seq = DOTween.Sequence();
         seq.AppendCallback(()=>AudioSource.PlayClipAtPoint(transitionAudio,playerReference.transform.position));
         seq.Join(DOTween.To(()=>colorAdjustments.postExposure.value, x=> colorAdjustments.postExposure.value=x,10f,4.5f));

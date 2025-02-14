@@ -16,6 +16,7 @@ public class InventoryManager : Singleton<InventoryManager>
     void Start()
     {
         EventManager.Instance.flagHasBeenSet.AddListener(EvalInventoryWrapper);
+        EventManager.Instance.showInventory.AddListener(HandleShowInventory);
         EvalInventory();
     }
 
@@ -23,6 +24,11 @@ public class InventoryManager : Singleton<InventoryManager>
     void Update()
     {
         
+    }
+
+    private void HandleShowInventory(bool status)
+    {
+        this.gameObject.SetActive(status);
     }
 
     private void EvalInventoryWrapper(EventFlag e, bool status)

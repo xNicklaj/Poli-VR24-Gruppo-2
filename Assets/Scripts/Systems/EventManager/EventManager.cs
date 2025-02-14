@@ -19,6 +19,7 @@ public class EventManager : Singleton<EventManager>
     public UnityEvent<bool> unitySceneChanged;
     public UnityEvent<bool> deviceChanged; // True for gamepad, false for keyboard
     public UnityEvent settingsChanged;
+    public UnityEvent<bool> showInventory;
     #endregion
 
     private void Awake()

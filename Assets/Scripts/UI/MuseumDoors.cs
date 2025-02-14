@@ -75,7 +75,7 @@ public class MuseumDoors : IInteractable
         seq.Append(DOTween.To(()=>colorAdjustments.postExposure.value, x=> colorAdjustments.postExposure.value=x,10f,5f));
         seq.AppendCallback(()=>GameManager.Instance.eventFlags.SetFlag(EventFlag.MuseumExited,true));
         seq.AppendCallback(()=>EventManager.Instance.saveRequested.Invoke());
-        seq.OnComplete(()=>GameManager.Instance.QuitGame());
+        seq.OnComplete(()=> GameManager.Instance.LoadScene(0, false));
     }
 
     private void SequenceText(Sequence s, string text, TextMeshProUGUI t, CanvasGroup cg){

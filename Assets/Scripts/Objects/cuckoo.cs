@@ -92,17 +92,25 @@ public class Cuckoo : IInteractable
         input.DeactivateInput();
         isSelectable = true;
         fpc.GetComponent<Interactor>().enabled=true;
-        
-        
-        float hoursArmRotation = hoursArm.localRotation.x*180;
-        float minutesArmRotation = minutesArm.localRotation.x*180;
-        if(hoursArmRotation>15&&hoursArmRotation<45&&minutesArmRotation<-75&&minutesArmRotation>-105){
+
+
+        CheckCompleted();
+    }
+    
+    public void CheckCompleted()
+    {
+        if(completed) return;
+        float hoursArmRotation = hoursArm.localRotation.x * 180;
+        float minutesArmRotation = minutesArm.localRotation.x * 180;
+        if (hoursArmRotation > 15 && hoursArmRotation < 45 && minutesArmRotation < -75 && minutesArmRotation > -105)
+        {
             //print("orario corretto");
             completed = true;
             cuckooAnimation();
             throwWateringCan();
         }
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -117,6 +125,7 @@ public class Cuckoo : IInteractable
                 minutesArm.Rotate(input.actions["ClockControlArm"].ReadValue<float>(), 0f, 0f);
                 break;
         }
+        CheckCompleted();
     }
     void cuckooAnimation(){
         Sequence sequence = DOTween.Sequence();
