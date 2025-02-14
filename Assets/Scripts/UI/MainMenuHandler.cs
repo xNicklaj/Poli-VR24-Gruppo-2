@@ -66,6 +66,7 @@ public class MainMenuHandler : MonoBehaviour
     public void PlayGame()
     {
         GameManager.Instance.eventFlags = new EventFlags();
+        GameManager.Instance.eventFlags.InitializeFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
     }
     public void goToMuseum()
