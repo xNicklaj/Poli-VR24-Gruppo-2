@@ -18,6 +18,7 @@ public class EventManager : Singleton<EventManager>
     // True for main menu, false for in-game scene
     public UnityEvent<bool> unitySceneChanged;
     public UnityEvent<bool> deviceChanged; // True for gamepad, false for keyboard
+    public UnityEvent settingsChanged;
     #endregion
 
     private void Awake()
