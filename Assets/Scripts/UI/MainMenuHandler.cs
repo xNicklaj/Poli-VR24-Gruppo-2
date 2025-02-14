@@ -17,6 +17,9 @@ public class MainMenuHandler : MonoBehaviour
 
     public TextMeshProUGUI subText;
 
+    public GameObject optionsMenu;
+    public GameObject mainMenu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +45,14 @@ public class MainMenuHandler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+    public void showOptions(){
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+    public void showMainMenu(){
+        EventManager.Instance.settingsChanged.Invoke();
+        mainMenu.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 
     public void PlayGame()

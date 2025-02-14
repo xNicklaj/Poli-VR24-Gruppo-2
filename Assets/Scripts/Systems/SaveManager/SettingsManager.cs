@@ -124,9 +124,10 @@ public class SettingsManager : Singleton<SettingsManager>
         return settings[setting];
     }
 
-    public void EnableVSync()
+    public void EnableVSync(bool value)
     {
-        SetSetting(Settings.VSync, SettingsMode.SettingsMode1);
+
+        SetSetting(Settings.VSync, value ? SettingsMode.SettingsMode1 : SettingsMode.SettingsMode0);
     }
 
     public void DisableVSync()
@@ -134,9 +135,9 @@ public class SettingsManager : Singleton<SettingsManager>
         SetSetting(Settings.VSync, SettingsMode.SettingsMode0);
     }
 
-    public void EnableFpsLimiter()
+    public void EnableFpsLimiter(bool value)
     {
-        SetSetting(Settings.DoFpsLimiter, SettingsMode.SettingsMode1);
+        SetSetting(Settings.DoFpsLimiter, value ? SettingsMode.SettingsMode1 : SettingsMode.SettingsMode0);
     }
 
     public void DisableFpsLimiter()
@@ -144,6 +145,25 @@ public class SettingsManager : Singleton<SettingsManager>
         SetSetting(Settings.DoFpsLimiter, SettingsMode.SettingsMode0);
     }
 
+    public void SetFpsLimit(Int32 value){
+        switch(value){
+            case 0:
+            SetFpsLimit30();
+                break;
+            case 1:
+            SetFpsLimit60();
+                break;
+            case 2:
+            SetFpsLimit90();
+                break;
+            case 4:
+            SetFpsLimit120();
+                break;
+            case 5:
+            SetFpsLimit144();
+                break;
+        }
+    }
     public void SetFpsLimit30()
     {
         SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode0);
