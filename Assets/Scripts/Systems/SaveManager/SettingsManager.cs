@@ -69,11 +69,6 @@ public class SettingsManager : Singleton<SettingsManager>
 
     private void HandleSettingsChanged()
     {
-        if (settings.TryGetValue(Settings.VSync, out SettingsMode value))
-        {
-            // Handle VSync toggle
-            QualitySettings.vSyncCount = value == SettingsMode.SettingsMode0 ? 0 : 1;
-        }
         if (settings.TryGetValue(Settings.DoFpsLimiter, out SettingsMode value2))
         {
             // Handle FPS limiter toggle
@@ -104,6 +99,11 @@ public class SettingsManager : Singleton<SettingsManager>
                 // Unlimited framerate
                 Application.targetFrameRate = -1;
             }
+        }
+        if (settings.TryGetValue(Settings.VSync, out SettingsMode value))
+        {
+            // Handle VSync toggle
+            QualitySettings.vSyncCount = (value == SettingsMode.SettingsMode0 || value2 == SettingsMode.SettingsMode1) ? 0 : 1;
         }
     }
 }
