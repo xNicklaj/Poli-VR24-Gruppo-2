@@ -112,4 +112,61 @@ public class SettingsManager : Singleton<SettingsManager>
             QualitySettings.vSyncCount = (value == SettingsMode.SettingsMode0 || value2 == SettingsMode.SettingsMode1) ? 0 : 1;
         }
     }
+
+    public void SetSetting(Settings setting, SettingsMode mode)
+    {
+        settings[setting] = mode;
+        SaveSettings();
+        EventManager.Instance.settingsChanged.Invoke();
+    }
+    public SettingsMode GetSetting(Settings setting)
+    {
+        return settings[setting];
+    }
+
+    public void EnableVSync()
+    {
+        SetSetting(Settings.VSync, SettingsMode.SettingsMode1);
+    }
+
+    public void DisableVSync()
+    {
+        SetSetting(Settings.VSync, SettingsMode.SettingsMode0);
+    }
+
+    public void EnableFpsLimiter()
+    {
+        SetSetting(Settings.DoFpsLimiter, SettingsMode.SettingsMode1);
+    }
+
+    public void DisableFpsLimiter()
+    {
+        SetSetting(Settings.DoFpsLimiter, SettingsMode.SettingsMode0);
+    }
+
+    public void SetFpsLimit30()
+    {
+        SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode0);
+    }
+
+    public void SetFpsLimit60()
+    {
+        SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode1);
+    }
+
+    public void SetFpsLimit90()
+    {
+        SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode2);
+    }
+
+    public void SetFpsLimit120()
+    {
+        SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode3);
+    }
+
+    public void SetFpsLimit144()
+    {
+        SetSetting(Settings.FpsLimit, SettingsMode.SettingsMode4);
+    }
+
 }
