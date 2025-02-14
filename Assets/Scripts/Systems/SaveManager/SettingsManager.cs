@@ -35,12 +35,20 @@ public class SettingsManager : Singleton<SettingsManager>
         settings.Add(Settings.VSync, SettingsMode.SettingsMode0);
         settings.Add(Settings.DoFpsLimiter, SettingsMode.SettingsMode0);
         settings.Add(Settings.FpsLimit, SettingsMode.SettingsMode1);
-        if (!File.Exists(SETTINGS_PATH)) SaveSettings();
+        HandleSettingsChanged();
     }
 
     void Start()
     {
         EventManager.Instance.settingsChanged.AddListener(HandleSettingsChanged);
+        if (!File.Exists(SETTINGS_PATH)) 
+            SaveSettings();
+        else
+        {
+            settings = LoadSettings();
+            EventManager.Instance.settingsChanged.Invoke();
+        }
+            
     }
 
     public void SaveSettings()
@@ -58,10 +66,7 @@ public class SettingsManager : Singleton<SettingsManager>
         if(File.Exists(SETTINGS_PATH)) Debug.Log(File.ReadAllText(SETTINGS_PATH));
         // Convert JSON to EventFlags object
         if (File.Exists(SETTINGS_PATH))
-        {
             data = JsonConvert.DeserializeObject<Dictionary<Settings, SettingsMode>>(File.ReadAllText(SETTINGS_PATH));
-            EventManager.Instance.settingsChanged.Invoke();
-        }
         if (data == null) 
             Debug.LogWarning("Settings file not found in " + SETTINGS_PATH);
         return data;
@@ -69,6 +74,7 @@ public class SettingsManager : Singleton<SettingsManager>
 
     private void HandleSettingsChanged()
     {
+        Debug.Log("Reloading settings...");
         if (settings.TryGetValue(Settings.DoFpsLimiter, out SettingsMode value2))
         {
             // Handle FPS limiter toggle
