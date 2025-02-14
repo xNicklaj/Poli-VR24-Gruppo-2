@@ -27,16 +27,20 @@ public class SettingsManager : Singleton<SettingsManager>
     private static string SETTINGS_PATH = "";
     private Dictionary<Settings, SettingsMode> settings;
 
-    private void Awake()
+    void Awake()
     {
         DontDestroyOnLoad(this);
         SETTINGS_PATH = Application.persistentDataPath + "/settings.json";
-        EventManager.Instance.settingsChanged.AddListener(HandleSettingsChanged);
         settings = new Dictionary<Settings, SettingsMode>();
         settings.Add(Settings.VSync, SettingsMode.SettingsMode0);
         settings.Add(Settings.DoFpsLimiter, SettingsMode.SettingsMode0);
         settings.Add(Settings.FpsLimit, SettingsMode.SettingsMode1);
         if (!File.Exists(SETTINGS_PATH)) SaveSettings();
+    }
+
+    void Start()
+    {
+        EventManager.Instance.settingsChanged.AddListener(HandleSettingsChanged);
     }
 
     public void SaveSettings()
