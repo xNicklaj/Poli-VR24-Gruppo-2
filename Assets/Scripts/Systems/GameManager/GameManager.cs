@@ -27,6 +27,8 @@ public class GameManager : Singleton<GameManager>
     private PlayerInputActions pia;
     private InputAction loadAction;
 
+    private AudioSource musicAudioSource;
+
     [SerializeField] private bool isGamePaused = false;
 
     public String player_name;
@@ -112,8 +114,12 @@ public class GameManager : Singleton<GameManager>
     private void HandleSceneChange(bool isMenu)
     {
         // Reload manager if scene has changed but it's not in the main menu
-        if(!isMenu)
+        if (!isMenu)
+        {
             ReloadManagers();
+            musicAudioSource = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        }
+            
     }
 
     // Does exactly what it says, plus sets the scene index to 0. You only need to call this when changing unity scene.
@@ -181,6 +187,14 @@ public class GameManager : Singleton<GameManager>
     {
         isGamePaused = isPaused;
         Time.timeScale = isGamePaused ? 0 : 1;
+        if (isPaused)
+        {
+            if(musicAudioSource != null) musicAudioSource.Pause();
+        }else
+        {
+            if (musicAudioSource != null && musicAudioSource.clip != null) musicAudioSource.Play();
+        }
+        
     }
 
     public bool IsGamePaused()

@@ -32,7 +32,6 @@ public class MuseumDoors : IInteractable
         inGameUIManagerReference.ExitMuseum();
     }
     public void backToVoid(){
-        
         inGameUIManagerReference.ResumeGame();
         postProcessingVolume.profile.TryGet<ColorAdjustments>(out var colorAdjustments);
         playerReference.GetComponent<FirstPersonController>().playerState=FirstPersonController.PlayerStates.IDLE;
@@ -44,6 +43,7 @@ public class MuseumDoors : IInteractable
         tcg.alpha=0;
         
         Sequence seq = DOTween.Sequence();
+        playerReference.GetComponent<AudioSource>().clip = transitionAudio;
         seq.AppendCallback(()=>AudioSource.PlayClipAtPoint(transitionAudio,playerReference.transform.position));
         seq.Join(DOTween.To(()=>colorAdjustments.postExposure.value, x=> colorAdjustments.postExposure.value=x,15f,5f));
         seq.AppendInterval(1f);

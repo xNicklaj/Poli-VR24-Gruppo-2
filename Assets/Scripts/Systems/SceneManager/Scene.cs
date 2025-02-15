@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Scene : MonoBehaviour
 {
@@ -35,11 +36,23 @@ public class Scene : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        OnShow();
+    }
+
+    virtual public void OnShow()
+    {
+
+    }
+
+    virtual public void OnHide()
+    {
+
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        OnHide();
     }
 
     public Transform GetSpawnPoint()
