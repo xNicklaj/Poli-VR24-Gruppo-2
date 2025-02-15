@@ -51,6 +51,7 @@ public class BonsaiPot : IInteractable
         seed.position = this.transform.position - Vector3.up * 2;
 
         DialogueManager.Instance.dialogueEnded.AddListener(SortDialogue);
+        EventManager.Instance.flagHasBeenSet.AddListener(HandleFlagChange);
     }
 
     public override void Interact()
@@ -70,6 +71,7 @@ public class BonsaiPot : IInteractable
                     GameManager.Instance.eventFlags.SetFlag(EventFlag.HasSeed, false);
                     VoidScene.destroyCandles();
                     state = plantState.PLANTED;
+                    GetComponent<IInteractable>().isSelectable = false;
                 }
                 break;
             case plantState.PLANTED:
@@ -107,6 +109,14 @@ public class BonsaiPot : IInteractable
             case plantState.GROWN:
                 break;
 
+        }
+    }
+
+    public void HandleFlagChange(EventFlag flag, bool value)
+    {
+        if (flag == EventFlag.HasWateringCan && value)
+        {
+            GetComponent<IInteractable>().isSelectable = true;
         }
     }
     public void setGrown()
