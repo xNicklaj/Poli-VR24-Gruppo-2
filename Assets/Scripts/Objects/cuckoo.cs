@@ -27,6 +27,8 @@ public class Cuckoo : IInteractable
     [SerializeField] private Transform arm;
     [SerializeField] private Transform wings;
 
+    public float throwingCanDelay = 1f;
+
 
     private enum states
     {
@@ -107,7 +109,7 @@ public class Cuckoo : IInteractable
             //print("orario corretto");
             completed = true;
             cuckooAnimation();
-            StartCoroutine(throwWateringCanCoroutine(1f));
+            StartCoroutine(throwWateringCanCoroutine(throwingCanDelay));
         }
     }
 
