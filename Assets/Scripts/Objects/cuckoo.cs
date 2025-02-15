@@ -107,7 +107,7 @@ public class Cuckoo : IInteractable
             //print("orario corretto");
             completed = true;
             cuckooAnimation();
-            throwWateringCan();
+            StartCoroutine(throwWateringCanCoroutine(1f));
         }
     }
 
@@ -136,6 +136,12 @@ public class Cuckoo : IInteractable
         sequence.AppendInterval(1f);
         sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,0,0f),0.5f));
         sequence.Join(arm.DOLocalMoveX(-0.002f,0.5f));
+    }
+
+    IEnumerator throwWateringCanCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        throwWateringCan();
     }
     
     void throwWateringCan(){
