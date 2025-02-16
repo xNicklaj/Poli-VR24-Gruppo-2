@@ -122,7 +122,7 @@ public class FirstPersonController : MonoBehaviour
 
     public bool enableHeadBob = true;
     public Transform joint;
-    public float bobSpeed = 10f;
+    public float bobSpeed = 5f;
     public Vector3 bobAmount = new Vector3(.15f, .05f, 0f);
 
     // Internal Variables
