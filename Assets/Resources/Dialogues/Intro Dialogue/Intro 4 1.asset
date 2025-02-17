@@ -15,7 +15,8 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 48224ab6a57eb294a9a04662559e3415, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: 5, y: 3, z: 0}
-  lightColor: {r: 0.15447345, g: 0, b: 0.5754717, a: 0.57254905}
+  lightColor: {r: 1, g: 0.8, b: 0.45882353, a: 1}
   textString: E se non lo fosse?
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

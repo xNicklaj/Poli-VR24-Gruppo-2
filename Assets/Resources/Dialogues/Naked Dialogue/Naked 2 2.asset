@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 3, z: 6}
   lightColor: {r: 0.4716981, g: 0.02002491, b: 0.09325312, a: 1}
   textString: Codice, ricordi?
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

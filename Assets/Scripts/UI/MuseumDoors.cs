@@ -66,7 +66,9 @@ public class MuseumDoors : IInteractable
         seq.AppendCallback(()=>playerReference.transform.LookAt(new Vector3(1.5f,2f,79f)));
         seq.Append(DOTween.To(()=>colorAdjustments.postExposure.value, x=> colorAdjustments.postExposure.value=x,0f,5f));
         seq.JoinCallback(()=>tmp.color=Color.white);
-        seq.AppendCallback(()=>tmp.fontSize=64);
+        seq.AppendCallback(()=>tmp.fontSize=84);
+        seq.AppendCallback(()=>tmp.GetComponent<RectTransform>().anchorMax=new Vector2(1,0.5f));
+        seq.AppendCallback(()=>tmp.GetComponent<RectTransform>().offsetMax=new Vector2 (0f,0f));
         seq.AppendInterval(7f);
         SequenceText(seq,"Va'.",tmp,tcg);
         SequenceText(seq,"Sii una tela bianca.\nLascia che la gente ti dipinga.",tmp,tcg);

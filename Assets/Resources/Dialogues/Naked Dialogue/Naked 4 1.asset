@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Naked 4 1
   m_EditorClassIdentifier: 
   next: {fileID: 0}
-  textString: Cosa vedi?
+  audioToPlay: {fileID: 0}
   Position: {x: 0, y: 0, z: 0}
-  answers: []
   lightColor: {r: 0, g: 0, b: 0, a: 0}
+  textString: Cosa vedi?
+  textSize: 4
+  answers: []
   positionRelativeToPlayer: 0

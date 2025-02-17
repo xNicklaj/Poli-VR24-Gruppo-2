@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 1.5, z: 3}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: "Degli algoritmi che ti guidano \nogni giorno?"
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

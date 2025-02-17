@@ -15,7 +15,8 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 9e15885420d4bb44bbb5ed7838f8e3d1, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: 0, y: 3, z: 5}
-  lightColor: {r: 1, g: 0.80169415, b: 0.4575472, a: 0.5019608}
+  lightColor: {r: 1, g: 0.8, b: 0.45882353, a: 1}
   textString: Ci sei?
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

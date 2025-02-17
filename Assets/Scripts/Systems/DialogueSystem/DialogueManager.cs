@@ -85,12 +85,10 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueMeshes.Enqueue(dialogueMesh);
 
         SetupDialogueMesh(dialogueMesh, dialogueLine);
-        dialogueMesh.lineLight.intensity = 0f;
         dialogueMesh.textReference.alpha = 0f;
         dialogueMesh.isSelectable = false;
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
-        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete = dialogueMesh.toggleSelectability;
+        sequence.Append(dialogueMesh.textReference.DOFade(1f, 1.5f)).onComplete = dialogueMesh.toggleSelectability;
         return dialogueMesh;
     }
     public DialogueMesh DisplayCandleLine(DialogueLine dialogueLine, Vector3 position)
@@ -99,7 +97,6 @@ public class DialogueManager : Singleton<DialogueManager>
         DialogueMesh dialogueMesh = Instantiate(dialogueMeshPrefab, position, Quaternion.LookRotation(position - playerJointReference.transform.position));
         dialogueMeshes.Enqueue(dialogueMesh);
         SetupDialogueMesh(dialogueMesh, dialogueLine);
-        dialogueMesh.lineLight.intensity = 0f;
         dialogueMesh.textReference.alpha = 0f;
         dialogueMesh.isSelectable = false;
         if (dialogueLine.name == "Self 9")
@@ -108,15 +105,13 @@ public class DialogueManager : Singleton<DialogueManager>
             currentDialogue = Resources.Load<Dialogue>("Dialogues/Self Dialogue/Self Dialogue");
         }
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(dialogueMesh.lineLight.DOIntensity(1f, 1.5f));
-        sequence.Join(dialogueMesh.textReference.DOFade(1f, 1.5f));
+        sequence.Append(dialogueMesh.textReference.DOFade(1f, 1.5f));
         return dialogueMesh;
     }
     public void DestroyLine(DialogueMesh dialogueMesh)
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(dialogueMesh.lineLight.DOIntensity(0f, 1.5f));
-        sequence.Join(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(() => Destroy(dialogueMesh.gameObject));
+        sequence.Append(dialogueMesh.textReference.DOFade(0f, 1.5f)).OnComplete(() => Destroy(dialogueMesh.gameObject));
     }
 
     private void CreateDialogueAnswers()
@@ -125,10 +120,8 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             var position = answer.getPosition();
             var rotation = Quaternion.LookRotation(position - playerJointReference.transform.position);
-
             var dialogueAnswer = Instantiate(dialogueMeshPrefab, position, rotation);
             dialogueMeshes.Enqueue(dialogueAnswer);
-
             SetupDialogueAnswerMesh(dialogueAnswer, answer);
         }
     }
@@ -164,16 +157,15 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void AdjustCollider(DialogueMesh dialogueMesh)
     {
-        var collider = dialogueMesh.GetComponent<CapsuleCollider>();
-        collider.height = dialogueMesh.textReference.preferredWidth;
-        collider.radius = dialogueMesh.textReference.preferredHeight / 2;
+        var collider = dialogueMesh.GetComponent<BoxCollider>();
+        collider.size = new Vector3(dialogueMesh.textReference.preferredWidth,dialogueMesh.textReference.preferredHeight/2,3);
     }
 
     private void ApplyLightingAndAudio(DialogueMesh dialogueMesh, Color? lightColor, AudioClip audioSource)
     {
         if (lightColor.HasValue)
         {
-            dialogueMesh.lineLight.color = lightColor.Value;
+            dialogueMesh.setTextColor(lightColor.Value);
             var particles = dialogueMesh.particles.main;
             particles.startColor = lightColor.Value;
         }

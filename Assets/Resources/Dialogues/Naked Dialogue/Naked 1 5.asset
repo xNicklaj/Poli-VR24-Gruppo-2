@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: -6, y: 3, z: -12}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: Forse anche noioso?
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

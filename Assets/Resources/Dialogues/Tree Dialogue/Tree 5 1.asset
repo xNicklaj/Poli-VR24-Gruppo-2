@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 1.7, y: 2.5, z: 72}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: "Hai prove per dimostrare \nche non \xE8 pi\xF9 un albero?"
-  textSize: 4
+  textSize: 3
   answers: []
   positionRelativeToPlayer: 0

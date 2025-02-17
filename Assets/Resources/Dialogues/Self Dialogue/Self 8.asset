@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 0, z: 0}
   lightColor: {r: 0.6952831, g: 0.5518868, b: 1, a: 1}
   textString: "C'\xE8 qualcosa \nche ti fa felice?"
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

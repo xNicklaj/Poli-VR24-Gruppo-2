@@ -387,6 +387,9 @@ public class FirstPersonController : MonoBehaviour
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
 
+            }else{
+                anim.SetBool("IsWalking", false);
+                anim.SetBool("IsRunning", false);
             }
         }
 
@@ -410,6 +413,7 @@ public class FirstPersonController : MonoBehaviour
         if (anim != null && velocity != Vector3.zero) {
             anim.SetBool("IsWalking", true);
             anim.SetBool("IsRunning", false);
+        }else if (velocity != Vector3.zero){
         }
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
@@ -482,13 +486,15 @@ public class FirstPersonController : MonoBehaviour
             switch (playerState)
             {
                 case PlayerStates.MOVE or PlayerStates.IDLE:
-                    if (rb.velocity != Vector3.zero)
+                    if (rb.velocity != Vector3.zero && pc.Player.Move.IsPressed())
                     {
                         timer += Time.deltaTime * bobSpeed;
                     }
                     else
                     {
                         timer += Time.deltaTime * bobSpeed * speedReduction * 0.2f;
+                        anim.SetBool("IsWalking", false);
+                        anim.SetBool("IsRunning", false);
                     }
                     break;
                 case PlayerStates.SPRINT:

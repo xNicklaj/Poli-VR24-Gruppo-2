@@ -8,7 +8,6 @@ public class DialogueMesh : IInteractable
 {
     public TextMeshPro textReference;
     public AudioSource audioSource;
-    public Light lineLight;
     public ParticleSystem particles;
     public DialogueManager dialogueManager;
     public DialogueComponent dc;
@@ -18,7 +17,6 @@ public class DialogueMesh : IInteractable
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        lineLight = GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -29,6 +27,9 @@ public class DialogueMesh : IInteractable
         // Applica una rotazione di 180 gradi (inverte l'asse Z)
         Quaternion lookRotation = Quaternion.LookRotation(-direction);
         transform.rotation = lookRotation;
+    }
+    public void setTextColor(Color c){
+        textReference.fontMaterial.SetColor("_GlowColor",c);
     }
     public override void Interact()
     {
@@ -61,14 +62,16 @@ public class DialogueMesh : IInteractable
         if (isSelectable && !isSelected)
         {
             
-            particles.Play();
+            //particles.Play();
+            textReference.fontMaterial.DOFloat(0.1f,"_GlowPower",1f);
             base.Select();
         }
     }
 
     public override void Deselect()
     {
-        particles.Stop();
+        //particles.Stop();
+        textReference.fontMaterial.DOFloat(0f,"_GlowPower",1f);
         base.Deselect();
     }
 

@@ -15,6 +15,6 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 2206bb923875c0946a3ad2d6404a3441, type: 2}
   audioToPlay: {fileID: 0}
   Position: {x: 2, y: 2, z: 5}
-  lightColor: {r: 0.09710693, g: 1, b: 0, a: 0.49803922}
+  lightColor: {r: 0, g: 0.7529412, b: 0.1254902, a: 1}
   answer_text_string: "S\xEC"
   next_dialogue: {fileID: 11400000, guid: f4cb312eff78b344f92bda52d2bb40f8, type: 2}

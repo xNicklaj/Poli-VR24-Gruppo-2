@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 1.7, y: 2.5, z: 72}
   lightColor: {r: 0, g: 1, b: 0.10928035, a: 1}
   textString: "Giustamente, perch\xE9 non \ndovrebbe esserlo?"
-  textSize: 4
+  textSize: 3
   answers: []
   positionRelativeToPlayer: 0

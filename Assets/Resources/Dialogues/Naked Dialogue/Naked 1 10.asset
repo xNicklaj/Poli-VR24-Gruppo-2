@@ -18,6 +18,6 @@ MonoBehaviour:
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: "Perch\xE9 non ti togli di dosso un'etica e una morale \nnate dalla
     societ\xE0 in cui vivi?"
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

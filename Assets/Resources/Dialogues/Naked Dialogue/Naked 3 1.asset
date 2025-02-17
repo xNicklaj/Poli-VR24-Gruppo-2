@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 3, z: 12}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: "Ora ti senti differente \nda quel vecchio albero morto?"
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

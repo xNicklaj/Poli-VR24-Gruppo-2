@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 2, z: -12}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: "Perch\xE9 non ti togli le convinzioni?"
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

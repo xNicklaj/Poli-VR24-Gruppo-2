@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Triplet : MonoBehaviour
 {
+    [SerializeField][Range(0, 100)] private int probability;
     [SerializeField] private float speed;
     public TextMeshPro textMeshPro;
     [SerializeField] private Color color;
@@ -18,6 +20,9 @@ public class Triplet : MonoBehaviour
     {
         speed *= UnityEngine.Random.Range(0.75f,1.5f);
         textMeshPro = GetComponent<TextMeshPro>();
+        if(UnityEngine.Random.Range(0,100)>=probability){
+            GetComponent<CapsuleCollider>().enabled=true;
+        }
         buildString();
     }
 

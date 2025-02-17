@@ -17,7 +17,7 @@ MonoBehaviour:
   Position: {x: 1, y: 2.5, z: 69}
   lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
   textString: "Guardalo, \xE8 ancora \nun albero?"
-  textSize: 4
+  textSize: 3
   answers:
   - {fileID: 11400000, guid: f7f62199730e4944b80b372ab600a6a2, type: 2}
   - {fileID: 11400000, guid: b5c0d5657909f014e8210848066c42cc, type: 2}

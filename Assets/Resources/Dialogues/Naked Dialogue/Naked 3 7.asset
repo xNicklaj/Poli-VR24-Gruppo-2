@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: -12, y: 3, z: 0}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: Cosa sono sinistra e destra?
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

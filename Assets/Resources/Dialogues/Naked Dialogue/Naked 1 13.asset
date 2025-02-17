@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 3, z: 0}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: Non sei un codice?
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

@@ -19,5 +19,6 @@ MonoBehaviour:
   textString: 'Stai aspettando di vivere?
 
     Stai aspettando di morire?'
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

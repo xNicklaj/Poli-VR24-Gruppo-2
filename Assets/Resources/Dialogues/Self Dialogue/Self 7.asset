@@ -19,5 +19,6 @@ MonoBehaviour:
   textString: 'Cosa ti fa arrabbiare?
 
     Cosa ti fa essere felice?'
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

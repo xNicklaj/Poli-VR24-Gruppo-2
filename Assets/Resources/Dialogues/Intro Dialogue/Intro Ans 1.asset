@@ -15,6 +15,6 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 0a5d3889e33372545bfc00f88f854319, type: 2}
   audioToPlay: {fileID: 0}
   Position: {x: -2, y: 2, z: 5}
-  lightColor: {r: 1, g: 0, b: 0, a: 0.49803922}
+  lightColor: {r: 0.5, g: 0, b: 0, a: 1}
   answer_text_string: No
   next_dialogue: {fileID: 11400000, guid: 1f5bb3623dfb2d942a8b591fbc2094c1, type: 2}

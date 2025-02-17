@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 1.7, y: 2.5, z: 73}
   lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
   textString: "E ora sei diverso \nda quell'albero?"
-  textSize: 4
+  textSize: 3
   answers: []
   positionRelativeToPlayer: 0

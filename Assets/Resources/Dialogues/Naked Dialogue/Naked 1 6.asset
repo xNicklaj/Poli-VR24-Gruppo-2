@@ -18,6 +18,6 @@ MonoBehaviour:
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: "Quanto di te \xE8 il semplice prodotto \ndell'ambiente in cui sei
     cresciuto?"
-  textSize: 8
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

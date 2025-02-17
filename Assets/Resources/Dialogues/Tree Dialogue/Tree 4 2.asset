@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: -3, y: 2.5, z: 69}
   lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
   textString: "Ma importa davvero \nin fondo?"
-  textSize: 4
+  textSize: 3
   answers: []
   positionRelativeToPlayer: 0
