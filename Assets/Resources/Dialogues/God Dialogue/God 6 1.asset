@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 2.5, z: 10}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: E se fossi rimasto solo?
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

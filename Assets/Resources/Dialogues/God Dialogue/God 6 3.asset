@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: -10, y: 2.5, z: 0}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: Esisterebbero giusto e sbagliato?
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

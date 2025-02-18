@@ -17,6 +17,6 @@ MonoBehaviour:
   Position: {x: 5, y: 3, z: 0}
   lightColor: {r: 1, g: 0.8, b: 0.45882353, a: 1}
   textString: E se non lo fosse?
-  textSize: 8
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

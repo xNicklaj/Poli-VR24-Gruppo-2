@@ -19,5 +19,6 @@ MonoBehaviour:
   textString: 'Cosa sarebbe giusto fare?
 
     E cosa sbagliato?'
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

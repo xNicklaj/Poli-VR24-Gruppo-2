@@ -37,7 +37,7 @@ public class DialogueMesh : IInteractable
         {
             if (dc is DialogueLine)
             {
-                textReference.DOColor(new Color(0.2f,0.2f,0.2f),1.5f);
+                textReference.DOColor(new Color(0.2f,0.2f,0.2f,0.5f),1.5f);
                 dialogueManager.ContinueDialogue(dc);
                 isSelectable = false;
                 Deselect();

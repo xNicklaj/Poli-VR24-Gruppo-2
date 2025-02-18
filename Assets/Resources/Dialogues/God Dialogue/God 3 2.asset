@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: 0, y: 2.5, z: -5}
+  Position: {x: 0, y: 2.5, z: 0}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: "Peggio ancora,\n e se Dio fosse morto?"
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

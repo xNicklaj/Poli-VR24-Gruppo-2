@@ -141,6 +141,14 @@ public class FirstPersonController : MonoBehaviour
         IDLE // used when player can't move
     }
     public PlayerStates playerState;
+    #region Audio
+    public AudioSource feetAudioSource;
+    [SerializeField] private AudioClip voidStep;
+    [SerializeField] private AudioClip houseStep;
+    [SerializeField] private AudioClip museumStep;
+
+
+    #endregion
     #endregion
     #region Awake Function
     private void Awake()
@@ -207,6 +215,23 @@ public class FirstPersonController : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.IsGamePaused()) return;
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, -transform.up*2.5f, Color.red);
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 2.5f) 
+        && hit.collider.gameObject.TryGetComponent<Renderer>(out Renderer mat)){
+                print(mat.material.name);
+                switch(mat.material.name){
+                    case "provetta (Instance)":
+                        print("Void");
+                        break;
+                    case "New Material (Instance)":
+                        print("Casa");
+                        break;
+                    case "WoodFloor Variant (Instance)":
+                        print("Museo");
+                        break;
+                }
+            }
         switch (playerState)
         {
             case PlayerStates.MOVE:

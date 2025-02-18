@@ -17,6 +17,7 @@ MonoBehaviour:
   Position: {x: 0, y: 2.5, z: 5}
   lightColor: {r: 1, g: 0.90222985, b: 0.7311321, a: 1}
   textString: ...credi in un Dio?
+  textSize: 6
   answers:
   - {fileID: 11400000, guid: aaeeb8128288c49479e2ebc457bca681, type: 2}
   - {fileID: 11400000, guid: 54ae59f5f07b58f41a8deaca50a39a1f, type: 2}

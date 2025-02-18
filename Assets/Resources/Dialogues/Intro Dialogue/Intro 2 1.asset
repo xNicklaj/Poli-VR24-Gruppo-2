@@ -17,7 +17,7 @@ MonoBehaviour:
   Position: {x: 0, y: 3, z: 5}
   lightColor: {r: 1, g: 0.8, b: 0.45882353, a: 1}
   textString: "{player_name}, \xE8 il tuo nome?"
-  textSize: 8
+  textSize: 6
   answers:
   - {fileID: 11400000, guid: 6648dda89016c864ca735876bf46efba, type: 2}
   - {fileID: 11400000, guid: 080d302788c60534ea51a011d54844a2, type: 2}

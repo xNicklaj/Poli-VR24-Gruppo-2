@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: 0, y: 2.5, z: -5}
+  Position: {x: 0, y: 2.5, z: 0}
   lightColor: {r: 0, g: 1, b: 0.17254902, a: 1}
   textString: "O peggio, \nse fosse morto?"
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

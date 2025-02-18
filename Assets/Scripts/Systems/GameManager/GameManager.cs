@@ -190,9 +190,11 @@ public class GameManager : Singleton<GameManager>
         if (isPaused)
         {
             if(musicAudioSource != null) musicAudioSource.Pause();
+            player.HideCrosshair();
         }else
         {
             if (musicAudioSource != null && musicAudioSource.clip != null) musicAudioSource.Play();
+            player.DisplayCrosshair();
         }
         
     }

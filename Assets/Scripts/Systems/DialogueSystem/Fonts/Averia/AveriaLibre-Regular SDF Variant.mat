@@ -30,7 +30,7 @@ Material:
     - _GlowInner: 0
     - _GlowOuter: 1
     - _GlowPower: 0
-    - _OutlineWidth: 0.125
+    - _OutlineWidth: 0.13
     m_Colors:
     - _GlowColor: {r: 0, g: 1.4142135, b: 0, a: 1}
   m_BuildTextureStacks: []

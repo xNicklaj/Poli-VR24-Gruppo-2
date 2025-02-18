@@ -15,6 +15,7 @@ public class BonsaiPot : IInteractable
 
 
     [SerializeField] private GameObject HouseStonePortal;
+    public GameObject particlePivot;
     private AudioSource HouseStonePortalSoundSource;
     [SerializeField] private GameObject Trunk;
     [SerializeField] private GameObject Branches;
@@ -22,7 +23,6 @@ public class BonsaiPot : IInteractable
     [SerializeField] private GameObject Leaves;
     [SerializeField] private GameObject Flowers;
     [SerializeField] private Transform seed;
-    public ParticleSystem particles;
     [SerializeField] private Transform HousePortal;
     [SerializeField] private VoidScene VoidScene;
     [SerializeField] private Transform VoidPortal;
@@ -62,7 +62,7 @@ public class BonsaiPot : IInteractable
                 if (GameManager.Instance.eventFlags.GetFlag(EventFlag.HasSeed))
                 {
                     print("pianto il seme");
-                    particles.Stop();
+                    particlePivot.SetActive(false);
                     HouseStonePortalSoundSource.Play();
                     HouseStonePortal.transform.DOMoveY(-5, 3f);
 

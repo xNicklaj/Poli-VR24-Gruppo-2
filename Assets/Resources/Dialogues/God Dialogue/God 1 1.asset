@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 2.5, z: 5}
   lightColor: {r: 0.23389105, g: 0.3529412, b: 0.3529412, a: 1}
   textString: E dimmi...
+  textSize: 6
   answers: []
   positionRelativeToPlayer: 0

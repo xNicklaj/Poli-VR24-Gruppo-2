@@ -82,6 +82,7 @@ public class VoidScene : MonoBehaviour
         floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", blackRoomColorCaustics);
         dome.GetComponent<Renderer>().material.color = blackRoomColor;
         loadAmbient();
+        SceneManager.Instance.SetScene(MuseumScene,false);
 
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -350,7 +351,6 @@ public class VoidScene : MonoBehaviour
             floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
             floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
             dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
-            
             GetComponent<AudioSource>().volume = 0f;
             DG.Tweening.Sequence introsequence = DOTween.Sequence();
             introsequence.AppendInterval(4f);
@@ -359,13 +359,13 @@ public class VoidScene : MonoBehaviour
         else if (CheckFlag(EventFlag.HasWateringCan) && !CheckFlag(EventFlag.TreeDialogueEnded))
         {
             print("can "+CheckFlag(EventFlag.HasWateringCan));
-        print("treeDialogue: "+CheckFlag(EventFlag.TreeDialogueEnded));
+            print("treeDialogue: "+CheckFlag(EventFlag.TreeDialogueEnded));
             floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
             floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
             dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
             GetComponent<AudioSource>().volume = 0f;
             bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.PLANTED;
-            bonsai.GetComponent<BonsaiPot>().particles.Stop();
+            bonsai.GetComponent<BonsaiPot>().particlePivot.SetActive(false);
             cuckoo.isSelectable=false;
             GameManager.Instance.eventFlags.SetFlag(EventFlag.HasSeed,false);
             
@@ -382,7 +382,7 @@ public class VoidScene : MonoBehaviour
             bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
             DG.Tweening.Sequence introsequence = DOTween.Sequence();
             introsequence.AppendInterval(4f);
-            bonsai.GetComponent<BonsaiPot>().particles.Stop();
+            bonsai.GetComponent<BonsaiPot>().particlePivot.SetActive(false);
             bonsai.GetComponent<BonsaiPot>().setGrown();
             cuckoo.isSelectable=false;
             introsequence.AppendCallback(() => DialogueManager.Instance.dialogueEnded.Invoke("Tree Dialogue 6"));
@@ -397,6 +397,7 @@ public class VoidScene : MonoBehaviour
             dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
             GetComponent<AudioSource>().volume = 0f;
             bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
+            bonsai.GetComponent<BonsaiPot>().particlePivot.SetActive(false);
             DG.Tweening.Sequence introsequence = DOTween.Sequence();
             introsequence.AppendInterval(4f);
             introsequence.AppendCallback(()=>DialogueManager.Instance.dialogueEnded.Invoke("Naked Dialogue 3"));
@@ -408,6 +409,7 @@ public class VoidScene : MonoBehaviour
             dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
             GetComponent<AudioSource>().volume = 0f;
             bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
+            bonsai.GetComponent<BonsaiPot>().particlePivot.SetActive(false);
             DG.Tweening.Sequence introsequence = DOTween.Sequence();
             introsequence.AppendCallback(()=>SceneManager.Instance.SetScene(MuseumScene, false));
             introsequence.AppendInterval(4f);

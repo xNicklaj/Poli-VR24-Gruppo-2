@@ -10,14 +10,14 @@ public class Book : IInteractable
     [SerializeField] private GameObject UIPreset;
     [SerializeField] private GameObject playerCanvas;
     [SerializeField] private AudioClip bookPageFlipAudio;
-    [SerializeField] private ParticleSystem particles;
+    public GameObject particlePivot;
     [SerializeField][TextArea] private string text;
     [SerializeField]private float persistenceTime=3f;
     private GameObject textInstance;
     public override void Interact()
     {
-        if(particles){
-            particles.Stop();
+        if(particlePivot){
+            particlePivot.gameObject.SetActive(false);
         }
         Transform test = playerCanvas.transform.Find("bookText(Clone)");
         if(test!=null){
