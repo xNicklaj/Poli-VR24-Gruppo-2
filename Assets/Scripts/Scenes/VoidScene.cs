@@ -42,6 +42,7 @@ public class VoidScene : MonoBehaviour
     [SerializeField] private GameObject TripletPreset;
     [SerializeField] private GameObject TripletFather;
     [SerializeField] private GameObject DNAPrefab;
+    [SerializeField] private AudioClip DNAAudio;
     private GameObject DNAInstance;
     [SerializeField] private GameObject EyesClosedPrefab;
     [SerializeField] private GameObject EyesClosedTextPrefab;
@@ -82,7 +83,6 @@ public class VoidScene : MonoBehaviour
         floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", blackRoomColorCaustics);
         dome.GetComponent<Renderer>().material.color = blackRoomColor;
         loadAmbient();
-        SceneManager.Instance.SetScene(MuseumScene,false);
 
     }
     public void DialogueEndedFunctions(string dialogueName)
@@ -238,7 +238,7 @@ public class VoidScene : MonoBehaviour
     }
     private void MakeSeedAppear()
     {
-        seedInstance = Instantiate(SeedPreset, new Vector3(-10f, 2f, 0f), new Quaternion());
+        seedInstance = Instantiate(SeedPreset, new Vector3(-15f, 2f, 0f), new Quaternion());
         DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Seed Dialogue/Seed Dialogue 2"));
 
     }
@@ -278,6 +278,9 @@ public class VoidScene : MonoBehaviour
             mesh.GetComponent<Triplet>().textMeshPro.DOFade(0, 7f);
             mesh.DOScale(0, 7f);
         }
+        floor.GetComponent<Renderer>().material.DOColor(redRoomColor, "_BaseColor", 7f);
+        floor.GetComponent<Renderer>().material.DOColor(redRoomColorCaustics, "_CausticsColor", 7f);
+        AudioSource.PlayClipAtPoint(DNAAudio,Vector3.zero,0.5f);
         DNAInstance.transform.DOMoveY(0, 15).OnComplete(() => Destroy(TripletFather.gameObject)).OnComplete(() =>
         DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Naked Dialogue/Naked Dialogue 3")));
     }

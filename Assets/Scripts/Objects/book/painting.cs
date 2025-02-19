@@ -13,6 +13,7 @@ public class Painting : IInteractable
     [SerializeField]private float persistenceTime=3f;
     private GameObject textInstance;
     private DG.Tweening.Sequence sequence;
+    public bool visited;
 
     private bool isVisible = false;
     public float distanceToHide = 4.5f;
@@ -35,6 +36,7 @@ public class Painting : IInteractable
 
     public override void Interact()
     {
+        visited=true;
         if (isVisible) Hide();
         else Show();
     }
@@ -57,7 +59,7 @@ public class Painting : IInteractable
 
     public void Hide()
     {
-        sequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(0, 1f)).OnComplete(() => Destroy(textInstance.gameObject));
+        sequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(0, 0.5f)).OnComplete(() => Destroy(textInstance.gameObject));
         isVisible = false;
     }
 }

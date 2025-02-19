@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 0ab1cbd32a6a4e14c890010053d2db8b, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: 0, y: 1, z: 12}
+  Position: {x: 0, y: 1, z: 11}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: "Non siete entrambi \nammassi di geni?"
   textSize: 4

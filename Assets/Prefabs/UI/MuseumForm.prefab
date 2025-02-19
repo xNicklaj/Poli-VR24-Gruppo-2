@@ -56,6 +56,7 @@ MonoBehaviour:
   continueButton: {fileID: 0}
   quitButton: {fileID: 0}
   museumButton: {fileID: 0}
+  selectionSound: {fileID: 0}
   subText: {fileID: 0}
   optionsMenu: {fileID: 0}
   mainMenu: {fileID: 0}
@@ -262,9 +263,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Uscire dal museo?\nNon hai visualizzato tutte quante le opere, e non sar\xE0
-    possibile visitare di nuovo l'area fino alla fine dell'esperienza. E' sconsigliato
-    andarsene senza avere assaporato la vera essenza umana."
+  m_text: 'Uscire dal museo?
+
+    Non hai visualizzato tutte quante le opere, e non
+    potrai visitare di nuovo l''area fino alla fine dell''esperienza. E'' sconsigliato
+    andarsene senza avere assaporato la vera essenza umana.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 144841b009fca764a84851048b6d08f7, type: 2}
   m_sharedMaterial: {fileID: 731501885386441640, guid: 144841b009fca764a84851048b6d08f7,

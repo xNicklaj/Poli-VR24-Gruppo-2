@@ -578,6 +578,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: voidStep.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: houseStep.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: museumStep.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: voidStep.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1eb79566532a7be40a0e88f04897807a, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: voidStep.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e914e7f9c7513584db7d1f591420a383, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: voidStep.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 73653c69dfa7bd74ca2da186aba2200c, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: houseStep.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6211b1a2f359abc40a09972b38fa7a9e, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: houseStep.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 44b6ef1de9f500f4b9515b1452e0fc00, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: houseStep.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 11c7537a8a07b014dae3747950e38ac1, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: museumStep.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: bcf1372ee785a074793c58fbf45a7b4a, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: museumStep.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a5e264db70e248a43a991be14aac2976, type: 3}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: museumStep.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95d0504d4981c7049bbd48933999b859, type: 3}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Name

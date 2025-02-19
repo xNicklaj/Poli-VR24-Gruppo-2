@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: a52ec1be5a3cf564cb4298f8d363cb06, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: -12, y: 2, z: 0}
+  Position: {x: 7, y: 2, z: -7}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: Cosa sono alto e basso?
   textSize: 4

@@ -14,6 +14,7 @@ public class MainMenuHandler : MonoBehaviour
     public Button continueButton;
     public Button quitButton;
     public Button museumButton;
+    public AudioClip selectionSound;
 
     public TextMeshProUGUI subText;
 
@@ -74,10 +75,12 @@ public class MainMenuHandler : MonoBehaviour
         GameManager.Instance.eventFlags = new EventFlags();
         GameManager.Instance.eventFlags.InitializeFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
+        AudioSource.PlayClipAtPoint(selectionSound,Vector3.zero);
     }
     public void goToMuseum()
     {
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, true);
+        AudioSource.PlayClipAtPoint(selectionSound,Vector3.zero);
     }
 
     public void LoadGame()
@@ -86,6 +89,7 @@ public class MainMenuHandler : MonoBehaviour
         GameManager.Instance.LoadGame();
         GameManager.Instance.eventFlags.PrintFlags();
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
+        AudioSource.PlayClipAtPoint(selectionSound,Vector3.zero);
     }
 
     public void QuitGame()

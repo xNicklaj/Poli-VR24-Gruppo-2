@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 5cfca1be68ac7924aa1a5d5c9a638fc6, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: 0, y: 1, z: -12}
+  Position: {x: 12, y: 1, z: 0}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: "Perch\xE9 non ti togli i limiti?"
   textSize: 4

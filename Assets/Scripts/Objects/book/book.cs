@@ -12,7 +12,7 @@ public class Book : IInteractable
     [SerializeField] private AudioClip bookPageFlipAudio;
     public GameObject particlePivot;
     [SerializeField][TextArea] private string text;
-    [SerializeField]private float persistenceTime=3f;
+    [SerializeField]private float persistenceTime=5f;
     private GameObject textInstance;
     public override void Interact()
     {

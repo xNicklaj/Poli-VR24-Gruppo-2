@@ -41,6 +41,7 @@ public class DialogueMesh : IInteractable
                 dialogueManager.ContinueDialogue(dc);
                 isSelectable = false;
                 Deselect();
+                GetComponent<CapsuleCollider>().enabled=false;
             }
             else if (dc is DialogueAnswer)
             {
@@ -48,6 +49,7 @@ public class DialogueMesh : IInteractable
                 dialogueManager.StartDialogue((dc as DialogueAnswer).next_dialogue);
                 isSelectable = false;
                 Deselect();
+                GetComponent<CapsuleCollider>().enabled=false;
             }
 
         }

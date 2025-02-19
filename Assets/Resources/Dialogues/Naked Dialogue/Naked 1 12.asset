@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: d333ecfa2e32fa24998a4aec09d2a3c8, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: -6, y: 1.5, z: 12}
+  Position: {x: -6, y: 1.5, z: 13}
   lightColor: {r: 0, g: 0.16037738, b: 0.123437814, a: 1}
   textString: In fondo cosa sei?
   textSize: 4

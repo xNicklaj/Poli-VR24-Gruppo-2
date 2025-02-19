@@ -157,8 +157,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void AdjustCollider(DialogueMesh dialogueMesh)
     {
-        var collider = dialogueMesh.GetComponent<BoxCollider>();
-        collider.size = new Vector3(dialogueMesh.textReference.preferredWidth,dialogueMesh.textReference.preferredHeight/2,dialogueMesh.textReference.preferredWidth);
+        var collider = dialogueMesh.GetComponent<CapsuleCollider>();
+        collider.height = dialogueMesh.textReference.preferredWidth;
+        //collider.size = new Vector3(dialogueMesh.textReference.preferredWidth,dialogueMesh.textReference.preferredHeight/2,dialogueMesh.textReference.preferredWidth);
     }
 
     private void ApplyLightingAndAudio(DialogueMesh dialogueMesh, Color? lightColor, AudioClip audioSource)

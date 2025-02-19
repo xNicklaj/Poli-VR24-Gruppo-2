@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: 24, y: 3, z: 0}
+  Position: {x: 0, y: 3, z: -10}
   lightColor: {r: 0, g: 0, b: 0, a: 0}
   textString: "Perch\xE9 non chiudi gli occhi e riposi?"
   textSize: 4
