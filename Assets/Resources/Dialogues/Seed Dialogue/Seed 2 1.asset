@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 2b3d53915eb866742872a7eadf28d64e, type: 2}
   audioToPlay: {fileID: 8300000, guid: 673d02180d7d8644aa0db5ee939e3102, type: 3}
-  Position: {x: -10, y: 3.5, z: 0}
+  Position: {x: -15, y: 3.5, z: 0}
   lightColor: {r: 1, g: 0.367051, b: 0, a: 0.5058824}
   textString: "Sei cos\xEC differente \nda questo seme?"
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

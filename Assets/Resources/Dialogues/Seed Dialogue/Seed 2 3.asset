@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
-  Position: {x: -10, y: 2, z: -5}
+  Position: {x: -15, y: 2, z: -5}
   lightColor: {r: 1, g: 0.367051, b: 0, a: 0.5058824}
   textString: "Indifeso come \nquesto seme?"
+  textSize: 8
   answers: []
   positionRelativeToPlayer: 0

@@ -131,6 +131,8 @@ public class InGameUIManager : MonoBehaviour
         }
     }
     public void showMuseumExitForm(){
+        playerReference.GetComponent<Interactor>().enabled=false;
+
         pauseMenu.SetActive(false);
         quitToDesktop.SetActive(false);
         quitToMenu.SetActive(false);

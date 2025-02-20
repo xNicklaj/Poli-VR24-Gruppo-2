@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: be18deae75493324c9c45a8b7e41c6ee, type: 2}
   audioToPlay: {fileID: 8300000, guid: e688899fd8688cc4faf1f4b075f4d7f1, type: 3}
-  Position: {x: 0, y: 2.5, z: 10}
+  Position: {x: 0, y: 2.5, z: 6}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: E se fossi rimasto solo?
   textSize: 6

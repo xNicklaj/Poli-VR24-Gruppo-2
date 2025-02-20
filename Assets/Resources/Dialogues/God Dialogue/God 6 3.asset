@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: 00c4e057e41b7a843aed2a75c3c54f81, type: 2}
   audioToPlay: {fileID: 8300000, guid: 49d555d5d2f8695478622cc6cdebc4e3, type: 3}
-  Position: {x: -10, y: 2.5, z: 0}
+  Position: {x: 0, y: 2.5, z: -6}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: Esisterebbero giusto e sbagliato?
   textSize: 6

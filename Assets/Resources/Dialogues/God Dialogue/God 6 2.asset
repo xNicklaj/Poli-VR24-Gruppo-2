@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 11400000, guid: b1283fa09b7594b4f9a08ff51de14810, type: 2}
   audioToPlay: {fileID: 8300000, guid: 2062eec4ea0e72b43bdd81b261aaaae7, type: 3}
-  Position: {x: 0, y: 2.5, z: -10}
+  Position: {x: 6, y: 2.5, z: 0}
   lightColor: {r: 1, g: 0, b: 0, a: 1}
   textString: 'Cosa sarebbe giusto fare?
 

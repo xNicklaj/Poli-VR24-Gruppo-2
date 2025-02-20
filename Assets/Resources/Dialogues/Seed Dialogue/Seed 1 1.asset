@@ -17,5 +17,6 @@ MonoBehaviour:
   Position: {x: 0, y: 3, z: 0}
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   textString: "Sei cos\xEC differente \nda un oggetto?"
+  textSize: 4
   answers: []
   positionRelativeToPlayer: 0

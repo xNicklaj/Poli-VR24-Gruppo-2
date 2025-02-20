@@ -15,7 +15,7 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 3cbd5d6de7605e741803c8ad2864e5b7, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: -1, y: 3, z: 75}
-  lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
+  lightColor: {r: 0.5, g: 0.13819347, b: 0, a: 1}
   textString: Quest'albero ha foglie?
   textSize: 3
   answers: []

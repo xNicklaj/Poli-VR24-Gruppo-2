@@ -6210,7 +6210,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7780,6 +7780,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
+      propertyPath: throwingCanDelay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
       propertyPath: wateringCanPrefab
       value: 
       objectReference: {fileID: 2686207316566578483, guid: 4e660e0542fb89848b02f6e63161062f,
@@ -8193,6 +8198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757395223331576759, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4757395223331576759, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
@@ -12459,6 +12469,7 @@ GameObject:
   - component: {fileID: 873184563}
   - component: {fileID: 873184562}
   - component: {fileID: 873184565}
+  - component: {fileID: 873184566}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -12567,6 +12578,18 @@ MonoBehaviour:
   - {fileID: 7831062813215574887, guid: 9a94f16c04421504a943ffe4a3506dd3, type: 3}
   - {fileID: 5533655504750607890, guid: 4c167933ea0fa204abc0956728e4a4e8, type: 3}
   - {fileID: 6725911324341061264, guid: f3e82e49a35a57a4290e5692fd6121d9, type: 3}
+--- !u!225 &873184566
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873184560}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!20 &880050207 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5763746503290257672, guid: c16ca27753aa74a44b13852020f9ee00,
@@ -22043,6 +22066,7 @@ MonoBehaviour:
   domeSpotlight: {fileID: 226477697}
   nameInputFieldPreset: {fileID: 7749315894409269749, guid: bd7a9b43838147347baadffa6ed8d36d,
     type: 3}
+  InventoryCanvasGroup: {fileID: 873184566}
   matchBoxPreset: {fileID: 2483574560796066043, guid: d5e072c005124a7418693cda960893fd,
     type: 3}
   candlePreset: {fileID: 5295160307909409174, guid: c032f7a7638fb5542be6f651943dfd92,
@@ -22079,6 +22103,7 @@ MonoBehaviour:
   redRoomColor: {r: 0.2924528, g: 0, b: 0, a: 0}
   redRoomColorCaustics: {r: 0.7372549, g: 0, b: 0.13333334, a: 0}
   gameSounds: {fileID: 300980183}
+  windSoundtrack: {fileID: 8300000, guid: 1ba8543281d53724bba37f8f0491e646, type: 3}
   colorChangeSound: {fileID: 8300000, guid: bf11417ee1d8c0d4b890d98b93d34861, type: 3}
   godKilledSound: {fileID: 8300000, guid: 10d9e08c2ce5c934282a99ce51236c62, type: 3}
   godKilledSoundtrack: {fileID: 8300000, guid: f6d37b49137db3c4881f6793ed4503be, type: 3}
@@ -22104,9 +22129,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -22114,7 +22139,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.99666667
       value: 1
       inSlope: 0
       outSlope: 0
@@ -22139,7 +22164,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -24189,9 +24214,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Uscire dal museo?\nNon sar\xE0 possibile visitare di nuovo l'area fino
-    alla fine dell'esperienza. E' sconsigliato andarsene senza avere assaporato la
-    vera essenza umana."
+  m_text: 'Uscire dal museo?
+
+    Non potrai possibile visitare di nuovo l''area
+    fino alla fine dell''esperienza. E'' sconsigliato andarsene senza avere assaporato
+    la vera essenza umana.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 144841b009fca764a84851048b6d08f7, type: 2}
   m_sharedMaterial: {fileID: 731501885386441640, guid: 144841b009fca764a84851048b6d08f7,

@@ -530,7 +530,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""551c484f-d1c3-4483-8806-c7644917bb58"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
-                    ""processors"": ""Clamp(min=-5,max=5)"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ClockControlArm"",
                     ""isComposite"": true,

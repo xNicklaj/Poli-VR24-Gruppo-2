@@ -25,15 +25,15 @@ public class VoidScene : MonoBehaviour
     [SerializeField] private Light domeSpotlight;
     [Header("Presets")]
     [SerializeField] private GameObject nameInputFieldPreset;
+    [SerializeField] private CanvasGroup InventoryCanvasGroup;
+
     [SerializeField] private GameObject matchBoxPreset;
     [SerializeField] private GameObject candlePreset;
     [SerializeField] private GameObject CandleFather;
-
     [SerializeField] private GameObject SeedPreset;
     private GameObject seedInstance;
     [SerializeField] private GameObject StoneDoorVoid;
     [SerializeField] private PortalTeleporter StoneDoorVoidTeleporter;
-
     [SerializeField] private GameObject StoneDoorVoidCollisionsOnly;
     [SerializeField] private AudioSource StoneDoorVoidAudioSource;
     [SerializeField] private GameObject StoneDoorHouse;
@@ -67,6 +67,7 @@ public class VoidScene : MonoBehaviour
 
     [Header("Audio Parameters")]
     [SerializeField] private GameObject gameSounds;
+    [SerializeField] private AudioClip windSoundtrack;
     [SerializeField] private AudioClip colorChangeSound;
     [SerializeField] private AudioClip godKilledSound;
     [SerializeField] private AudioClip godKilledSoundtrack;
@@ -167,7 +168,6 @@ public class VoidScene : MonoBehaviour
         sequence.Join(floor.GetComponent<Renderer>().material.DOColor(redRoomColorCaustics, "_CausticsColor", 3.5f));
         sequence.Join(dome.GetComponent<Renderer>().material.DOColor(redRoomColor, 3.5f));
         sequence.Join(domeSpotlight.DOColor(redRoomColor, 3.5f));
-
         sequence.JoinCallback(() => GetComponent<AudioSource>().Play());
         sequence.Join(GetComponent<AudioSource>().DOFade(1f, 4f));
         sequence.AppendCallback(() => DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/God Dialogue/God Dialogue 6")));
@@ -216,6 +216,8 @@ public class VoidScene : MonoBehaviour
         StoneDoorVoid.transform.DOMoveY(0, 1f).OnComplete(() => Destroy(StoneDoorVoidCollisionsOnly.gameObject));
         StoneDoorHouse.transform.position = new Vector3(StoneDoorHouse.transform.position.x, 0, StoneDoorHouse.transform.position.z);
         bonsai.GetComponent<BonsaiPot>().state = BonsaiPot.plantState.NOT_PLANTED;
+        GetComponent<AudioSource>().clip= windSoundtrack;
+        GetComponent<AudioSource>().DOFade(0.5f, 4f);
     }
     public void startSelfDialogue(Vector3 pos, string lineName)
     {
@@ -281,8 +283,11 @@ public class VoidScene : MonoBehaviour
         floor.GetComponent<Renderer>().material.DOColor(redRoomColor, "_BaseColor", 7f);
         floor.GetComponent<Renderer>().material.DOColor(redRoomColorCaustics, "_CausticsColor", 7f);
         AudioSource.PlayClipAtPoint(DNAAudio,Vector3.zero,0.5f);
-        DNAInstance.transform.DOMoveY(0, 15).OnComplete(() => Destroy(TripletFather.gameObject)).OnComplete(() =>
-        DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Naked Dialogue/Naked Dialogue 3")));
+        DNAInstance.transform.DOMoveY(0, 15);
+        DG.Tweening.Sequence sequence = DOTween.Sequence();
+        sequence.AppendInterval(7f);
+        sequence.AppendCallback(() => Destroy(TripletFather.gameObject));
+        sequence.AppendCallback(() => DialogueManager.Instance.StartDialogue(Resources.Load<Dialogue>("Dialogues/Naked Dialogue/Naked Dialogue 3")));
     }
     private void closeEyes()
     {
@@ -293,6 +298,7 @@ public class VoidScene : MonoBehaviour
         GameObject eyesClosedText = Instantiate(EyesClosedTextPrefab, canvasReference.transform);
         eyesClosedText.GetComponent<CanvasGroup>().alpha = 0;
         eyesClosedText.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        GetComponent<AudioSource>().DOFade(0,1.5f);
         DG.Tweening.Sequence seq = DOTween.Sequence();
         seq.Append(eyesClosed.GetComponent<CanvasGroup>().DOFade(0.6f, 0.75f));
         seq.Append(eyesClosed.GetComponent<CanvasGroup>().DOFade(0.2f, 1f));
@@ -304,6 +310,7 @@ public class VoidScene : MonoBehaviour
             seq.AppendCallback(() => Destroy(DNAInstance));
         }
         seq.AppendInterval(3.5f);
+        seq.Join(InventoryCanvasGroup.DOFade(0,1.5f));
         seq.AppendCallback(() => eyesClosedText.GetComponent<TextMeshProUGUI>().SetText("Cosa vedi?"));
         seq.Append(eyesClosedText.GetComponent<CanvasGroup>().DOFade(1f, 0.75f));
         seq.AppendInterval(2f);
@@ -407,6 +414,7 @@ public class VoidScene : MonoBehaviour
         }
         else if (CheckFlag(EventFlag.MuseumEntered) && !CheckFlag(EventFlag.MuseumExited))
         {
+            InventoryCanvasGroup.alpha=0f;
             floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
             floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
             dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;

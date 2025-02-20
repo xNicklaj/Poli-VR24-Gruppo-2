@@ -15,7 +15,7 @@ MonoBehaviour:
   next: {fileID: 11400000, guid: 2543904537363ab4cabe15b726696dda, type: 2}
   audioToPlay: {fileID: 8300000, guid: c663ae50358127b4f80708fa928719c7, type: 3}
   Position: {x: -3, y: 2.5, z: 69}
-  lightColor: {r: 1, g: 0.54901963, b: 0, a: 1}
+  lightColor: {r: 0.5, g: 0.13819347, b: 0, a: 1}
   textString: "Ma importa davvero \nin fondo?"
   textSize: 3
   answers: []

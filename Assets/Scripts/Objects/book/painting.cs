@@ -12,16 +12,13 @@ public class Painting : IInteractable
     [SerializeField][TextArea(10,15)] private string text;
     [SerializeField]private float persistenceTime=3f;
     private GameObject textInstance;
-    private DG.Tweening.Sequence sequence;
+    private DG.Tweening.Sequence inSequence;
+    private DG.Tweening.Sequence outSequence;
+
     public bool visited;
 
     private bool isVisible = false;
     public float distanceToHide = 4.5f;
-
-    public void Awake()
-    {
-        sequence = DOTween.Sequence();
-    }
 
     public void Update()
     {
@@ -52,14 +49,25 @@ public class Painting : IInteractable
         textInstance.transform.SetAsFirstSibling();
         textInstance.GetComponent<CanvasGroup>().alpha = 0f;
         textInstance.GetComponent<paintingText>().textReference.text = text;
-        sequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(1, 1f));
+        if(outSequence != null & outSequence.IsPlaying()){
+            outSequence.Kill();
+        }
+        inSequence = DOTween.Sequence();
+        inSequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(1, 1f));
         //sequence.AppendInterval(persistenceTime);
         isVisible = true;
     }
 
     public void Hide()
     {
-        sequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(0, 0.5f)).OnComplete(() => Destroy(textInstance.gameObject));
+        if(inSequence != null & inSequence.IsPlaying()){
+            inSequence.Kill();
+        }
+        if(textInstance != null){
+        
+            outSequence = DOTween.Sequence();
+            outSequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(0, 0.5f)).OnComplete(() => Destroy(textInstance.gameObject));
+        }
         isVisible = false;
     }
 }
