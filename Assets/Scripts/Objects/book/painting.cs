@@ -19,6 +19,11 @@ public class Painting : IInteractable
 
     private bool isVisible = false;
     public float distanceToHide = 4.5f;
+    void Awake()
+    {
+        inSequence = DOTween.Sequence();
+        outSequence=DOTween.Sequence();
+    }
 
     public void Update()
     {

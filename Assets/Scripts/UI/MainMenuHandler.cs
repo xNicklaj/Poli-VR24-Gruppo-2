@@ -88,6 +88,10 @@ public class MainMenuHandler : MonoBehaviour
         Cursor.visible = false;
         GameManager.Instance.LoadGame();
         GameManager.Instance.eventFlags.PrintFlags();
+        if(GameManager.Instance.eventFlags.GetFlag(EventFlag.MuseumEntered)&GameManager.Instance.eventFlags.GetFlag(EventFlag.MuseumExited)){
+            PlayGame();
+            return;
+        }
         GameManager.Instance.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1, false);
         AudioSource.PlayClipAtPoint(selectionSound,Vector3.zero);
     }

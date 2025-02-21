@@ -18,7 +18,7 @@ public class Cuckoo : IInteractable
     [SerializeField] private GameObject ClockTutorialUI;
     private GameObject textInstance;
 
-    [HideInInspector]public bool completed=false;
+    [HideInInspector] public bool completed = false;
     [SerializeField] private GameObject wateringCanPrefab;
 
 
@@ -28,6 +28,8 @@ public class Cuckoo : IInteractable
     [SerializeField] private Transform wings;
 
     public float throwingCanDelay = 1f;
+    private DG.Tweening.Sequence inSequence;
+    private DG.Tweening.Sequence outSequence;
 
 
     private enum states
@@ -43,23 +45,40 @@ public class Cuckoo : IInteractable
         input = GetComponent<PlayerInput>();
         input.enabled = true;
         input.DeactivateInput();
+        inSequence = DOTween.Sequence();
+        outSequence = DOTween.Sequence();
     }
     public override void Interact()
     {
-        if (state == states.DESELECTED && completed==false)
+        if (state == states.DESELECTED && completed == false)
         {
             isSelectable = false;
             fpc.playerState = FirstPersonController.PlayerStates.IDLE;
             input.ActivateInput();
             state = states.HOURS_SELECTED;
             fpc.HideCrosshair();
-            fpc.GetComponent<Interactor>().enabled=false;
+            fpc.GetComponent<Interactor>().enabled = false;
 
-            textInstance = Instantiate(ClockTutorialUI,Vector2.zero, new Quaternion(),playerCanvas.transform);
+            textInstance = Instantiate(ClockTutorialUI, Vector2.zero, new Quaternion(), playerCanvas.transform);
             textInstance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            textInstance.GetComponent<CanvasGroup>().alpha=0f;
-            textInstance.GetComponent<CanvasGroup>().DOFade(1,0.5f);
+            textInstance.GetComponent<CanvasGroup>().alpha = 0f;
+            showHint();
         }
+    }
+    private void showHint(){
+        if(outSequence.IsPlaying()){
+            outSequence.Kill();
+        }
+        inSequence = DOTween.Sequence();
+        inSequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(1, 0.5f));
+    }
+    private void hideHint(){
+        if(inSequence.IsPlaying()){
+            inSequence.Kill();
+        }
+        outSequence = DOTween.Sequence();
+        outSequence.Append(textInstance.GetComponent<CanvasGroup>().DOFade(0, 0.5f));
+        outSequence.AppendCallback(()=>Destroy(textInstance.gameObject));
     }
     public void OnClockSwitchArm()
     {
@@ -85,23 +104,23 @@ public class Cuckoo : IInteractable
         {
             return;
         }
-        textInstance.GetComponent<CanvasGroup>().DOFade(0,0.5f).OnComplete(()=>Destroy(textInstance.gameObject));
-        
-        fpc.playerState=FirstPersonController.PlayerStates.MOVE;
+        hideHint();
+
+        fpc.playerState = FirstPersonController.PlayerStates.MOVE;
         hoursArmMaterial.material.color = Color.white;
         minutesArmMaterial.material.color = Color.white;
         state = states.DESELECTED;
         input.DeactivateInput();
         isSelectable = true;
-        fpc.GetComponent<Interactor>().enabled=true;
+        fpc.GetComponent<Interactor>().enabled = true;
 
 
         CheckCompleted();
     }
-    
+
     public void CheckCompleted()
     {
-        if(completed) return;
+        if (completed) return;
         float hoursArmRotation = hoursArm.localRotation.x * 180;
         float minutesArmRotation = minutesArm.localRotation.x * 180;
         if (hoursArmRotation > 15 && hoursArmRotation < 45 && minutesArmRotation < -75 && minutesArmRotation > -105)
@@ -110,8 +129,10 @@ public class Cuckoo : IInteractable
             completed = true;
             cuckooAnimation();
             StartCoroutine(throwWateringCanCoroutine(throwingCanDelay));
+            GetComponent<BoxCollider>().enabled=false;
         }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -120,6 +141,7 @@ public class Cuckoo : IInteractable
         {
             case states.HOURS_SELECTED:
                 hoursArmMaterial.material.color = Color.Lerp(Color.red, Color.white, (Mathf.Sin(Time.time * selectionSpeed) + 1) / 2f);
+
                 hoursArm.Rotate(input.actions["ClockControlArm"].ReadValue<float>(), 0f, 0f);
                 break;
             case states.MINUTES_SELECTED:
@@ -130,14 +152,15 @@ public class Cuckoo : IInteractable
         CheckCompleted();
         if (completed) OnClockExit();
     }
-    void cuckooAnimation(){
+    void cuckooAnimation()
+    {
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,-90f,0f),0.5f));
-        sequence.Join(arm.DOLocalMoveX(-0.02f,0.5f));
-        sequence.JoinCallback(()=>arm.GetComponent<AudioSource>().Play());
+        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f, -90f, 0f), 0.5f));
+        sequence.Join(arm.DOLocalMoveX(-0.02f, 0.5f));
+        sequence.JoinCallback(() => arm.GetComponent<AudioSource>().Play());
         sequence.AppendInterval(1f);
-        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f,0,0f),0.5f));
-        sequence.Join(arm.DOLocalMoveX(-0.002f,0.5f));
+        sequence.Append(door.transform.DOLocalRotate(new Vector3(0f, 0, 0f), 0.5f));
+        sequence.Join(arm.DOLocalMoveX(-0.002f, 0.5f));
     }
 
     IEnumerator throwWateringCanCoroutine(float delay)
@@ -145,10 +168,11 @@ public class Cuckoo : IInteractable
         yield return new WaitForSeconds(delay);
         throwWateringCan();
     }
-    
-    void throwWateringCan(){
-        Vector3 pos = fpc.transform.position - fpc.transform.forward*2f+fpc.transform.up*2f;
-        var wateringCanInstance = Instantiate(wateringCanPrefab,pos, new Quaternion());
-        wateringCanInstance.GetComponent<Rigidbody>().AddForce((fpc.transform.forward+fpc.transform.up)*10f);
+
+    void throwWateringCan()
+    {
+        Vector3 pos = fpc.transform.position - fpc.transform.forward * 2f + fpc.transform.up * 2f;
+        var wateringCanInstance = Instantiate(wateringCanPrefab, pos, new Quaternion());
+        wateringCanInstance.GetComponent<Rigidbody>().AddForce((fpc.transform.forward + fpc.transform.up) * 10f);
     }
 }

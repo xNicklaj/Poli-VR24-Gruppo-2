@@ -425,6 +425,19 @@ public class VoidScene : MonoBehaviour
             introsequence.AppendCallback(()=>SceneManager.Instance.SetScene(MuseumScene, false));
             introsequence.AppendInterval(4f);
         }
+        else if (CheckFlag(EventFlag.MuseumEntered) && CheckFlag(EventFlag.MuseumExited))
+        {
+            InventoryCanvasGroup.alpha=0f;
+            floor.GetComponent<Renderer>().material.SetColor("_BaseColor", totalBlackRoomColor);
+            floor.GetComponent<Renderer>().material.SetColor("_CausticsColor", totalBlackRoomColorCaustics);
+            dome.GetComponent<Renderer>().material.color = totalBlackRoomColor;
+            GetComponent<AudioSource>().volume = 0f;
+            bonsai.GetComponent<BonsaiPot>().state=BonsaiPot.plantState.GROWN;
+            bonsai.GetComponent<BonsaiPot>().particlePivot.SetActive(false);
+            DG.Tweening.Sequence introsequence = DOTween.Sequence();
+            introsequence.AppendCallback(()=>SceneManager.Instance.SetScene(MuseumScene, false));
+            introsequence.AppendInterval(4f);
+        }
         else
         {
             DG.Tweening.Sequence introsequence = DOTween.Sequence();

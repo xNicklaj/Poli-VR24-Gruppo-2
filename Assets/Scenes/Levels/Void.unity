@@ -7125,7 +7125,7 @@ PrefabInstance:
     - target: {fileID: 289263402712792196, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 296836745486819356, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
@@ -7175,7 +7175,7 @@ PrefabInstance:
     - target: {fileID: 662252016302280127, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 672884214368792436, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
@@ -7759,9 +7759,19 @@ PrefabInstance:
       objectReference: {fileID: 518694858}
     - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
+      propertyPath: hoursArm
+      value: 
+      objectReference: {fileID: 1153789442}
+    - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
       propertyPath: isSelected
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
+        type: 3}
+      propertyPath: minutesArm
+      value: 
+      objectReference: {fileID: 1687563628}
     - target: {fileID: 2867240896170841866, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: playerCanvas
@@ -8697,7 +8707,7 @@ PrefabInstance:
     - target: {fileID: 6581866556413849914, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6592797280372485526, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
@@ -9047,7 +9057,7 @@ PrefabInstance:
     - target: {fileID: 7847841593962028314, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7872075668716280577, guid: c16ca27753aa74a44b13852020f9ee00,
         type: 3}
@@ -14447,6 +14457,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!4 &1153789442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5015741395666262618, guid: c16ca27753aa74a44b13852020f9ee00,
+    type: 3}
+  m_PrefabInstance: {fileID: 618253448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1182142580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7021416525528127732, guid: 9caea58431d8ece43b3203a392a3f489,
@@ -18804,6 +18820,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 646368596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1687563628 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3434150309512496546, guid: c16ca27753aa74a44b13852020f9ee00,
+    type: 3}
+  m_PrefabInstance: {fileID: 618253448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1688326899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3111565609762313623, guid: 60df0d43d2267ec4d86dc578b6986207,
