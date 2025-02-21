@@ -130,6 +130,7 @@ public class Cuckoo : IInteractable
             cuckooAnimation();
             StartCoroutine(throwWateringCanCoroutine(throwingCanDelay));
             GetComponent<BoxCollider>().enabled=false;
+            hideHint();
         }
     }
 
