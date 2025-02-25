@@ -231,7 +231,7 @@ public class FirstPersonController : MonoBehaviour
                 }
                 break;
             case PlayerStates.SPRINT:
-                if (rb.velocity != Vector3.zero)
+                if (rb.linearVelocity != Vector3.zero)
                 {
                     playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
                 }
@@ -376,7 +376,7 @@ public class FirstPersonController : MonoBehaviour
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
                 // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.velocity;
+                Vector3 velocity = rb.linearVelocity;
                 Vector3 velocityChange = (targetVelocity - velocity);
                 velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
                 velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
@@ -410,7 +410,7 @@ public class FirstPersonController : MonoBehaviour
         targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
 
         // Apply a force that attempts to reach our target velocity
-        Vector3 velocity = rb.velocity;
+        Vector3 velocity = rb.linearVelocity;
         Vector3 velocityChange = (targetVelocity - velocity);
         velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
@@ -492,7 +492,7 @@ public class FirstPersonController : MonoBehaviour
             switch (playerState)
             {
                 case PlayerStates.MOVE or PlayerStates.IDLE:
-                    if (rb.velocity != Vector3.zero && pc.Player.Move.IsPressed())
+                    if (rb.linearVelocity != Vector3.zero && pc.Player.Move.IsPressed())
                     {
                         timer += Time.deltaTime * bobSpeed;
                     }
@@ -504,7 +504,7 @@ public class FirstPersonController : MonoBehaviour
                     }
                     break;
                 case PlayerStates.SPRINT:
-                    if (rb.velocity != Vector3.zero)
+                    if (rb.linearVelocity != Vector3.zero)
                     {
                         timer += Time.deltaTime * (bobSpeed + sprintSpeed);
                     }
@@ -514,7 +514,7 @@ public class FirstPersonController : MonoBehaviour
                     }
                     break;
                 case PlayerStates.CROUCH:
-                    if (rb.velocity != Vector3.zero)
+                    if (rb.linearVelocity != Vector3.zero)
                     {
                         timer += Time.deltaTime * (bobSpeed * speedReduction);
                     }

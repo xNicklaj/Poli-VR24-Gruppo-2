@@ -65,7 +65,7 @@ public class Scene : MonoBehaviour
     {
         if (!isActiveAndEnabled) return;
 
-        player.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        player.gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         player.transform.position = spawnPoint.position;
         player.transform.rotation = spawnPoint.rotation;
     }
